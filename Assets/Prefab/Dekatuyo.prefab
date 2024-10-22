@@ -541,6 +541,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 5854023089815853194}
   playerDirectionSpeedX: 0
+  joystickLeft: 0
+  joystickRight: 0
+  deadZone: 0.8
 --- !u!114 &1488612806585169673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +560,7 @@ MonoBehaviour:
   rigidBody: {fileID: 0}
   carryObject: 0
   playerObjectConTach: 0
-  playerCarryObject: {fileID: 0}
+  playerCarryObject: {fileID: 1282999061418947518, guid: 56e8ea524f9e42f4598f642957978bc2, type: 3}
   carryColliderLeft: {fileID: 6737432312577492993}
   carryColliderRight: {fileID: 5850899247780470736}
 --- !u!114 &1788589689451971353

@@ -70,12 +70,14 @@ public class PlayerCarryObject : MonoBehaviour
         {
             return;
         }
-        else if (Input.GetKeyDown("space") && !carryObject && playerController.isOnGround && playerObjectConTach)
+        else if (Input.GetKeyDown("space") && !carryObject && playerController.isOnGround && playerObjectConTach
+            || Input.GetKeyDown("joystick button 2") && !carryObject && playerController.isOnGround && playerObjectConTach)
         {
             playerCarryObject.transform.parent = this.gameObject.transform;       //オブジェクトの親をプレイヤーに移す
             carryObject = true;
         }
-        else if (Input.GetKeyDown("space") && carryObject)
+        else if (Input.GetKeyDown("space") && carryObject
+            || Input.GetKeyDown("joystick button 2") && carryObject)
         {
             playerCarryObject.transform.parent = null;           //オブジェクトの親を元に戻す
             carryObject = false;
