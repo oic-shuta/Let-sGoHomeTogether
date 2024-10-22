@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
     //ƒvƒŒƒCƒ„[Ø‚è‘Ö‚¦
     public void ChangePlayer()
     {
-        if (Input.GetKeyDown("q") )
+        if (Input.GetKeyDown("q") || Input.GetKeyDown("joystick button 3") )
         {
             changeDirection = playerDirection;
             playerChange = !playerChange;

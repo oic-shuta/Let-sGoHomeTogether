@@ -298,13 +298,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92ad4750b8a8d24f90e37d6f05085fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCarry: {fileID: 0}
-  playerController: {fileID: 0}
+  playerCarry: {fileID: 1488612806585169673, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+  playerController: {fileID: 5854023089815853194, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
   rig2D: {fileID: 4294551053717691552}
-  playerObject: {fileID: 0}
+  playerObject: {fileID: 7293100762684689928, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
   x: 1.02
   carrPos: {x: 0, y: 0, z: 0}
-  carryObjectY: 0
+  carryObjectY: 1.8
 --- !u!1 &1540211061869103515
 GameObject:
   m_ObjectHideFlags: 0

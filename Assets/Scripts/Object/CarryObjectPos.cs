@@ -33,7 +33,7 @@ public class ObjectPos : MonoBehaviour
 
         carrPos = this.gameObject.transform.position;
 
-        carryObjectY = 3.5f;
+        carryObjectY = 1.8f;
     }
 
     private void Update()

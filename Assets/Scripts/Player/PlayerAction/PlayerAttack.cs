@@ -7,6 +7,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
+    [SerializeField]
+    private PlayerCarryObject playerCarry;
+
     [Header("ƒvƒŒƒCƒ„[‚ÌUŒ‚")]
     //UŒ‚”»’è
     [Tooltip("UŒ‚“–‚½‚è”»’è”ÍˆÍ@‰E")]
@@ -33,6 +36,8 @@ public class PlayerAttack : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
 
+        playerCarry = GetComponent<PlayerCarryObject>();
+
         attackPlayerJudgmentRight.SetActive(false);
 
         attackPlayerJudgmentLeft.SetActive(false);
@@ -42,17 +47,18 @@ public class PlayerAttack : MonoBehaviour
     public void AttackPlayer()
     {
         playerController.PlayerMoveType();
-
-//        if (Input.GetKeyDown("e") && attackPlayer == false && moveType == PlayerType.Chibiyowa && playerChange == true)
-        if (Input.GetKeyDown("e") && attackPlayer == false &&
-            playerController.playerChange == true && playerController.playerAttackType == 0)
+        if (Input.GetKeyDown("e") && attackPlayer == false && playerController.playerChange == true &&
+                    playerController.playerAttackType == 0 && !playerCarry.carryObject
+            || Input.GetKeyDown("joystick button 5") && attackPlayer == false &&
+                    playerController.playerChange == true && playerController.playerAttackType == 0 && !playerCarry.carryObject)
         {
             attackPlayer = true;
             attackTimer = 0;
         }
-//        else if (Input.GetKeyDown("e") && attackPlayer == false && moveType == PlayerType.Dekatsuyo && playerChange == false)
         else if (Input.GetKeyDown("e") && attackPlayer == false && 
-            playerController.playerChange == false && playerController.playerAttackType == 1)
+                    playerController.playerChange == false && playerController.playerAttackType == 1
+                || Input.GetKeyDown("joystick button 5") && attackPlayer == false &&
+                    playerController.playerChange == false && playerController.playerAttackType == 1)
         {
             attackPlayer = true;
             attackTimer = 0;
