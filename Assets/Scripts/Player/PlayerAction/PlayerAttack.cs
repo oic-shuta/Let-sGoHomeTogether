@@ -43,15 +43,17 @@ public class PlayerAttack : MonoBehaviour
     {
         playerController.PlayerMoveType();
 
-//        if (Input.GetKeyDown("e") && attackPlayer == false && moveType == PlayerType.Chibiyowa && playerChange == true)
         if (Input.GetKeyDown("e") && attackPlayer == false &&
+            playerController.playerChange == true && playerController.playerAttackType == 0
+            || Input.GetKeyDown("joystick button 5") && attackPlayer == false &&
             playerController.playerChange == true && playerController.playerAttackType == 0)
         {
             attackPlayer = true;
             attackTimer = 0;
         }
-//        else if (Input.GetKeyDown("e") && attackPlayer == false && moveType == PlayerType.Dekatsuyo && playerChange == false)
         else if (Input.GetKeyDown("e") && attackPlayer == false && 
+            playerController.playerChange == false && playerController.playerAttackType == 1
+            || Input.GetKeyDown("joystick button 5") && attackPlayer == false &&
             playerController.playerChange == false && playerController.playerAttackType == 1)
         {
             attackPlayer = true;

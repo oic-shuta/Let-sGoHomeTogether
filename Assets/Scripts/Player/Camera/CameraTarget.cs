@@ -37,7 +37,7 @@ public class CameraTarget : MonoBehaviour
     public void CameraChange()
     {
         cameraMove.MoveCamara();
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("q")||Input.GetKeyDown("joystick button 3"))
         {
             cameraType = !cameraType;
         }

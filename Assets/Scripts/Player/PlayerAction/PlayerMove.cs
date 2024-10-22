@@ -14,6 +14,15 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     public float playerDirectionSpeedX = 0;
 
+    [SerializeField]
+    private bool joystickLeft = false;
+
+    [SerializeField]
+    private bool joystickRight = false;
+
+    [SerializeField]
+    private float deadZone = 0;
+
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -36,22 +45,41 @@ public class PlayerMove : MonoBehaviour
     //向いてる方向指定
     public void PlayerDirection()
     {
+        //スティックの右または左に倒れてるか
+        float x = Input.GetAxis("Horizontal");
+        if(x < -deadZone)
+        {
+            joystickLeft = true;
+            joystickRight = false;
+        }
+        else if(x > deadZone)
+        {
+             joystickRight= true;
+             joystickLeft = false;
+        }
+        else
+        {
+            joystickLeft= false;
+            joystickRight = false;
+        }
+
+
         //進む方向と向いてる方向
-        if (Input.GetKey("d") && Input.GetKey("a"))
+        if (Input.GetKey("d") && Input.GetKey("a") )
         {
             playerDirectionSpeedX = 0;
         }
-        else if (Input.GetKey("a") || Input.GetKey("left")) //左方向
+        else if (Input.GetKey("a") || joystickLeft) //左方向
         {
             playerController.playerDirection = false;
 
-            playerDirectionSpeedX = Input.GetAxis("Horizontal");
+            playerDirectionSpeedX = -1;
         }
-        else if (Input.GetKey("d") || Input.GetKey("right")) //右方向
+        else if (Input.GetKey("d") || joystickRight) //右方向
         {
             playerController.playerDirection = true;
 
-            playerDirectionSpeedX = Input.GetAxis("Horizontal");
+            playerDirectionSpeedX = 1;
         }
         else { playerDirectionSpeedX = 0; }
     }
@@ -61,7 +89,7 @@ public class PlayerMove : MonoBehaviour
     {
         playerController.PlayerMoveType();
         if (Input.GetKeyDown("w") && playerController.isOnGround ||
-                Input.GetKeyDown("up") && playerController.isOnGround)
+                Input.GetKeyDown("joystick button 0") && playerController.isOnGround)
         {
             this.rigidBody2D.AddForce(transform.up * playerController.playerJumpForce);
             playerController.isOnGround = false;

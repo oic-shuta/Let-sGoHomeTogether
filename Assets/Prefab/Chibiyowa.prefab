@@ -548,6 +548,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 369678053553401519}
   playerDirectionSpeedX: 0
+  joystickLeft: 0
+  joystickRight: 0
+  deadZone: 0.8
 --- !u!114 &136540472717058622
 MonoBehaviour:
   m_ObjectHideFlags: 0
