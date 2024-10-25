@@ -9,7 +9,7 @@ public class PlayerCarryObject : MonoBehaviour
     private PlayerController playerController;
 
     [SerializeField]
-    private Rigidbody2D rigidBody;
+    private Rigidbody2D rig2D;
 
     //オブジェクトを運んでる状態か
     [Tooltip("オブジェクトを運んでる状態")]
@@ -33,17 +33,30 @@ public class PlayerCarryObject : MonoBehaviour
     private GameObject carryColliderRight = null;
 
 
+    [SerializeField]
+    private float x;
+
+    //持った時のオブジェクトの位置
+    [Tooltip("プレイヤーが持ってるときのオブジェクトの位置(プレイヤーが基準)")]
+    [SerializeField]
+    private Vector3 carrPos = Vector3.zero;
+
+    //プレイヤーが持ち上げた時の高さ(プレイヤーの位置を差し引いた)
+    [SerializeField]
+    private float carryObjectY = 0;
+
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
 
-        rigidBody = GetComponent<Rigidbody2D>();
+        rig2D = GetComponent<Rigidbody2D>();
     }
 
     public void Update()
     {
         CarryObject();
         CarryColliderDirection();
+        CarryObjectPos();
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,6 +86,7 @@ public class PlayerCarryObject : MonoBehaviour
         else if (Input.GetKeyDown("space") && !carryObject && playerController.isOnGround && playerObjectConTach
             || Input.GetKeyDown("joystick button 2") && !carryObject && playerController.isOnGround && playerObjectConTach)
         {
+            Debug.Log("持った");
             playerCarryObject.transform.parent = this.gameObject.transform;       //オブジェクトの親をプレイヤーに移す
             carryObject = true;
         }
@@ -84,7 +98,6 @@ public class PlayerCarryObject : MonoBehaviour
             Debug.Log("離した");
         }
     }
-
     //オブジェクトがプレイヤーの正面に来る方向指定
     private void CarryColliderDirection()
     {
@@ -106,6 +119,38 @@ public class PlayerCarryObject : MonoBehaviour
             carryColliderRight.SetActive(false);
             carryColliderLeft.SetActive(false);
         } 
+    }
+
+    //持った時にオブジェクトを浮かせる
+    private void CarryObjectPos()
+    {
+        //プレイヤーが持っている時
+        if (carryObject)
+        {
+            Debug.Log("i");
+            rig2D.bodyType = RigidbodyType2D.Static;　　//落下しないタイプに変更
+            this.gameObject.layer = 6;
+            //右を向いてるときにプレイヤーの右に行く
+            if (playerController.playerDirection)
+            {
+                Debug.Log("u");
+                gameObject.transform.position = new Vector3
+                    (x * transform.position.x, (carrPos.y + carryObjectY) + transform.position.y, carrPos.z);
+            }
+            //左を向いてるときにプレイヤーの左に行く
+            else if (!playerController.playerDirection)
+            {
+                gameObject.transform.position = new Vector3
+                    (-x * transform.position.x, (carrPos.y + carryObjectY) + transform.position.y, carrPos.z);
+            }
+        }
+        //プレイヤーがオブジェクトを離したとき
+        else if (!carryObject)
+        {
+            rig2D.bodyType = RigidbodyType2D.Dynamic;　  //落下するタイプに変更
+
+            this.gameObject.layer = 7;
+        }
     }
 
 }

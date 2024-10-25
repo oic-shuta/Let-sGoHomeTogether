@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public enum PlayerType
@@ -11,6 +12,9 @@ public enum PlayerType
 }
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject playerSprite;
+
     [SerializeField]
     private Rigidbody2D rig2D = null;
 
@@ -157,11 +161,13 @@ public class PlayerController : MonoBehaviour
         {
             playerAttack.attackPlayerJudgmentLeft.SetActive(playerAttack.attackPlayer);
             playerAttack.attackPlayerJudgmentRight.SetActive(false);
+            playerSprite.GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (playerDirection)//右方向
         {
             playerAttack.attackPlayerJudgmentRight.SetActive(playerAttack.attackPlayer);
             playerAttack.attackPlayerJudgmentLeft.SetActive(false);
+            playerSprite.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         //ジャンプ時の移動速度低下

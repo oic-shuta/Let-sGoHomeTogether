@@ -8,10 +8,10 @@ public class ObjectPos : MonoBehaviour
     private PlayerCarryObject playerCarry;
 
     [SerializeField]
-    private PlayerController playerController;
-    
-    [SerializeField]
     private Rigidbody2D rig2D;
+
+    [SerializeField]
+    private PlayerController playerController;
 
     [SerializeField]
     private GameObject playerObject;
@@ -33,7 +33,7 @@ public class ObjectPos : MonoBehaviour
 
         carrPos = this.gameObject.transform.position;
 
-        //carryObjectY = 3.5f;
+        x = 1.02f;
     }
 
     private void Update()
@@ -47,19 +47,21 @@ public class ObjectPos : MonoBehaviour
         //プレイヤーが持っている時
         if (playerCarry.carryObject)
         {
-            rig2D.bodyType = RigidbodyType2D.Static;　　//落下しないタイに変更
-            this.gameObject.layer = 6;                  
+            Debug.Log("i");
+            rig2D.bodyType = RigidbodyType2D.Static;　　//落下しないタイプに変更
+            this.gameObject.layer = 6;
             //右を向いてるときにプレイヤーの右に行く
-            if (playerController.playerDirection)               
+            if (playerController.playerDirection)
             {
+                Debug.Log("u");
                 gameObject.transform.position = new Vector3
-                    (x + playerObject.transform.position.x, (carrPos.y + carryObjectY) + playerObject.transform.position.y, carrPos.z);
+                    (x * playerObject.transform.position.x, (carrPos.y + carryObjectY) + playerObject.transform.position.y, carrPos.z);
             }
             //左を向いてるときにプレイヤーの左に行く
             else if (!playerController.playerDirection)
             {
                 gameObject.transform.position = new Vector3
-                    (-x + playerObject.transform.position.x, (carrPos.y + carryObjectY) + playerObject.transform.position.y, carrPos.z);
+                    (-x * playerObject.transform.position.x, (carrPos.y + carryObjectY) + playerObject.transform.position.y, carrPos.z);
             }
         }
         //プレイヤーがオブジェクトを離したとき

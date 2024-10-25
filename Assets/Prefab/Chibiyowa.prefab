@@ -361,10 +361,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5590510846367842788}
   - {fileID: 6306652896393718139}
   - {fileID: 6907206743853786588}
   - {fileID: 9200411313171820766}
-  - {fileID: 5590510846367842788}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3808972793324186033
@@ -451,7 +451,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02694887, y: 0.15800357}
+  m_Offset: {x: 0.02694875, y: -0.29397225}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -462,7 +462,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.56881964, y: 1.3160071}
+  m_Size: {x: 0.2916957, y: 0.4120555}
   m_EdgeRadius: 0
 --- !u!50 &5474798979723601605
 Rigidbody2D:
@@ -503,6 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537db4e9fc874704490cc0d15139d408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSprite: {fileID: 7020434777131075020}
   rig2D: {fileID: 0}
   playerMove: {fileID: 2773927079896768013}
   playerAttack: {fileID: 4578192526261986914}
@@ -565,7 +566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
-  rigidBody: {fileID: 0}
   carryObject: 0
   playerObjectConTach: 0
   playerCarryObject: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 2405608273967872764}
   - component: {fileID: 4563451992047752560}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: ChibiyowaSprite
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -618,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 7020434777131075020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.21, z: 0}
+  m_LocalPosition: {x: 0, y: 0.197, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
