@@ -34,8 +34,6 @@ public class PlayerDamage : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
-
-        playerController.Life = 2;
     }
 
     private void Update()
@@ -47,20 +45,13 @@ public class PlayerDamage : MonoBehaviour
     //–³“G•t—^
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && playerInvincible == false)
-        {
-            playerController.Life--;
-            playerInvincible = true;
-        }
+
     }
 
     //ƒ‰ƒCƒt‚ª0‚É‚È‚Á‚½‚çŽ€‚Ê
     public void PlayerDead()
     {
-        if(playerController.Life <= 0)
-        {
-            this.gameObject.SetActive(false);
-        }
+
     }
 
     //–³“GŽžŠÔ

@@ -339,7 +339,6 @@ GameObject:
   - component: {fileID: 369678053553401519}
   - component: {fileID: 4578192526261986914}
   - component: {fileID: 2773927079896768013}
-  - component: {fileID: 136540472717058622}
   - component: {fileID: 8418151646196565491}
   m_Layer: 8
   m_Name: Chibiyowa
@@ -451,7 +450,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02694875, y: -0.29397225}
+  m_Offset: {x: 0.0030370355, y: -0.38862753}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -462,7 +461,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2916957, y: 0.4120555}
+  m_Size: {x: 0.42320788, y: 0.24885654}
   m_EdgeRadius: 0
 --- !u!50 &5474798979723601605
 Rigidbody2D:
@@ -507,9 +506,8 @@ MonoBehaviour:
   rig2D: {fileID: 0}
   playerMove: {fileID: 2773927079896768013}
   playerAttack: {fileID: 4578192526261986914}
-  playerCarry: {fileID: 0}
+  carryObject: {fileID: 0}
   moveType: 1
-  Life: 2
   playerSpeed: 4.8
   playerJumpForce: 250
   playerJumpSpeed: 0.4
@@ -549,28 +547,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 369678053553401519}
+  tracking: {fileID: 0}
   playerDirectionSpeedX: 0
   joystickLeft: 0
   joystickRight: 0
   deadZone: 0.8
---- !u!114 &136540472717058622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5631800565977850200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d2d25bb9729ab24d8647e0a2120e436, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  carryObject: 0
-  playerObjectConTach: 0
-  playerCarryObject: {fileID: 0}
-  carryColliderLeft: {fileID: 7035062225361553903}
-  carryColliderRight: {fileID: 7035062225361553903}
 --- !u!114 &8418151646196565491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,7 +689,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0089021325, y: -0.5780911}
+  m_Offset: {x: 0.05242169, y: -1.1459868}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -719,7 +700,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4079973, y: 3.3887625}
+  m_Size: {x: 1.1468785, y: 2.2529712}
   m_EdgeRadius: 0
 --- !u!58 &4563451992047752560
 CircleCollider2D:
@@ -753,9 +734,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030369163, y: 0.8502694}
+  m_Offset: {x: -0.03036936, y: 0.8502694}
   serializedVersion: 2
-  m_Radius: 1.0534896
+  m_Radius: 0.7147447
 --- !u!1 &7035062225361553903
 GameObject:
   m_ObjectHideFlags: 0

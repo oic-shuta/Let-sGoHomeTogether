@@ -25,18 +25,13 @@ public class PlayerController : MonoBehaviour
     private PlayerAttack playerAttack = null;
 
     [SerializeField]
-    private PlayerCarryObject playerCarry = null;
-
+    private PlayerCarryObject carryObject = null;
 
     //現在の操作キャラ
     [Header("プレイヤー情報")]
     [Tooltip("操作キャラの切り替え")]
     [SerializeField]
     public PlayerType moveType = PlayerType.NULL;
-
-    [Tooltip("プレイヤーのライフ")]
-    [SerializeField]
-    public int Life = 0;
 
     //プレイヤーの速度
     [Tooltip("移動速度")]
@@ -85,14 +80,11 @@ public class PlayerController : MonoBehaviour
 
         playerAttack = GetComponent<PlayerAttack>();
 
-        playerCarry = GetComponent<PlayerCarryObject>();
+        carryObject = GetComponent<PlayerCarryObject>();
     }
 
     private void Update()
-    {
-
-        playerMove.MovePlayer();
-
+    { 
         playerMove.JumpPlayer();
 
         playerAttack.AttackPlayer();
@@ -135,7 +127,7 @@ public class PlayerController : MonoBehaviour
             playerSpeed = 5;
             playerJumpForce = 1200;
             playerAttackType = 0;
-            if(playerCarry.carryObject == true)
+            if (carryObject.onCarry == true)
             {
                 playerJumpForce *= playerCarryJump;
             }
@@ -157,19 +149,18 @@ public class PlayerController : MonoBehaviour
         }
 
         //向いてる方向に攻撃
-        if (!playerDirection)//左方向
-        {
-            playerAttack.attackPlayerJudgmentLeft.SetActive(playerAttack.attackPlayer);
-            playerAttack.attackPlayerJudgmentRight.SetActive(false);
-            playerSprite.GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else if (playerDirection)//右方向
+        if (playerDirection)//右方向
         {
             playerAttack.attackPlayerJudgmentRight.SetActive(playerAttack.attackPlayer);
             playerAttack.attackPlayerJudgmentLeft.SetActive(false);
             playerSprite.GetComponent<SpriteRenderer>().flipX = false;
         }
-
+        else if (!playerDirection)//左方向
+        {
+            playerAttack.attackPlayerJudgmentLeft.SetActive(playerAttack.attackPlayer);
+            playerAttack.attackPlayerJudgmentRight.SetActive(false);
+            playerSprite.GetComponent<SpriteRenderer>().flipX = true;
+        }
         //ジャンプ時の移動速度低下
         if (!isOnGround)
         {
