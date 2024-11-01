@@ -8,6 +8,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
+    [SerializeField]
+    private PlayerTracking tracking;
+
     private Rigidbody2D rigidBody2D;
 
     [Tooltip("Œü‚¢‚Ä‚é•ûŒü")]
@@ -30,6 +33,10 @@ public class PlayerMove : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
     //ƒvƒŒƒCƒ„[‚Ì‰¡ˆÚ“®
     public void MovePlayer()
     {

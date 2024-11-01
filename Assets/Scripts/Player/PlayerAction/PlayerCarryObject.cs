@@ -1,156 +1,123 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerCarryObject : MonoBehaviour
 {
     [SerializeField]
+    private Rigidbody2D rig2D;
+
+    [SerializeField]
     private PlayerController playerController;
 
     [SerializeField]
-    private Rigidbody2D rig2D;
+    private GameObject carryObject;
 
-    //オブジェクトを運んでる状態か
-    [Tooltip("オブジェクトを運んでる状態")]
     [SerializeField]
-    public  bool carryObject = false;
-
-    [Tooltip("オブジェクトに触れてる状態")]
-    [SerializeField]
-    private bool playerObjectConTach = false;
-
-    //触れているオブジェクト
-    [Tooltip("触っているオブジェクト")]
-    [SerializeField]
-    private GameObject playerCarryObject = null;
-
-    //オブジェクトを持った時に左右当たり判定を付ける
-    [SerializeField]
-    private GameObject carryColliderLeft = null;
+    private GameObject collisionObjectRight;
     
     [SerializeField]
-    private GameObject carryColliderRight = null;
-
+    private GameObject collisionObjectLeft;
 
     [SerializeField]
-    private float x;
+    public bool onCarry = false;
 
-    //持った時のオブジェクトの位置
-    [Tooltip("プレイヤーが持ってるときのオブジェクトの位置(プレイヤーが基準)")]
     [SerializeField]
-    private Vector3 carrPos = Vector3.zero;
+    private bool objectTouch = false;
 
-    //プレイヤーが持ち上げた時の高さ(プレイヤーの位置を差し引いた)
     [SerializeField]
-    private float carryObjectY = 0;
+    private Vector3 carryPos = Vector3.zero;
+
+    [SerializeField]
+    private float objectX ,objectY;
 
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
 
-        rig2D = GetComponent<Rigidbody2D>();
+        objectY = 0.5f;
     }
 
-    public void Update()
+    private void Update()
     {
         CarryObject();
-        CarryColliderDirection();
-        CarryObjectPos();
-    }
-    
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(carryObject == false)
-        {
-            if (collision.CompareTag("CarryObject"))        //特定オブジェクトに触ったら
-            {
-                playerObjectConTach = true;
-                playerCarryObject = collision.gameObject;   //触ったオブジェクト
-            }
-            else if (collision.CompareTag("CarryOutObject") ) //特定オブジェクトから離れた
-            {
-                playerObjectConTach = false;
-                playerCarryObject = null;                   //触れたオブジェクトを初期化
-            }
-        }
-        
+
+        CarryPos();
     }
 
     private void CarryObject()
     {
-        if (playerController.playerChange == false)     //ちびよわ操作の時オブジェクトを持てない
+        if (Input.GetKeyDown("space") && !onCarry && objectTouch
+            || Input.GetKeyDown("joystick button 3") && !onCarry && objectTouch)
         {
-            return;
+            onCarry = true;
+            carryObject.transform.parent = this.gameObject.transform;
+            carryPos = carryObject.transform.position;
+            rig2D = carryObject.GetComponent<Rigidbody2D>();
+            carryObject.layer = 6;
         }
-        else if (Input.GetKeyDown("space") && !carryObject && playerController.isOnGround && playerObjectConTach
-            || Input.GetKeyDown("joystick button 2") && !carryObject && playerController.isOnGround && playerObjectConTach)
+        else if (Input.GetKeyDown("space") && onCarry 
+            || Input.GetKeyDown("joystick button 3") && onCarry)
         {
-            Debug.Log("持った");
-            playerCarryObject.transform.parent = this.gameObject.transform;       //オブジェクトの親をプレイヤーに移す
-            carryObject = true;
-        }
-        else if (Input.GetKeyDown("space") && carryObject
-            || Input.GetKeyDown("joystick button 2") && carryObject)
-        {
-            playerCarryObject.transform.parent = null;           //オブジェクトの親を元に戻す
-            carryObject = false;
-            Debug.Log("離した");
+            onCarry = false;
+            rig2D.bodyType = RigidbodyType2D.Dynamic;
+            rig2D = null;
+            carryObject.layer = 7;
+            carryObject.transform.parent = null;
         }
     }
-    //オブジェクトがプレイヤーの正面に来る方向指定
-    private void CarryColliderDirection()
+
+    private void CarryPos()
     {
-        if (carryObject)
+        CarryDirection();
+        if (onCarry)
         {
-            if (playerController.playerDirection)
+            rig2D.bodyType = RigidbodyType2D.Kinematic;
+            carryObject.transform.position = new Vector3
+                (objectX + this.gameObject.transform.position.x,this.gameObject.transform.position.y + objectY, carryPos.z);
+            if(objectX < 0)
             {
-                carryColliderRight.SetActive(true);
-                carryColliderLeft.SetActive(false);
+                collisionObjectLeft.SetActive(true);
+                collisionObjectRight.SetActive(false);
             }
-            else if (!playerController.playerDirection)
+            else if(objectX > 0)
             {
-                carryColliderRight.SetActive(false);
-                carryColliderLeft.SetActive(true);
+                collisionObjectRight.SetActive(true);
+                collisionObjectLeft.SetActive(false);
             }
         }
-        else if (!carryObject)
+        else if (!onCarry)
         {
-            carryColliderRight.SetActive(false);
-            carryColliderLeft.SetActive(false);
-        } 
+            collisionObjectLeft.SetActive(false);
+            collisionObjectRight.SetActive(false);
+        }
     }
 
-    //持った時にオブジェクトを浮かせる
-    private void CarryObjectPos()
+    private void CarryDirection()
     {
-        //プレイヤーが持っている時
-        if (carryObject)
+        if (playerController.playerDirection)
         {
-            Debug.Log("i");
-            rig2D.bodyType = RigidbodyType2D.Static;　　//落下しないタイプに変更
-            this.gameObject.layer = 6;
-            //右を向いてるときにプレイヤーの右に行く
-            if (playerController.playerDirection)
-            {
-                Debug.Log("u");
-                gameObject.transform.position = new Vector3
-                    (x * transform.position.x, (carrPos.y + carryObjectY) + transform.position.y, carrPos.z);
-            }
-            //左を向いてるときにプレイヤーの左に行く
-            else if (!playerController.playerDirection)
-            {
-                gameObject.transform.position = new Vector3
-                    (-x * transform.position.x, (carrPos.y + carryObjectY) + transform.position.y, carrPos.z);
-            }
+            objectX = 1;
         }
-        //プレイヤーがオブジェクトを離したとき
-        else if (!carryObject)
+        else if(!playerController.playerDirection)
         {
-            rig2D.bodyType = RigidbodyType2D.Dynamic;　  //落下するタイプに変更
-
-            this.gameObject.layer = 7;
+            objectX = -1;
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("CarryObject"))
+        {
+            objectTouch = true;
+            carryObject = collision.gameObject;
+        }
+        else if (collision.CompareTag("CarryOutObject"))
+        {
+            objectTouch = false;
+            carryObject = null;
+        }
+    }
 }
