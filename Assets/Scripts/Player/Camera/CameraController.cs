@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
     private GameObject outLineRight;
 
     [SerializeField]
-    private bool outLeft = false;
+    public bool outLeft = false;
 
     [SerializeField]
     private bool outRight = false;
@@ -63,9 +63,21 @@ public class CameraController : MonoBehaviour
 
     private void TargetCameraOut()
     {
-        if(target.transform.position.x < outLineLeft.transform.position.x) { outLeft = true; outCamera.rect = leftCamera; }
-        else if(target.transform.position.x >  outLineRight.transform.position.x) { outRight = true; outCamera.rect = rightCamera; }
-        else { outLeft = false; outRight = false; }
+        if(target.transform.position.x < outLineLeft.transform.position.x) 
+        { 
+            outLeft = true; 
+            outCamera.rect = leftCamera; 
+        }
+        else if(target.transform.position.x >  outLineRight.transform.position.x)
+        { 
+            outRight = true; 
+            outCamera.rect = rightCamera; 
+        }
+        else 
+        { 
+            outLeft = false; 
+            outRight = false; 
+        }
     }
 
     private void TargetCameraSub()
@@ -78,6 +90,6 @@ public class CameraController : MonoBehaviour
         {
             target = cameraTarget.Dekatuyo;
         }
-        outCamera.transform.position = new Vector3(target.transform.position.x,-2.5f,-10);
+        outCamera.transform.position = new Vector3(target.transform.position.x,target.transform.position.y,-10);
     }
 }
