@@ -648,7 +648,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &5854023089815853194
 MonoBehaviour:
@@ -707,7 +707,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 5854023089815853194}
-  tracking: {fileID: 0}
   playerDirectionSpeedX: 0
   joystickLeft: 0
   joystickRight: 0
