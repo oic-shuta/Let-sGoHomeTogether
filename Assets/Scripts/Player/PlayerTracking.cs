@@ -39,11 +39,11 @@ public class PlayerTracking : MonoBehaviour
         }
         if (trackingFlg)
         {
-            if (playerController.playerChange)
+            if (playerController.playerDekatuyo)
             {
                 trackingPlayer = PlayerChibiyowa;
             }
-            else if (!playerController.playerChange)
+            else if (!playerController.playerDekatuyo)
             {
                 trackingPlayer = PlayerDekatuyo;
             }

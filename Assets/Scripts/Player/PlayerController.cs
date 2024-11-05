@@ -60,8 +60,8 @@ public class PlayerController : MonoBehaviour
     private bool changeDirection = true;
 
     //どのキャラが動くかフラグ
-    [Tooltip("どのキャラを操作してるか")]
-    public bool playerChange = true;
+    [Tooltip("でかつよを操作フラグ")]
+    public bool playerDekatuyo = true;
 
     //どのキャラが攻撃するか
     [Tooltip("どのタイプの攻撃をするか：0 = でかつよ　1 = ちびよわ")]
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("q") || Input.GetKeyDown("joystick button 3"))
         {
             changeDirection = playerDirection;
-            playerChange = !playerChange;
+            playerDekatuyo = !playerDekatuyo;
         }
     }
 
@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
     public void PlayerMoveType()
     {
         //でかつよのステータス
-        if (moveType == PlayerType.Dekatsuyo && playerChange == true)
+        if (moveType == PlayerType.Dekatsuyo && playerDekatuyo == true)
         {
             playerSpeed = 5;
             playerJumpForce = 1200;
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         //ちびよわのステータス
-        else if (moveType == PlayerType.Chibiyowa && playerChange == false)
+        else if (moveType == PlayerType.Chibiyowa && playerDekatuyo == false)
         {
             playerSpeed = 5;
             playerJumpForce = 300;
