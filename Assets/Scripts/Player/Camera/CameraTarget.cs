@@ -7,6 +7,9 @@ public class CameraTarget : MonoBehaviour
     [SerializeField]
     private CameraMove cameraMove;
 
+    [SerializeField]
+    private CameraController cameraController;
+
     [Header("どのキャラにカメラを向けるか")]
     [Tooltip("でかつよ")]
     [SerializeField]
@@ -24,9 +27,6 @@ public class CameraTarget : MonoBehaviour
     [SerializeField]
     public bool cameraTypeDekatuyo = true;
 
-    //左端にカメラが移動した時に動かないようにする
-    private Vector3 cameraPosLeft = new Vector3(0, 0, -10);
-
     private void Start()
     {
         cameraMove = GetComponent<CameraMove>();
@@ -36,28 +36,39 @@ public class CameraTarget : MonoBehaviour
 
     public void CameraChange()
     {
-        cameraMove.MoveCamara();
         if (Input.GetKeyDown("q")||Input.GetKeyDown("joystick button 3"))
         {
             cameraTypeDekatuyo = !cameraTypeDekatuyo;
+
+            cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
+
         }
         if (cameraTypeDekatuyo)
         {
             targetObject = Dekatuyo;
-            if (targetObject.transform.position.x < 0)
-            {
-                return;
-            }
-
-            cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
+            MoveCamera();
         }
         else if (!cameraTypeDekatuyo)
         {
             targetObject = Chibiyowa;
-            if (targetObject.transform.position.x < 0)
+            MoveCamera();
+        }
+    }
+
+    private void MoveCamera()
+    {
+        cameraMove.CamaraPos();
+        if (targetObject.transform.position.x < 0)
+        {
+            if (cameraController.outLeft)
             {
+                cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
                 return;
             }
+            cameraMove.cameraObject.transform.position = new Vector3(0, cameraMove.cameraPos.y, cameraMove.cameraPos.z);
+        }
+        else
+        {
             cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
         }
     }
