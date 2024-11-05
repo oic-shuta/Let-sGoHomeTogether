@@ -72,6 +72,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isOnGround = false;
 
+    [SerializeField]
+    public bool enemyHit = false;
+
     private void Start()
     {
         rig2D = GetComponent<Rigidbody2D>();
@@ -174,6 +177,11 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Ground"))
         {
             isOnGround = true;      //’n–Ê‚É‚¢‚é
+        }
+
+        if (collision.CompareTag("Enemy") && !enemyHit)
+        {
+            enemyHit = true;
         }
     }
 }
