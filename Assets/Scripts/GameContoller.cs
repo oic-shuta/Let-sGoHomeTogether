@@ -16,6 +16,9 @@ public class GameContoller : MonoBehaviour
 
     [SerializeField]
     private Vector3 startPos2;
+
+    [SerializeField]
+    public int playerLife;
     private void Start()
     {
         playerDekatuyo.transform.position = startPos1;
