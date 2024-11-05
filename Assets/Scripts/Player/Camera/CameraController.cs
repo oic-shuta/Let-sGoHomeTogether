@@ -10,10 +10,7 @@ public class CameraController : MonoBehaviour
     private CameraTarget cameraTarget;
 
     [SerializeField]
-    private Camera leftCamera;
-
-    [SerializeField]
-    private Camera rightCamera;
+    private Camera outCamera;
 
     [SerializeField]
     private GameObject target;
@@ -30,43 +27,44 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private bool outRight = false;
 
+    [SerializeField]
+    private Rect leftCamera;
+
+    [SerializeField]
+    private Rect rightCamera;
+
     private void Start()
     {
         //Rect（左端が画面のどこに置くか、下の位置を画面のどこに置くか、画面のサイズ横、画面サイズ縦）
-        leftCamera.rect = new Rect(0f, 0.4f, 0.2f, 0.25f);
-        rightCamera.rect = new Rect(0.8f, 0.4f, 0.2f, 0.25f);
+        leftCamera = new Rect(0f, 0.4f, 0.2f, 0.25f);
+        rightCamera = new Rect(0.8f, 0.4f, 0.2f, 0.25f);
+
+        outCamera.enabled = false;
     }
 
     private void Update()
     {
+        TargetCameraOut();
         TargetCameraSub();
         CahngeCamera();
-        TargetCameraOut();
     }
 
     private void CahngeCamera()
     {
         if (!outRight && !outLeft)
         {
-            leftCamera.enabled = false;
-            rightCamera.enabled = false;
+            outCamera.enabled = false;
         }
-        else if(outLeft)
+        else
         {
-            rightCamera.enabled = false;
-            leftCamera.enabled = true;
-        }
-        else if(outRight)
-        {
-            leftCamera.enabled = false;
-            rightCamera.enabled = true;
+            outCamera.enabled = true;
         }
     }
 
     private void TargetCameraOut()
     {
-        if(target.transform.position.x < outLineLeft.transform.position.x) { outLeft = true; }
-        else if(target.transform.position.x >  outLineRight.transform.position.x) { outRight = true; }
+        if(target.transform.position.x < outLineLeft.transform.position.x) { outLeft = true; outCamera.rect = leftCamera; }
+        else if(target.transform.position.x >  outLineRight.transform.position.x) { outRight = true; outCamera.rect = rightCamera; }
         else { outLeft = false; outRight = false; }
     }
 
@@ -80,5 +78,6 @@ public class CameraController : MonoBehaviour
         {
             target = cameraTarget.Dekatuyo;
         }
+        outCamera.transform.position = new Vector3(target.transform.position.x,-2.5f,-10);
     }
 }
