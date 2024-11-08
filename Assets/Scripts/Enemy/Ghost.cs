@@ -7,28 +7,34 @@ public class Ghost : MonoBehaviour
     Transform playerTr;
     [SerializeField] float speed = 2f;
     Rigidbody2D rbody2D;
+    CircleCollider2D circleCollider2D;
 
     // Start is called before the first frame update
     void Start()
     {
         rbody2D = GetComponent<Rigidbody2D>();
         playerTr = GameObject.FindGameObjectWithTag("Player").transform;
+        circleCollider2D = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //プレイヤーとの距離が0.1f未満になったらそれ以上実行しない
-        if(Vector2.Distance(transform.position, playerTr.position) < 0.1f)
+        if (circleCollider2D.bounds.Contains(playerTr.position))
         {
-            return;
-        }
+            //プレイヤーとの距離が0.1f未満になったらそれ以上実行しない
+            if (Vector2.Distance(transform.position, playerTr.position) < 0.1f)
+            {
+                return;
+            }
 
-        //Playerに向かって移動する
-        transform.position = Vector2.MoveTowards(
-            transform.position,
-            new Vector2(playerTr.position.x, playerTr.position.y),
-            speed * Time.deltaTime);
+            //Playerに向かって移動する
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                new Vector2(playerTr.position.x, playerTr.position.y),
+                speed * Time.deltaTime);
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
