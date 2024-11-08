@@ -12,6 +12,7 @@ TagManager:
   - WaeponLight
   - OneWayOut
   - OneWay
+  - Seesaw
   layers:
   - Default
   - TransparentFX

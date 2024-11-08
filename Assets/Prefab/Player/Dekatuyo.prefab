@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6701462622210376080}
   m_Layer: 0
   m_Name: otouto_20241025155239
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014493525, y: -1.0533979}
+  m_Offset: {x: -0.003985226, y: -1.1396325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4419318, y: 2.5610852}
+  m_Size: {x: 1.3556975, y: 2.7335544}
   m_EdgeRadius: 0
 --- !u!58 &6701462622210376080
 CircleCollider2D:
@@ -610,7 +610,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.035004497, y: -0.38574594}
+  m_Offset: {x: -0.013446003, y: 0.026946664}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -621,7 +621,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.880924, y: 0.22850788}
+  m_Size: {x: 0.77621084, y: 1.0538931}
   m_EdgeRadius: 0
 --- !u!50 &3306728309347383940
 Rigidbody2D:
@@ -674,9 +674,10 @@ MonoBehaviour:
   playerCarryJump: 0.5
   playerDirection: 1
   changeDirection: 1
-  playerChange: 1
+  playerDekatuyo: 1
   playerAttackType: 0
   isOnGround: 0
+  enemyHit: 0
 --- !u!114 &4929015366630446990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92cab276bc82734b8dc73c0f36d6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitter: {fileID: 0}
   playerController: {fileID: 5854023089815853194}
   attackPlayerJudgmentRight: {fileID: 8117000898585502509}
   attackPlayerJudgmentLeft: {fileID: 4990223366665020628}
@@ -746,12 +748,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
+  gameContoller: {fileID: 0}
   playerInvincible: 0
-  invincibleTimeStart: 0
-  invincibleTimerEnd: 5
+  invincibleStartTime: 0
+  invincibleEndTime: 0
   playerBlink: 0
   blinkTimeStart: 0
   blinkTimeEnd: 0.5
+  playerSprite: {fileID: 0}
+  damageColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
 --- !u!1 &8117000898585502509
 GameObject:
   m_ObjectHideFlags: 0
