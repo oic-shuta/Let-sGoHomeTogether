@@ -36,31 +36,33 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         //Rect（左端が画面のどこに置くか、下の位置を画面のどこに置くか、画面のサイズ横、画面サイズ縦）
-        leftCamera = new Rect(0f, 0.4f, 0.2f, 0.25f);
-        rightCamera = new Rect(0.8f, 0.4f, 0.2f, 0.25f);
+        leftCamera = new Rect(0f, 0.4f, 0.15f, 0.25f); //左外のカメラの位置
+        rightCamera = new Rect(0.85f, 0.4f, 0.15f, 0.25f);　//右外のカメラの位置
 
-        outCamera.enabled = false;
+        outCamera.enabled = false;　//初期非表示
     }
 
     private void Update()
     {
         TargetCameraOut();
         TargetCameraSub();
-        CahngeCamera();
+        OutCamera();
     }
 
-    private void CahngeCamera()
+    //外に立た時に左右どちらかにカメラがでる
+    private void OutCamera()
     {
-        if (!outRight && !outLeft)
+        if (!outRight && !outLeft)　//メインカメラ内に2人いる
         {
             outCamera.enabled = false;
         }
-        else
+        else　
         {
             outCamera.enabled = true;
         }
     }
 
+    //カメラ外に出た時左右どっちか
     private void TargetCameraOut()
     {
         if(target.transform.position.x < outLineLeft.transform.position.x) 
@@ -80,13 +82,14 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    //画面外カメラを出す
     private void TargetCameraSub()
     {
-        if (cameraTarget.cameraTypeDekatuyo)
+        if (cameraTarget.cameraTypeDekatuyo)　//ちびよわが画面外に出たら
         {
             target = cameraTarget.Chibiyowa;
         }
-        else if (!cameraTarget.cameraTypeDekatuyo)
+        else if (!cameraTarget.cameraTypeDekatuyo)//でかつよが画面外に出たら
         {
             target = cameraTarget.Dekatuyo;
         }

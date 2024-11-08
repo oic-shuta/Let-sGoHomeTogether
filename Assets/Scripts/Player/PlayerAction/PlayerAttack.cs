@@ -47,19 +47,19 @@ public class PlayerAttack : MonoBehaviour
     {
         playerController.PlayerMoveType();
 
-        if (Input.GetKeyDown("e") && attackPlayer == false &&
-            playerController.playerDekatuyo == true && playerController.playerAttackType == 0
-            || Input.GetKeyDown("joystick button 5") && attackPlayer == false &&
-            playerController.playerDekatuyo == true && playerController.playerAttackType == 0)
+        if (Input.GetKeyDown("e") && !attackPlayer &&
+            playerController.playerDekatuyo && playerController.playerAttackType == 0
+            || Input.GetKeyDown("joystick button 5") && !attackPlayer &&
+            playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
             attackPlayer = true;
             attackTimer = 0;
             emitter.Play();
         }
-        else if (Input.GetKeyDown("e") && attackPlayer == false && 
-            playerController.playerDekatuyo == false && playerController.playerAttackType == 1
-            || Input.GetKeyDown("joystick button 5") && attackPlayer == false &&
-            playerController.playerDekatuyo == false && playerController.playerAttackType == 1)
+        else if (Input.GetKeyDown("e") && !attackPlayer && 
+            !playerController.playerDekatuyo && playerController.playerAttackType == 1
+            || Input.GetKeyDown("joystick button 5") && !attackPlayer &&
+            !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
             attackPlayer = true;
             attackTimer = 0;
@@ -68,7 +68,7 @@ public class PlayerAttack : MonoBehaviour
         attackTimer += Time.deltaTime;
 
         //çUåÇîªíËÇÃéûä‘
-        if (attackingTime < attackTimer && attackPlayer == true)
+        if (attackingTime < attackTimer && attackPlayer )
         {
             attackPlayer = false;
         }

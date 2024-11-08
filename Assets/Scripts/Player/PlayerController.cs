@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
         TimeStop();
     }
 
+
     private void TimeStop()
     {
         if (Input.GetKeyDown("0"))
@@ -125,18 +126,18 @@ public class PlayerController : MonoBehaviour
     public void PlayerMoveType()
     {
         //でかつよのステータス
-        if (moveType == PlayerType.Dekatsuyo && playerDekatuyo == true)
+        if (moveType == PlayerType.Dekatsuyo && playerDekatuyo)
         {
             playerSpeed = 5;
             playerJumpForce = 1200;
             playerAttackType = 0;
-            if (carryObject.onCarry == true)
+            if (carryObject.onCarry)
             {
                 playerJumpForce *= playerCarryJump;
             }
         }
         //ちびよわのステータス
-        else if (moveType == PlayerType.Chibiyowa && playerDekatuyo == false)
+        else if (moveType == PlayerType.Chibiyowa && !playerDekatuyo)
         {
             playerSpeed = 5;
             playerJumpForce = 300;
@@ -178,7 +179,7 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;      //地面にいる
         }
-
+        //敵との接触判定
         if (collision.CompareTag("Enemy") && !enemyHit)
         {
             enemyHit = true;

@@ -450,7 +450,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0030370355, y: -0.38862753}
+  m_Offset: {x: 0.014382541, y: -0.2499603}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -461,7 +461,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42320788, y: 0.24885654}
+  m_Size: {x: 0.37026227, y: 0.526191}
   m_EdgeRadius: 0
 --- !u!50 &5474798979723601605
 Rigidbody2D:
@@ -514,9 +514,10 @@ MonoBehaviour:
   playerCarryJump: 0.3
   playerDirection: 1
   changeDirection: 1
-  playerChange: 1
+  playerDekatuyo: 1
   playerAttackType: 1
   isOnGround: 0
+  enemyHit: 0
 --- !u!114 &4578192526261986914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92cab276bc82734b8dc73c0f36d6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emitter: {fileID: 0}
   playerController: {fileID: 369678053553401519}
   attackPlayerJudgmentRight: {fileID: 112719313113904576}
   attackPlayerJudgmentLeft: {fileID: 551697852044400861}
@@ -564,12 +566,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 369678053553401519}
+  gameContoller: {fileID: 0}
   playerInvincible: 0
-  invincibleTimeStart: 0
-  invincibleTimerEnd: 5
+  invincibleStartTime: 0
+  invincibleEndTime: 0
   playerBlink: 0
   blinkTimeStart: 0
   blinkTimeEnd: 0.5
+  playerSprite: {fileID: 0}
+  damageColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
 --- !u!1 &7020434777131075020
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +693,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05242169, y: -1.1459868}
+  m_Offset: {x: 0.05242169, y: -1.3224727}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -699,7 +704,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1468785, y: 2.2529712}
+  m_Size: {x: 1.1468785, y: 2.605943}
   m_EdgeRadius: 0
 --- !u!58 &4563451992047752560
 CircleCollider2D:

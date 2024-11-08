@@ -1,3 +1,4 @@
+using EffekseerTool.Data;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -34,8 +35,13 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField]
     private float blinkTimeEnd = 0;
 
+    //プレイヤーのイラスト
     [SerializeField]
     private GameObject playerSprite;
+
+    //ダメージ受けた時のカラーとアルファ値
+    [SerializeField]
+    private Color damageColor = new Color(0.2f, 0.2f, 0.2f, 0.7f);
 
     private void Start()
     {
@@ -47,12 +53,6 @@ public class PlayerDamage : MonoBehaviour
         InvincibleTime();
     }
 
-    //ライフが0になったら死ぬ
-    public void PlayerDead()
-    {
-        Debug.Log("死んだ");
-    }
-
     //無敵時間
     private void InvincibleTime()
     {
@@ -62,7 +62,7 @@ public class PlayerDamage : MonoBehaviour
             //無敵時間
             invincibleStartTime += 1 * Time.deltaTime;
             blinkTimeStart += 1 * Time.deltaTime;
-            if (invincibleStartTime > invincibleEndTime)
+            if (invincibleStartTime > invincibleEndTime) //無敵時間終了
             {
                 playerController.enemyHit = false;
                 playerBlink = false;
@@ -75,28 +75,25 @@ public class PlayerDamage : MonoBehaviour
                 
                 playerBlink = !playerBlink;
             }
-            PlayerBlink();
+            PlayerBlink();　
         }
     }
     
+    //ライフ減少
     private void Damage()
     {
-        if (playerController.enemyHit && invincibleStartTime == 0)
+        if (playerController.enemyHit && invincibleStartTime <= 0)
         {
             gameContoller.playerLife--;
         }
-
-        if(gameContoller.playerLife <= 0)
-        {
-            PlayerDead();
-        }
     }
 
+    //点滅する
     private void PlayerBlink()
     {
         if (playerBlink)
         {
-            playerSprite.GetComponent<SpriteRenderer>().color = Color.black ;
+            playerSprite.GetComponent<SpriteRenderer>().color = damageColor;
         }
         else if (!playerBlink)
         {
