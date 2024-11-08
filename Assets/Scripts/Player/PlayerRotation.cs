@@ -12,14 +12,14 @@ public class PlayerRotation : MonoBehaviour
     private GameObject rotationObject = null;
 
     [SerializeField]
-    private GameObject palyerSprite = null;
+    private GameObject playerSprite = null;
     private void Start()
     {
-        
+        playerSprite = this.gameObject;
     }
     private void Update()
     {
-        this.gameObject.transform.rotation = rotationObject.transform.rotation;
+        playerSprite.transform.rotation = rotationObject.transform.rotation;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
