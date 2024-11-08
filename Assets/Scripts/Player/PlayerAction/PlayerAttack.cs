@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Effekseer;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField]
+    private EffekseerEmitter emitter;
+
     [SerializeField]
     private PlayerController playerController;
 
@@ -50,6 +54,7 @@ public class PlayerAttack : MonoBehaviour
         {
             attackPlayer = true;
             attackTimer = 0;
+            emitter.Play();
         }
         else if (Input.GetKeyDown("e") && attackPlayer == false && 
             playerController.playerDekatuyo == false && playerController.playerAttackType == 1
