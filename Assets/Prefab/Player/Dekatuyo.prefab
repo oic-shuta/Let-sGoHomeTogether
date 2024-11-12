@@ -492,7 +492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8034549064826801167}
   - component: {fileID: 7851979417540003317}
-  - component: {fileID: 5932524923794436877}
+  - component: {fileID: -100516815547984046}
   - component: {fileID: 3306728309347383940}
   - component: {fileID: 5854023089815853194}
   - component: {fileID: 4929015366630446990}
@@ -578,8 +578,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5932524923794436877
-BoxCollider2D:
+--- !u!70 &-100516815547984046
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -610,19 +610,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013446003, y: 0.026946664}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.77621084, y: 1.0538931}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.016091824, y: 0.40229833}
+  m_Size: {x: 0.6331041, y: 1.8045967}
+  m_Direction: 0
 --- !u!50 &3306728309347383940
 Rigidbody2D:
   serializedVersion: 4
@@ -663,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 647407715165321968}
-  rig2D: {fileID: 0}
+  rig2D: {fileID: 3306728309347383940}
   playerMove: {fileID: 6351486740367830223}
   playerAttack: {fileID: 4929015366630446990}
   carryObject: {fileID: 0}
@@ -690,7 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92cab276bc82734b8dc73c0f36d6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitter: {fileID: 0}
+  emitter: {fileID: 8727215383583135575, guid: 2548245b0e1feed4aab742e0d6d79d19, type: 3}
   playerController: {fileID: 5854023089815853194}
   attackPlayerJudgmentRight: {fileID: 8117000898585502509}
   attackPlayerJudgmentLeft: {fileID: 4990223366665020628}
@@ -726,10 +716,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rig2D: {fileID: 0}
-  playerController: {fileID: 0}
+  playerController: {fileID: 5854023089815853194}
   carryObject: {fileID: 1282999061418947518, guid: 56e8ea524f9e42f4598f642957978bc2, type: 3}
-  collisionObjectRight: {fileID: 0}
-  collisionObjectLeft: {fileID: 0}
+  collisionObjectRight: {fileID: 5850899247780470736}
+  collisionObjectLeft: {fileID: 6737432312577492993}
   onCarry: 0
   objectTouch: 0
   carryPos: {x: 0, y: 0, z: 0}
@@ -747,8 +737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62a81f2e4819b84d9ba5ee1fa27d600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  gameContoller: {fileID: 0}
+  playerController: {fileID: 5854023089815853194}
+  gameContoller: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
   playerInvincible: 0
   invincibleStartTime: 0
   invincibleEndTime: 0

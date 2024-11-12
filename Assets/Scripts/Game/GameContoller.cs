@@ -11,6 +11,9 @@ public class GameContoller : MonoBehaviour
     [SerializeField]
     private GameObject playerChibiyowa;
 
+    [SerializeField]
+    private GameObject reSpawnPoint;
+
     //プレイヤーのスタート位置
     [SerializeField]
     private Vector3 startPos1;
@@ -42,7 +45,14 @@ public class GameContoller : MonoBehaviour
         //ライフが0になったら
         if(playerLife <= 0)
         {
+            PlayerSpawn();
+            
             playerLife = 6;
         }
+    }
+    private void PlayerSpawn()
+    {
+        playerChibiyowa.transform.position = reSpawnPoint.transform.position;
+        playerDekatuyo.transform.position = reSpawnPoint.transform.position;
     }
 }

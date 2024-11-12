@@ -334,7 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5729715606997792042}
   - component: {fileID: 3808972793324186033}
-  - component: {fileID: 5661886208066164575}
+  - component: {fileID: 8095273677013355837}
   - component: {fileID: 5474798979723601605}
   - component: {fileID: 369678053553401519}
   - component: {fileID: 4578192526261986914}
@@ -418,8 +418,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5661886208066164575
-BoxCollider2D:
+--- !u!70 &8095273677013355837
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -450,19 +450,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014382541, y: -0.2499603}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.37026227, y: 0.526191}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.028508782, y: 0.028975427}
+  m_Size: {x: 0.3546164, y: 1.1274918}
+  m_Direction: 0
 --- !u!50 &5474798979723601605
 Rigidbody2D:
   serializedVersion: 4
@@ -503,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 7020434777131075020}
-  rig2D: {fileID: 0}
+  rig2D: {fileID: 5474798979723601605}
   playerMove: {fileID: 2773927079896768013}
   playerAttack: {fileID: 4578192526261986914}
   carryObject: {fileID: 0}
@@ -530,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92cab276bc82734b8dc73c0f36d6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitter: {fileID: 0}
+  emitter: {fileID: 8727215383583135575, guid: 2548245b0e1feed4aab742e0d6d79d19, type: 3}
   playerController: {fileID: 369678053553401519}
   attackPlayerJudgmentRight: {fileID: 112719313113904576}
   attackPlayerJudgmentLeft: {fileID: 551697852044400861}
@@ -566,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 369678053553401519}
-  gameContoller: {fileID: 0}
+  gameContoller: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
   playerInvincible: 0
   invincibleStartTime: 0
   invincibleEndTime: 0
