@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnReLoad : MonoBehaviour
 {
     [SerializeField]
-    private GameContoller game;
+    private GameContoller gameController;
 
     [SerializeField]
     private GameObject chaeckPoint;
@@ -14,7 +14,7 @@ public class SpawnReLoad : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            game.reSpawnPoint = this.gameObject;
+            gameController.reSpawnPoint = this.gameObject;
             chaeckPoint.GetComponent<SpriteRenderer>().color = Color.red;
             this.gameObject.SetActive(false);
         }

@@ -72,8 +72,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isOnGround = false;
 
+    [Tooltip("敵に当たってるか")]
     [SerializeField]
     public bool enemyHit = false;
+
+    [SerializeField]
+    public bool fallOut = false;
 
     private void Start()
     {
@@ -184,5 +188,11 @@ public class PlayerController : MonoBehaviour
         {
             enemyHit = true;
         }
+        //プレイヤーが画面外に落下
+        if (collision.CompareTag("FallOut"))
+        {
+            fallOut = true;
+        }
+
     }
 }

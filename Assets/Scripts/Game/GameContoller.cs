@@ -27,9 +27,7 @@ public class GameContoller : MonoBehaviour
     public int playerLife;
     private void Start()
     {
-        playerDekatuyo.transform.position = startPos1;
-
-        playerChibiyowa.transform.position = startPos2;
+        PlayerStartPos();
 
         playerLife = 6;
     }
@@ -54,5 +52,25 @@ public class GameContoller : MonoBehaviour
     {
         playerChibiyowa.transform.position = reSpawnPoint.transform.position;
         playerDekatuyo.transform.position = reSpawnPoint.transform.position;
+    }
+
+    public void PlayerFallOut()
+    {
+        playerLife--;
+        if (reSpawnPoint == null)
+        {
+            PlayerStartPos();
+        }
+        else
+        {
+            PlayerSpawn();
+        }
+    } 
+
+    private void PlayerStartPos()
+    {
+        playerDekatuyo.transform.position = startPos1;
+
+        playerChibiyowa.transform.position = startPos2;
     }
 }
