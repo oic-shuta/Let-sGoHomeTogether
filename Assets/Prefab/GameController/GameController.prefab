@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDekatuyo: {fileID: 7293100762684689928, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
   playerChibiyowa: {fileID: 5631800565977850200, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
-  reSpawnPoint: {fileID: 6516389045082791930, guid: 7782695973e20284fb0e6829d91f4fb9, type: 3}
+  reSpawnPoint: {fileID: 0}
   startPos1: {x: -5, y: -3.57, z: 0}
   startPos2: {x: -3, y: -3.57, z: 0}
   playerLife: 6

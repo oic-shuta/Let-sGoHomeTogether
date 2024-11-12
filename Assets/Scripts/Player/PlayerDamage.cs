@@ -51,6 +51,8 @@ public class PlayerDamage : MonoBehaviour
     private void Update()
     {
         InvincibleTime();
+
+        FallPlayer();
     }
 
     //–³“GŽžŠÔ
@@ -98,6 +100,16 @@ public class PlayerDamage : MonoBehaviour
         else if (!playerBlink)
         {
             playerSprite.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
+    private void FallPlayer()
+    {
+        if (playerController.fallOut)
+        {
+            gameContoller.PlayerFallOut();
+
+            playerController.fallOut = false;
         }
     }
 }

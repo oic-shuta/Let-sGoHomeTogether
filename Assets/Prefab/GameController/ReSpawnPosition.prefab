@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b97e8badbdc1c04cb25d07b482dfd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
+  gameController: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
   chaeckPoint: {fileID: 6516389045082791930}
 --- !u!1 &6516389045082791930
 GameObject:
