@@ -12,7 +12,7 @@ public class GameContoller : MonoBehaviour
     private GameObject playerChibiyowa;
 
     [SerializeField]
-    private GameObject reSpawnPoint;
+    public GameObject reSpawnPoint;
 
     //プレイヤーのスタート位置
     [SerializeField]
