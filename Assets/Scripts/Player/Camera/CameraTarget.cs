@@ -7,14 +7,17 @@ public class CameraTarget : MonoBehaviour
     [SerializeField]
     private CameraMove cameraMove;
 
+    [SerializeField]
+    private CameraController cameraController;
+
     [Header("どのキャラにカメラを向けるか")]
     [Tooltip("でかつよ")]
     [SerializeField]
-    private GameObject playerObject1;
+    public GameObject Dekatuyo;
 
     [Tooltip("ちびよわ")]
     [SerializeField]
-    private GameObject playerObject2;
+    public GameObject Chibiyowa;
 
     [Tooltip("現在の操作キャラ")]
     [SerializeField]
@@ -22,44 +25,50 @@ public class CameraTarget : MonoBehaviour
 
     //カメラがどっちを追ってるか
     [SerializeField]
-    private bool cameraType = true;
-
-    //左端にカメラが移動した時に動かないようにする
-    private Vector3 cameraPosLeft = new Vector3(0, 0, -10);
+    public bool cameraTypeDekatuyo = true;
 
     private void Start()
     {
         cameraMove = GetComponent<CameraMove>();
 
-        targetObject = playerObject1;
+        targetObject = Dekatuyo;
     }
 
     public void CameraChange()
     {
-        cameraMove.MoveCamara();
         if (Input.GetKeyDown("q")||Input.GetKeyDown("joystick button 3"))
         {
-            cameraType = !cameraType;
-        }
-        if (cameraType)
-        {
-            targetObject = playerObject1;
-            if (targetObject.transform.position.x < 0)
-            {
-                cameraMove.cameraObject.transform.position = cameraPosLeft;
-                return;
-            }
+            cameraTypeDekatuyo = !cameraTypeDekatuyo;
 
             cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
+
         }
-        else if (!cameraType)
+        if (cameraTypeDekatuyo)
         {
-            targetObject = playerObject2;
-            if (targetObject.transform.position.x < 0)
+            targetObject = Dekatuyo;
+            MoveCamera();
+        }
+        else if (!cameraTypeDekatuyo)
+        {
+            targetObject = Chibiyowa;
+            MoveCamera();
+        }
+    }
+
+    private void MoveCamera()
+    {
+        cameraMove.CamaraPos();
+        if (targetObject.transform.position.x < 0)
+        {
+            if (cameraController.outLeft)
             {
-                cameraMove.cameraObject.transform.position = cameraPosLeft;
+                cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
                 return;
             }
+            cameraMove.cameraObject.transform.position = new Vector3(0, cameraMove.cameraPos.y, cameraMove.cameraPos.z);
+        }
+        else
+        {
             cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
         }
     }

@@ -60,8 +60,8 @@ public class PlayerController : MonoBehaviour
     private bool changeDirection = true;
 
     //どのキャラが動くかフラグ
-    [Tooltip("どのキャラを操作してるか")]
-    public bool playerChange = true;
+    [Tooltip("でかつよを操作フラグ")]
+    public bool playerDekatuyo = true;
 
     //どのキャラが攻撃するか
     [Tooltip("どのタイプの攻撃をするか：0 = でかつよ　1 = ちびよわ")]
@@ -71,6 +71,13 @@ public class PlayerController : MonoBehaviour
     [Tooltip("地面にいるかどうかフラグ")]
     [SerializeField]
     public bool isOnGround = false;
+
+    [Tooltip("敵に当たってるか")]
+    [SerializeField]
+    public bool enemyHit = false;
+
+    [SerializeField]
+    public bool fallOut = false;
 
     private void Start()
     {
@@ -94,6 +101,7 @@ public class PlayerController : MonoBehaviour
         TimeStop();
     }
 
+
     private void TimeStop()
     {
         if (Input.GetKeyDown("0"))
@@ -114,7 +122,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("q") || Input.GetKeyDown("joystick button 3"))
         {
             changeDirection = playerDirection;
-            playerChange = !playerChange;
+            playerDekatuyo = !playerDekatuyo;
         }
     }
 
@@ -122,18 +130,18 @@ public class PlayerController : MonoBehaviour
     public void PlayerMoveType()
     {
         //でかつよのステータス
-        if (moveType == PlayerType.Dekatsuyo && playerChange == true)
+        if (moveType == PlayerType.Dekatsuyo && playerDekatuyo)
         {
             playerSpeed = 5;
             playerJumpForce = 1200;
             playerAttackType = 0;
-            if (carryObject.onCarry == true)
+            if (carryObject.onCarry)
             {
                 playerJumpForce *= playerCarryJump;
             }
         }
         //ちびよわのステータス
-        else if (moveType == PlayerType.Chibiyowa && playerChange == false)
+        else if (moveType == PlayerType.Chibiyowa && !playerDekatuyo)
         {
             playerSpeed = 5;
             playerJumpForce = 300;
@@ -175,5 +183,16 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;      //地面にいる
         }
+        //敵との接触判定
+        if (collision.CompareTag("Enemy") && !enemyHit)
+        {
+            enemyHit = true;
+        }
+        //プレイヤーが画面外に落下
+        if (collision.CompareTag("FallOut"))
+        {
+            fallOut = true;
+        }
+
     }
 }

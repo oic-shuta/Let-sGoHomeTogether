@@ -8,10 +8,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
-    [SerializeField]
-    private PlayerTracking tracking;
-
-    private Rigidbody2D rigidBody2D;
+    private Rigidbody2D rig2D;
 
     [Tooltip("Œü‚¢‚Ä‚é•ûŒü")]
     [SerializeField]
@@ -30,7 +27,7 @@ public class PlayerMove : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
 
-        rigidBody2D = GetComponent<Rigidbody2D>();
+        rig2D = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -96,9 +93,9 @@ public class PlayerMove : MonoBehaviour
     {
         playerController.PlayerMoveType();
         if (Input.GetKeyDown("w") && playerController.isOnGround ||
-                Input.GetKeyDown("joystick button 0") && playerController.isOnGround)
+            Input.GetKeyDown("joystick button 0") && playerController.isOnGround)
         {
-            this.rigidBody2D.AddForce(transform.up * playerController.playerJumpForce);
+            this.rig2D.AddForce(transform.up * playerController.playerJumpForce);
             playerController.isOnGround = false;
         }
     }

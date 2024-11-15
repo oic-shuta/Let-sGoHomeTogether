@@ -24,8 +24,6 @@ public class CameraMove : MonoBehaviour
 
     private void Start()
     {
-        cameraTarget = GetComponent<CameraTarget>();
-
         cameraObject = GetComponent<Camera>();
 
         cameraPos = cameraObject.transform.position;
@@ -36,7 +34,7 @@ public class CameraMove : MonoBehaviour
         cameraTarget.CameraChange();
     }
 
-    public void MoveCamara()
+    public void CamaraPos()
     {
         cameraPos = cameraTarget.targetObject.transform.position;
 

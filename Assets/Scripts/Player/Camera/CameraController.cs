@@ -1,40 +1,98 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
+using UnityEditor;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    private Camera mainCamera;
+    private CameraTarget cameraTarget;
 
     [SerializeField]
-    private Camera subCamera;
+    private Camera outCamera;
 
     [SerializeField]
-    private GameObject cameraOutLeft;
+    private GameObject target;
+
     [SerializeField]
-    private GameObject cameraOutRight;
+    private GameObject outLineLeft;
+
+    [SerializeField]
+    private GameObject outLineRight;
+
+    [SerializeField]
+    public bool outLeft = false;
+
+    [SerializeField]
+    private bool outRight = false;
+
+    [SerializeField]
+    private Rect leftCamera;
+
+    [SerializeField]
+    private Rect rightCamera;
 
     private void Start()
     {
-        mainCamera.rect = new Rect(1, 1, 1, 1);
+        //Rect（左端が画面のどこに置くか、下の位置を画面のどこに置くか、画面のサイズ横、画面サイズ縦）
+        leftCamera = new Rect(0f, 0.4f, 0.15f, 0.25f); //左外のカメラの位置
+        rightCamera = new Rect(0.85f, 0.4f, 0.15f, 0.25f);　//右外のカメラの位置
+
+        outCamera.enabled = false;　//初期非表示
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown("b"))
+        TargetCameraOut();
+        TargetCameraSub();
+        OutCamera();
+    }
+
+    //外に立た時に左右どちらかにカメラがでる
+    private void OutCamera()
+    {
+        if (!outRight && !outLeft)　//メインカメラ内に2人いる
         {
-             mainCamera.rect = new Rect(0.5f, 0f, 0.5f, 1f);
-             subCamera.rect = new Rect(0f, 0f, 0.5f, 1f);
+            outCamera.enabled = false;
         }
-        if(Input.GetKeyDown("c"))
+        else　
         {
-            mainCamera.rect = new Rect(1, 1, 1, 1);
-            subCamera = Camera.main;
+            outCamera.enabled = true;
         }
     }
 
+    //カメラ外に出た時左右どっちか
+    private void TargetCameraOut()
+    {
+        if(target.transform.position.x < outLineLeft.transform.position.x) 
+        { 
+            outLeft = true; 
+            outCamera.rect = leftCamera; 
+        }
+        else if(target.transform.position.x >  outLineRight.transform.position.x)
+        { 
+            outRight = true; 
+            outCamera.rect = rightCamera; 
+        }
+        else 
+        { 
+            outLeft = false; 
+            outRight = false; 
+        }
+    }
 
-
+    //画面外カメラを出す
+    private void TargetCameraSub()
+    {
+        if (cameraTarget.cameraTypeDekatuyo)　//ちびよわが画面外に出たら
+        {
+            target = cameraTarget.Chibiyowa;
+        }
+        else if (!cameraTarget.cameraTypeDekatuyo)//でかつよが画面外に出たら
+        {
+            target = cameraTarget.Dekatuyo;
+        }
+        outCamera.transform.position = new Vector3(target.transform.position.x,target.transform.position.y,-10);
+    }
 }
