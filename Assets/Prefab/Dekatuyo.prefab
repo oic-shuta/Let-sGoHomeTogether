@@ -727,8 +727,8 @@ MonoBehaviour:
   rig2D: {fileID: 0}
   playerController: {fileID: 0}
   carryObject: {fileID: 1282999061418947518, guid: 56e8ea524f9e42f4598f642957978bc2, type: 3}
-  collisionObjectRight: {fileID: 0}
-  collisionObjectLeft: {fileID: 0}
+  collisionObjectRight: {fileID: 5850899247780470736}
+  collisionObjectLeft: {fileID: 6737432312577492993}
   onCarry: 0
   objectTouch: 0
   carryPos: {x: 0, y: 0, z: 0}
