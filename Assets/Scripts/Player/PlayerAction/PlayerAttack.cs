@@ -47,23 +47,7 @@ public class PlayerAttack : MonoBehaviour
     {
         playerController.PlayerMoveType();
 
-        if (Input.GetKeyDown("e") && !attackPlayer &&
-            playerController.playerDekatuyo && playerController.playerAttackType == 0
-            || Input.GetKeyDown("joystick button 5") && !attackPlayer &&
-            playerController.playerDekatuyo && playerController.playerAttackType == 0)
-        {
-            attackPlayer = true;
-            attackTimer = 0;
-            emitter.Play();
-        }
-        else if (Input.GetKeyDown("e") && !attackPlayer && 
-            !playerController.playerDekatuyo && playerController.playerAttackType == 1
-            || Input.GetKeyDown("joystick button 5") && !attackPlayer &&
-            !playerController.playerDekatuyo && playerController.playerAttackType == 1)
-        {
-            attackPlayer = true;
-            attackTimer = 0;
-        }
+        Attack();
 
         attackTimer += Time.deltaTime;
 
@@ -71,6 +55,37 @@ public class PlayerAttack : MonoBehaviour
         if (attackingTime < attackTimer && attackPlayer )
         {
             attackPlayer = false;
+        }
+    }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown("e") && !attackPlayer &&
+            playerController.playerDekatuyo && playerController.playerAttackType == 0)
+        {
+            attackPlayer = true;
+            attackTimer = 0;
+            emitter.Play();
+        }
+        else if (Input.GetKeyDown("e") && !attackPlayer &&
+            !playerController.playerDekatuyo && playerController.playerAttackType == 1)
+        {
+            attackPlayer = true;
+            attackTimer = 0;
+        }
+
+        if (Input.GetKeyDown("joystick button 5") && !attackPlayer &&
+            playerController.playerDekatuyo && playerController.playerAttackType == 0)
+        {
+            attackPlayer = true;
+            attackTimer = 0;
+            emitter.Play();
+        }
+        else if(Input.GetKeyDown("joystick button 5") && !attackPlayer &&
+                 !playerController.playerDekatuyo && playerController.playerAttackType == 1)
+        {
+            attackPlayer = true;
+            attackTimer = 0;
         }
     }
 }
