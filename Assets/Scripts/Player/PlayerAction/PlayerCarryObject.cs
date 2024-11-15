@@ -49,8 +49,8 @@ public class PlayerCarryObject : MonoBehaviour
 
     private void CarryObject()
     {
-        if (Input.GetKeyDown("space") && !onCarry && objectTouch
-            || Input.GetKeyDown("joystick button 3") && !onCarry && objectTouch)
+        //キーボード
+        if (Input.GetKeyDown("space") && !onCarry && objectTouch　&& playerController.isOnGround)
         {
             onCarry = true;
             carryObject.transform.parent = this.gameObject.transform;
@@ -58,8 +58,25 @@ public class PlayerCarryObject : MonoBehaviour
             rig2D = carryObject.GetComponent<Rigidbody2D>();
             carryObject.layer = 6;
         }
-        else if (Input.GetKeyDown("space") && onCarry 
-            || Input.GetKeyDown("joystick button 3") && onCarry)
+        else if (Input.GetKeyDown("space") && onCarry)
+        {
+            onCarry = false;
+            rig2D.bodyType = RigidbodyType2D.Dynamic;
+            rig2D = null;
+            carryObject.layer = 7;
+            carryObject.transform.parent = null;
+        }
+
+        //コントローラ
+        if(Input.GetKeyDown("joystick button 3") && !onCarry && objectTouch && playerController.isOnGround)
+        {
+            onCarry = true;
+            carryObject.transform.parent = this.gameObject.transform;
+            carryPos = carryObject.transform.position;
+            rig2D = carryObject.GetComponent<Rigidbody2D>();
+            carryObject.layer = 6;
+        }
+        else if(Input.GetKeyDown("joystick button 3") && onCarry)
         {
             onCarry = false;
             rig2D.bodyType = RigidbodyType2D.Dynamic;
