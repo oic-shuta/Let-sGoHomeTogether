@@ -11,6 +11,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
+    [SerializeField]
+    private PlayerCarryObject carry = null;
+
     [Header("プレイヤーの攻撃")]
     //攻撃判定
     [Tooltip("攻撃当たり判定範囲　右")]
@@ -47,23 +50,7 @@ public class PlayerAttack : MonoBehaviour
     {
         playerController.PlayerMoveType();
 
-        if (Input.GetKeyDown("e") && !attackPlayer &&
-            playerController.playerDekatuyo && playerController.playerAttackType == 0
-            || Input.GetKeyDown("joystick button 5") && !attackPlayer &&
-            playerController.playerDekatuyo && playerController.playerAttackType == 0)
-        {
-            attackPlayer = true;
-            attackTimer = 0;
-            emitter.Play();
-        }
-        else if (Input.GetKeyDown("e") && !attackPlayer && 
-            !playerController.playerDekatuyo && playerController.playerAttackType == 1
-            || Input.GetKeyDown("joystick button 5") && !attackPlayer &&
-            !playerController.playerDekatuyo && playerController.playerAttackType == 1)
-        {
-            attackPlayer = true;
-            attackTimer = 0;
-        }
+        Attack();
 
         attackTimer += Time.deltaTime;
 
@@ -71,6 +58,40 @@ public class PlayerAttack : MonoBehaviour
         if (attackingTime < attackTimer && attackPlayer )
         {
             attackPlayer = false;
+        }
+    }
+
+    private void Attack()
+    {
+        //キーボード
+        if (Input.GetKeyDown("e") && !attackPlayer && !carry.onCarry &&
+              playerController.playerDekatuyo && playerController.playerAttackType == 0)
+        {
+            attackPlayer = true;
+            attackTimer = 0;
+            emitter.Play();
+        }
+        else if (Input.GetKeyDown("e") && !attackPlayer &&
+            !playerController.playerDekatuyo && playerController.playerAttackType == 1)
+        {
+            attackPlayer = true;
+            attackTimer = 0;
+
+        }
+
+        //コントローラ
+        if (Input.GetKeyDown("joystick button 5") && !attackPlayer && !carry.onCarry &&
+              playerController.playerDekatuyo && playerController.playerAttackType == 0)
+        {
+            attackPlayer = true;
+            attackTimer = 0;
+            emitter.Play();
+        }
+        else if (Input.GetKeyDown("joystick button 5") && !attackPlayer &&
+                     !playerController.playerDekatuyo && playerController.playerAttackType == 1)
+        {
+            attackPlayer = true;
+            attackTimer = 0;
         }
     }
 }
