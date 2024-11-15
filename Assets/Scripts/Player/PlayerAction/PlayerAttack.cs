@@ -11,6 +11,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
+    [SerializeField]
+    private PlayerCarryObject carry;
+
     [Header("ƒvƒŒƒCƒ„[‚ÌUŒ‚")]
     //UŒ‚”»’è
     [Tooltip("UŒ‚“–‚½‚è”»’è”ÍˆÍ@‰E")]
@@ -60,7 +63,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown("e") && !attackPlayer &&
+        if (Input.GetKeyDown("e") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
             attackPlayer = true;
@@ -74,7 +77,7 @@ public class PlayerAttack : MonoBehaviour
             attackTimer = 0;
         }
 
-        if (Input.GetKeyDown("joystick button 5") && !attackPlayer &&
+        if (Input.GetKeyDown("joystick button 5") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
             attackPlayer = true;
