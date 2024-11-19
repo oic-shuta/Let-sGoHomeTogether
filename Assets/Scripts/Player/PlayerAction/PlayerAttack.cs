@@ -5,6 +5,8 @@ using Effekseer;
 
 public class PlayerAttack : MonoBehaviour
 {
+    private Animator anim;
+
     [SerializeField]
     private EffekseerEmitter emitter;
 
@@ -38,6 +40,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
+
         playerController = GetComponent<PlayerController>();
 
         attackPlayerJudgmentRight.SetActive(false);
@@ -57,18 +61,23 @@ public class PlayerAttack : MonoBehaviour
         //攻撃判定の時間
         if (attackingTime < attackTimer && attackPlayer )
         {
+            anim.SetBool("Attack", false);
             attackPlayer = false;
         }
     }
 
     private void Attack()
     {
+
+        //キーボード
         if (Input.GetKeyDown("e") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
             attackPlayer = true;
             attackTimer = 0;
             emitter.Play();
+
+            anim.SetBool("Attack", true);
         }
         else if (Input.GetKeyDown("e") && !attackPlayer &&
             !playerController.playerDekatuyo && playerController.playerAttackType == 1)
@@ -77,12 +86,14 @@ public class PlayerAttack : MonoBehaviour
             attackTimer = 0;
         }
 
+        //コントローラ
         if (Input.GetKeyDown("joystick button 5") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
             attackPlayer = true;
             attackTimer = 0;
             emitter.Play();
+            anim.SetBool("Attack", true);
         }
         else if(Input.GetKeyDown("joystick button 5") && !attackPlayer &&
                  !playerController.playerDekatuyo && playerController.playerAttackType == 1)
