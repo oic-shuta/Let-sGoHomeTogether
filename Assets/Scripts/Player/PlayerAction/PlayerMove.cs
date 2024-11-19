@@ -99,6 +99,7 @@ public class PlayerMove : MonoBehaviour
             playerDirectionSpeedX = 0;
             anim.SetBool("Walk", false);
         }
+
     }
 
     //プレイヤージャンプ
