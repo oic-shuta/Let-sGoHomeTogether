@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    private Animator anim;
+
     [SerializeField]
     private PlayerController playerController;
 
@@ -25,6 +27,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
+
         playerController = GetComponent<PlayerController>();
 
         rig2D = GetComponent<Rigidbody2D>();
@@ -72,20 +76,29 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey("d") && Input.GetKey("a") )
         {
             playerDirectionSpeedX = 0;
+            anim.SetBool("Walk", false);
         }
         else if (Input.GetKey("a") || joystickLeft) //左方向
         {
             playerController.playerDirection = false;
 
             playerDirectionSpeedX = -1;
+
+            anim.SetBool("Walk", true);
         }
         else if (Input.GetKey("d") || joystickRight) //右方向
         {
             playerController.playerDirection = true;
 
             playerDirectionSpeedX = 1;
+
+            anim.SetBool("Walk", true);
         }
-        else { playerDirectionSpeedX = 0; }
+        else 
+        {
+            playerDirectionSpeedX = 0;
+            anim.SetBool("Walk", false);
+        }
     }
 
     //プレイヤージャンプ
