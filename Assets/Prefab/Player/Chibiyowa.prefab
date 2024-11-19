@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 4578192526261986914}
   - component: {fileID: 2773927079896768013}
   - component: {fileID: 8418151646196565491}
+  - component: {fileID: 7730330877691628203}
   m_Layer: 8
   m_Name: Chibiyowa
   m_TagString: Player
@@ -508,6 +509,7 @@ MonoBehaviour:
   playerAttackType: 1
   isOnGround: 0
   enemyHit: 0
+  fallOut: 0
 --- !u!114 &4578192526261986914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,8 +522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92cab276bc82734b8dc73c0f36d6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitter: {fileID: 8727215383583135575, guid: 2548245b0e1feed4aab742e0d6d79d19, type: 3}
+  emitter: {fileID: 0}
   playerController: {fileID: 369678053553401519}
+  carry: {fileID: 7730330877691628203}
   attackPlayerJudgmentRight: {fileID: 112719313113904576}
   attackPlayerJudgmentLeft: {fileID: 551697852044400861}
   attackingTime: 0.7
@@ -556,15 +559,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 369678053553401519}
-  gameContoller: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
+  gameContoller: {fileID: 0}
   playerInvincible: 0
   invincibleStartTime: 0
-  invincibleEndTime: 0
+  invincibleEndTime: 3
   playerBlink: 0
   blinkTimeStart: 0
-  blinkTimeEnd: 0.5
-  playerSprite: {fileID: 0}
+  blinkTimeEnd: 0.3
+  playerSprite: {fileID: 7020434777131075020}
   damageColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
+--- !u!114 &7730330877691628203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631800565977850200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2d25bb9729ab24d8647e0a2120e436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rig2D: {fileID: 0}
+  playerController: {fileID: 369678053553401519}
+  carryObject: {fileID: 7035062225361553903}
+  collisionObjectRight: {fileID: 7035062225361553903}
+  collisionObjectLeft: {fileID: 7035062225361553903}
+  onCarry: 0
+  objectTouch: 0
+  carryPos: {x: 0, y: 0, z: 0}
+  objectX: 0
+  objectY: 0
 --- !u!1 &7020434777131075020
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +602,7 @@ GameObject:
   - component: {fileID: 4258359368995902914}
   - component: {fileID: 2405608273967872764}
   - component: {fileID: 4563451992047752560}
+  - component: {fileID: 3880633300206262489}
   m_Layer: 0
   m_Name: ChibiyowaSprite
   m_TagString: Player
@@ -731,6 +757,22 @@ CircleCollider2D:
   m_Offset: {x: -0.03036936, y: 0.8502694}
   serializedVersion: 2
   m_Radius: 0.7147447
+--- !u!114 &3880633300206262489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7020434777131075020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e549ddd4696bea4796b092e5bdccff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 369678053553401519}
+  rotationObject: {fileID: 0}
+  playerSprite: {fileID: 7020434777131075020}
+  rotateOn: 0
 --- !u!1 &7035062225361553903
 GameObject:
   m_ObjectHideFlags: 0
