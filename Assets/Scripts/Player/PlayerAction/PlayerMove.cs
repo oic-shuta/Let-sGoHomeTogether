@@ -76,7 +76,8 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey("d") && Input.GetKey("a") )
         {
             playerDirectionSpeedX = 0;
-            anim.SetBool("Walk", false);
+            anim.SetBool("otouto_Walk", false);
+            anim.SetBool("ani_Walk", false);
         }
         else if (Input.GetKey("a") || joystickLeft) //ç∂ï˚å¸
         {
@@ -84,7 +85,7 @@ public class PlayerMove : MonoBehaviour
 
             playerDirectionSpeedX = -1;
 
-            anim.SetBool("Walk", true);
+            Animation();
         }
         else if (Input.GetKey("d") || joystickRight) //âEï˚å¸
         {
@@ -92,12 +93,13 @@ public class PlayerMove : MonoBehaviour
 
             playerDirectionSpeedX = 1;
 
-            anim.SetBool("Walk", true);
+            Animation();
         }
         else 
         {
             playerDirectionSpeedX = 0;
-            anim.SetBool("Walk", false);
+            anim.SetBool("otouto_Walk", false);
+            anim.SetBool("ani_Walk", false);
         }
 
     }
@@ -111,6 +113,18 @@ public class PlayerMove : MonoBehaviour
         {
             this.rig2D.AddForce(transform.up * playerController.playerJumpForce);
             playerController.isOnGround = false;
+        }
+    }
+
+    private void Animation()
+    {
+        if (playerController.playerDekatuyo)
+        {
+            anim.SetBool("otouto_Walk", true);
+        }
+        else if (!playerController.playerDekatuyo)
+        {
+            anim.SetBool("ani_Walk", true);
         }
     }
 }

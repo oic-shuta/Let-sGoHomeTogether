@@ -14,16 +14,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject playerSprite;
 
-    [SerializeField]
     private Rigidbody2D rig2D = null;
 
-    [SerializeField]
     private PlayerMove playerMove = null;
 
-    [SerializeField]
     private PlayerAttack playerAttack = null;
 
-    [SerializeField]
     private PlayerCarryObject carryObject = null;
 
     //現在の操作キャラ
@@ -50,12 +46,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float playerCarryJump = 0.5f;
 
-    [Tooltip("プレイヤーの向いている方向")]
-    [SerializeField]
+    [Tooltip("プレイヤーが右を向いてるか")]
     public bool playerDirection = true;
 
     //切り替え時の向いている方向
-    [SerializeField]
     private bool changeDirection = true;
 
     //どのキャラが動くかフラグ
@@ -194,4 +188,5 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
 }
