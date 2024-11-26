@@ -37,14 +37,17 @@ public class PlayerCarryObject : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
 
-        objectY = 0.5f;
+        objectY = -0.3f;
     }
 
     private void Update()
     {
-        CarryObject();
+        if (playerController.playerDekatuyo)
+        {
+            CarryObject();
 
-        CarryPos();
+            CarryPos();
+        }
     }
 
     private void CarryObject()

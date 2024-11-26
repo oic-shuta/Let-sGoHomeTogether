@@ -12,15 +12,9 @@ TagManager:
   - WaeponLight
   - OneWayOut
   - OneWay
-
-  - Switch
-  - Floor
-  - TutaSwitch
-  - FloorSwitch
-  - WallSwitch
-  - Wall
-
-
+  - FallOut
+  - Seesaw
+  - WoodChange
   layers:
   - Default
   - TransparentFX
@@ -28,9 +22,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Player1
-  - CarryObject
-  - Player2
+  - 
+  - 
+  - 
   - 
   - 
   - 

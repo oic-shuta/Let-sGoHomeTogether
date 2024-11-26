@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 
 public class WoodObject : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody2D rig2D;
-
-    [SerializeField]
-    private GameObject wood;
+    private GameObject coll;
 
     [SerializeField]
     private GameObject downWood;
@@ -16,11 +14,15 @@ public class WoodObject : MonoBehaviour
     [SerializeField]
     private bool down = false;
 
+    [SerializeField]
+    private bool change = false;
+
+    [SerializeField]
+    private GameObject rateWood;
+
     private void Start()
     {
-        rig2D = GetComponent<Rigidbody2D>();
-
-        wood = this.gameObject;
+        
     }
 
     private void Update()
@@ -30,9 +32,20 @@ public class WoodObject : MonoBehaviour
 
     private void TEST()
     {
+        int i = 0;
         if(down)
         {
-            return;
+            down = false;
+            this.gameObject.transform.rotation = rateWood.transform.rotation;
+        }
+
+        if (change)
+        {
+            coll.SetActive(false);
+
+            downWood.SetActive(true);
+
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -41,6 +54,11 @@ public class WoodObject : MonoBehaviour
         if (collision.CompareTag("WeaponAttack"))
         {
             down = true;
+        }
+
+        if (collision.CompareTag("WoodChange"))
+        {
+            change = true;
         }
     }
 
