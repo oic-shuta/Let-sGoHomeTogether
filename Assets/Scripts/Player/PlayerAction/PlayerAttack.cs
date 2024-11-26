@@ -61,8 +61,8 @@ public class PlayerAttack : MonoBehaviour
         //UŒ‚”»’è‚ÌŠÔ
         if (attackingTime < attackTimer && attackPlayer )
         {
-            anim.SetBool("Attack", false);
             attackPlayer = false;
+            Animation();
         }
     }
 
@@ -76,14 +76,14 @@ public class PlayerAttack : MonoBehaviour
             attackPlayer = true;
             attackTimer = 0;
             emitter.Play();
-
-            anim.SetBool("Attack", true);
+            Animation();
         }
         else if (Input.GetKeyDown("e") && !attackPlayer &&
             !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
             attackPlayer = true;
             attackTimer = 0;
+            Animation();
         }
 
         //ƒRƒ“ƒgƒ[ƒ‰
@@ -93,13 +93,49 @@ public class PlayerAttack : MonoBehaviour
             attackPlayer = true;
             attackTimer = 0;
             emitter.Play();
-            anim.SetBool("Attack", true);
+            Animation();
         }
         else if(Input.GetKeyDown("joystick button 5") && !attackPlayer &&
                  !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
             attackPlayer = true;
             attackTimer = 0;
+            Animation();
+        }
+    }
+    private void Animation()
+    {
+        if (playerController.playerDekatuyo)
+        {
+            DekatuyoAnimaSet();
+        }
+        else if (!playerController.playerDekatuyo)
+        {
+            ChibiyowaAnimaSet();
+        }
+    }
+
+    private void DekatuyoAnimaSet()
+    {
+        if (attackPlayer)
+        {
+            anim.SetBool("otouto_Attack", true);
+        }
+        else if (!attackPlayer)
+        {
+            anim.SetBool("otouto_Attack", false);
+        }
+    }
+
+    private void ChibiyowaAnimaSet()
+    {
+        if (attackPlayer)
+        {
+            anim.SetBool("ani_Light", true);
+        }
+        else if (!attackPlayer)
+        {
+            anim.SetBool("ani_Light", false);
         }
     }
 }
