@@ -18,7 +18,7 @@ public class WoodObject : MonoBehaviour
     private bool change = false;
 
     [SerializeField]
-    private GameObject rateWood;
+    private GameObject posWood;
 
     private void Start()
     {
@@ -32,11 +32,10 @@ public class WoodObject : MonoBehaviour
 
     private void TEST()
     {
-        int i = 0;
         if(down)
         {
             down = false;
-            this.gameObject.transform.rotation = rateWood.transform.rotation;
+            this.gameObject.transform.position = posWood.transform.position;
         }
 
         if (change)
