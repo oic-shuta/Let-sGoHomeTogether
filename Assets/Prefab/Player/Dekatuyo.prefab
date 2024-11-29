@@ -516,7 +516,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.02, y: -1.56, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3315278010106847599}
@@ -668,6 +668,7 @@ MonoBehaviour:
   playerAttackType: 0
   isOnGround: 0
   enemyHit: 0
+  fallOut: 0
 --- !u!114 &4929015366630446990
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GamePad : MonoBehaviour
 {
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         if(Input.GetKeyDown("joystick button 0"))

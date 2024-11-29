@@ -5,24 +5,23 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
+    //ギミックの変数
+    [SerializeField] private GameObject Floor;
+
+    public bool wallon = false;           //壁スイッチのフラグ
+    public bool tutaon = false;           //ツタスイッチのフラグ
+
+
     //スイッチの変数
     public GameObject TutaSwitch;   　//ツタギミックのスイッチ
-    public GameObject WallSwitch;     //壁が動くギミックのスイッチ
+    public GameObject WallSwitch;     //壁を上下に移動させるスイッチ
     public GameObject FloorSwitch;    //足場を表示させるスイッチ
 
-    //スイッチの識別変数
-    int i = 0;
+    int i = 0;                        //スイッチの識別変数
+
 
     //プレイヤーの座標を入れる変数
     public GameObject Player;
-
-    //ギミックの変数
-    [SerializeField] private GameObject Wall;
-    [SerializeField] private GameObject Floor;
-
-    //壁の移動量
-    Vector3 UpMove = new Vector3(0, 5, 0);
-    Vector3 DownMove = new Vector3(0, -5, 0);
 
 
     private void Start()
@@ -37,13 +36,13 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int a = 1;
-
         //プレイヤーがツタスイッチを押したら
         if (gameObject.CompareTag("TutaSwitch") && collision.gameObject.CompareTag("Player"))
         {
             i = 1;
             Debug.Log("ツタスイッチを押したよ！");
+
+            tutaon = true;
         }
         //プレイヤーが壁スイッチを押したら
         else if (gameObject.CompareTag("WallSwitch") && collision.gameObject.CompareTag("Player"))
@@ -51,9 +50,7 @@ public class Switch : MonoBehaviour
             i = 2;
             Debug.Log("壁スイッチを押したよ！");
 
-            
-            //壁が上に移動
-            Wall.transform.Translate(UpMove);
+            wallon = true;
         }
         //プレイヤーが足場スイッチを押したら
         else if (gameObject.CompareTag("FloorSwitch") && collision.gameObject.CompareTag("Player"))
@@ -66,16 +63,16 @@ public class Switch : MonoBehaviour
         }
     }
    
-    //足場のスイッチから離れた時足場を非表示にする
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //足場のスイッチから離れた時足場を非表示にする
         if (gameObject.CompareTag("FloorSwitch") && collision.gameObject.CompareTag("Player"))
         {
             Floor.SetActive(false);
         }
-        else if (gameObject.CompareTag("WallSwitch") && collision.gameObject.CompareTag("Player"))
-        {
-            Wall.transform.Translate(DownMove);
-        }
+        
     }
+
+    
 }
