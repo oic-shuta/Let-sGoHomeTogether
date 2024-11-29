@@ -12,9 +12,11 @@ TagManager:
   - WaeponLight
   - OneWayOut
   - OneWay
-  - FallOut
-  - Seesaw
-  - WoodChange
+
+  - Floor
+  - FloorSwitch
+  - WallSwitch
+
   layers:
   - Default
   - TransparentFX
