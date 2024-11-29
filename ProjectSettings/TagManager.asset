@@ -12,16 +12,9 @@ TagManager:
   - WaeponLight
   - OneWayOut
   - OneWay
-  - FallOut
-  - Seesaw
-  - Ibara
   - Floor
-  - Wall
-  - Switch
   - FloorSwitch
-  - TutaSwitch
   - WallSwitch
-  - Tuta
   layers:
   - Default
   - TransparentFX
