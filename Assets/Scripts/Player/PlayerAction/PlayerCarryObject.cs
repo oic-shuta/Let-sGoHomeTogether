@@ -33,6 +33,11 @@ public class PlayerCarryObject : MonoBehaviour
     [SerializeField]
     private float objectX ,objectY;
 
+    [SerializeField]
+    private bool not = false;
+
+    [SerializeField]
+    private GameObject noHand;
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -42,6 +47,10 @@ public class PlayerCarryObject : MonoBehaviour
 
     private void Update()
     {
+        if(carryObject.name == "None")
+        {
+            not = true;
+        }
         if (playerController.playerDekatuyo)
         {
             CarryObject();
@@ -129,15 +138,18 @@ public class PlayerCarryObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("CarryObject"))
+        if (!not)
         {
-            objectTouch = true;
-            carryObject = collision.gameObject;
-        }
-        else if (collision.CompareTag("CarryOutObject"))
-        {
-            objectTouch = false;
-            carryObject = null;
+            if (collision.CompareTag("CarryObject"))
+            {
+                objectTouch = true;
+                carryObject = collision.gameObject;
+            }
+            else if (collision.CompareTag("CarryOutObject"))
+            {
+                objectTouch = false;
+                carryObject = noHand;
+            }
         }
     }
 }
