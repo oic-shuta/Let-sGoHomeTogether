@@ -52,8 +52,6 @@ public class PlayerAttack : MonoBehaviour
     //ƒvƒŒƒCƒ„[‚ÌUŒ‚
     public void AttackPlayer()
     {
-        playerController.PlayerMoveType();
-
         Attack();
 
         attackTimer += Time.deltaTime;

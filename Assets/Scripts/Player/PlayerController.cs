@@ -84,7 +84,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
+        PlayerMoveType();
+
         playerMove.JumpPlayer();
 
         playerAttack.AttackPlayer();
@@ -120,7 +122,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //キャラごとの動き
-    public void PlayerMoveType()
+    private void PlayerMoveType()
     {
         //でかつよのステータス
         if (moveType == PlayerType.Dekatsuyo && playerDekatuyo)
