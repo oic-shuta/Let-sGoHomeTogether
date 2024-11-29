@@ -12,6 +12,9 @@ TagManager:
   - WaeponLight
   - OneWayOut
   - OneWay
+  - FallOut
+  - Seesaw
+  - WoodChange
   layers:
   - Default
   - TransparentFX
@@ -19,9 +22,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Player1
-  - CarryObject
-  - Player2
+  - 
+  - 
+  - 
   - 
   - 
   - 

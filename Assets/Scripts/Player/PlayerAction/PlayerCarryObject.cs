@@ -33,24 +33,36 @@ public class PlayerCarryObject : MonoBehaviour
     [SerializeField]
     private float objectX ,objectY;
 
+    [SerializeField]
+    private bool not = false;
+
+    [SerializeField]
+    private GameObject noHand;
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
 
-        objectY = 0.5f;
+        objectY = -0.3f;
     }
 
     private void Update()
     {
-        CarryObject();
+        if(carryObject.name == "None")
+        {
+            not = true;
+        }
+        if (playerController.playerDekatuyo)
+        {
+            CarryObject();
 
-        CarryPos();
+            CarryPos();
+        }
     }
 
     private void CarryObject()
     {
-        if (Input.GetKeyDown("space") && !onCarry && objectTouch
-            || Input.GetKeyDown("joystick button 3") && !onCarry && objectTouch)
+        //キーボード
+        if (Input.GetKeyDown("space") && !onCarry && objectTouch　&& playerController.isOnGround)
         {
             onCarry = true;
             carryObject.transform.parent = this.gameObject.transform;
@@ -58,8 +70,25 @@ public class PlayerCarryObject : MonoBehaviour
             rig2D = carryObject.GetComponent<Rigidbody2D>();
             carryObject.layer = 6;
         }
-        else if (Input.GetKeyDown("space") && onCarry 
-            || Input.GetKeyDown("joystick button 3") && onCarry)
+        else if (Input.GetKeyDown("space") && onCarry)
+        {
+            onCarry = false;
+            rig2D.bodyType = RigidbodyType2D.Dynamic;
+            rig2D = null;
+            carryObject.layer = 7;
+            carryObject.transform.parent = null;
+        }
+
+        //コントローラ
+        if(Input.GetKeyDown("joystick button 3") && !onCarry && objectTouch && playerController.isOnGround)
+        {
+            onCarry = true;
+            carryObject.transform.parent = this.gameObject.transform;
+            carryPos = carryObject.transform.position;
+            rig2D = carryObject.GetComponent<Rigidbody2D>();
+            carryObject.layer = 6;
+        }
+        else if(Input.GetKeyDown("joystick button 3") && onCarry)
         {
             onCarry = false;
             rig2D.bodyType = RigidbodyType2D.Dynamic;
@@ -109,15 +138,18 @@ public class PlayerCarryObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("CarryObject"))
+        if (!not)
         {
-            objectTouch = true;
-            carryObject = collision.gameObject;
-        }
-        else if (collision.CompareTag("CarryOutObject"))
-        {
-            objectTouch = false;
-            carryObject = null;
+            if (collision.CompareTag("CarryObject"))
+            {
+                objectTouch = true;
+                carryObject = collision.gameObject;
+            }
+            else if (collision.CompareTag("CarryOutObject"))
+            {
+                objectTouch = false;
+                carryObject = noHand;
+            }
         }
     }
 }

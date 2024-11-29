@@ -1,3 +1,4 @@
+using EffekseerTool.Data;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,17 +9,20 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField]
     private PlayerController playerController;
 
+    [SerializeField]
+    private GameContoller gameContoller;
+
     [Tooltip("無敵状態")]
     [SerializeField]
-    private bool playerInvincible = false;
+    public bool playerInvincible = false;
 
     [Tooltip("無敵中時間")]
     [SerializeField]
-    private float invincibleTimeStart = 0;
+    private float invincibleStartTime = 0;
 
     [Tooltip("無敵終了タイム")]
     [SerializeField]
-    private float invincibleTimerEnd = 0;
+    private float invincibleEndTime = 0;
 
     [Tooltip("無敵時の点滅")]
     [SerializeField]
@@ -31,6 +35,14 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField]
     private float blinkTimeEnd = 0;
 
+    //プレイヤーのイラスト
+    [SerializeField]
+    private GameObject playerSprite;
+
+    //ダメージ受けた時のカラーとアルファ値
+    [SerializeField]
+    private Color damageColor = new Color(0.2f, 0.2f, 0.2f, 0.7f);
+
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -38,35 +50,25 @@ public class PlayerDamage : MonoBehaviour
 
     private void Update()
     {
-        InvincibleTimer();
-    }
+        InvincibleTime();
 
-    //敵に当たった時ライフを減らす
-    //無敵付与
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-    }
-
-    //ライフが0になったら死ぬ
-    public void PlayerDead()
-    {
-
+        FallPlayer();
     }
 
     //無敵時間
-    private void InvincibleTimer()
+    private void InvincibleTime()
     {
-        if (playerInvincible)   
+        if (playerController.enemyHit)
         {
+            Damage();
             //無敵時間
-            invincibleTimeStart += 1 * Time.deltaTime;
+            invincibleStartTime += 1 * Time.deltaTime;
             blinkTimeStart += 1 * Time.deltaTime;
-            if (invincibleTimeStart > invincibleTimerEnd)
+            if (invincibleStartTime > invincibleEndTime) //無敵時間終了
             {
-                playerInvincible = false;
+                playerController.enemyHit = false;
                 playerBlink = false;
-                invincibleTimeStart = 0;
+                invincibleStartTime = 0;
             }
 
             if(blinkTimeStart > blinkTimeEnd)//点滅間隔
@@ -75,7 +77,39 @@ public class PlayerDamage : MonoBehaviour
                 
                 playerBlink = !playerBlink;
             }
-            
+            PlayerBlink();　
+        }
+    }
+    
+    //ライフ減少
+    private void Damage()
+    {
+        if (playerController.enemyHit && invincibleStartTime <= 0)
+        {
+            gameContoller.playerLife--;
+        }
+    }
+
+    //点滅する
+    private void PlayerBlink()
+    {
+        if (playerBlink)
+        {
+            playerSprite.GetComponent<SpriteRenderer>().color = damageColor;
+        }
+        else if (!playerBlink)
+        {
+            playerSprite.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+
+    private void FallPlayer()
+    {
+        if (playerController.fallOut)
+        {
+            gameContoller.PlayerFallOut();
+
+            playerController.fallOut = false;
         }
     }
 }
