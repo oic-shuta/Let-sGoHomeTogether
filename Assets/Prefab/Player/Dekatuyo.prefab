@@ -667,7 +667,6 @@ MonoBehaviour:
   playerAttackType: 0
   isOnGround: 0
   enemyHit: 0
-  fallOut: 0
 --- !u!114 &4929015366630446990
 MonoBehaviour:
   m_ObjectHideFlags: 0
