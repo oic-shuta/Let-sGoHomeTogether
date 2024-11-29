@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        anim.SetBool("run", true);
+        anim.SetBool("run", false);
 
         if(circleCollider.bounds.Contains(playerTr.position))
         {
@@ -56,15 +56,9 @@ public class Enemy : MonoBehaviour
             rbody2D.velocity = new Vector2(speed, rbody2D.velocity.y);
         }
         
-        if(Vector2.Distance(transform.position,playerTr.position)< 0.1f)
-        {
-            anim.SetBool("run", false);
-        }
-
-
-        
-
     }
+
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -73,6 +67,11 @@ public class Enemy : MonoBehaviour
         {
             // Wolfオブジェクトを消去する
             Destroy(this.gameObject);
+        }
+
+        if(collision.gameObject.tag == "Player")
+        {
+            anim.SetBool("run", true);
         }
     }
 
