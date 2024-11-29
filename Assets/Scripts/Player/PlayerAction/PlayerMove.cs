@@ -43,8 +43,6 @@ public class PlayerMove : MonoBehaviour
     {
         PlayerDirection();
 
-        playerController.PlayerMoveType();
-
         Vector3 movePos = new Vector3(playerDirectionSpeedX, 0, 0) * playerController.playerSpeed * Time.deltaTime;
         this.transform.position += movePos;
 
@@ -76,8 +74,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey("d") && Input.GetKey("a") )
         {
             playerDirectionSpeedX = 0;
-            anim.SetBool("otouto_Walk", false);
-            anim.SetBool("ani_Walk", false);
+            AnimaEnd();
         }
         else if (Input.GetKey("a") || joystickLeft) //左方向
         {
@@ -98,8 +95,7 @@ public class PlayerMove : MonoBehaviour
         else 
         {
             playerDirectionSpeedX = 0;
-            anim.SetBool("otouto_Walk", false);
-            anim.SetBool("ani_Walk", false);
+            AnimaEnd();
         }
 
     }
@@ -107,7 +103,7 @@ public class PlayerMove : MonoBehaviour
     //プレイヤージャンプ
     public void JumpPlayer()
     {
-        playerController.PlayerMoveType();
+        
         if (Input.GetKeyDown("w") && playerController.isOnGround ||
             Input.GetKeyDown("joystick button 0") && playerController.isOnGround)
         {
@@ -126,5 +122,11 @@ public class PlayerMove : MonoBehaviour
         {
             anim.SetBool("ani_Walk", true);
         }
+    }
+
+    private void AnimaEnd()
+    {
+        anim.SetBool("otouto_Walk", false);
+        anim.SetBool("ani_Walk", false);
     }
 }
