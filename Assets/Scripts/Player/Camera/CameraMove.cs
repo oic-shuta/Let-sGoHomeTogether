@@ -34,7 +34,7 @@ public class CameraMove : MonoBehaviour
         cameraTarget.CameraChange();
     }
 
-    public void MoveCamara()
+    public void CamaraPos()
     {
         cameraPos = cameraTarget.targetObject.transform.position;
 

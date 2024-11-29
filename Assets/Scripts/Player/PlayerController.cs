@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public enum PlayerType
@@ -15,16 +14,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject playerSprite;
 
-    [SerializeField]
     private Rigidbody2D rig2D = null;
 
-    [SerializeField]
     private PlayerMove playerMove = null;
 
-    [SerializeField]
     private PlayerAttack playerAttack = null;
 
-    [SerializeField]
     private PlayerCarryObject carryObject = null;
 
     //現在の操作キャラ
@@ -51,12 +46,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float playerCarryJump = 0.5f;
 
-    [Tooltip("プレイヤーの向いている方向")]
-    [SerializeField]
+    [Tooltip("プレイヤーが右を向いてるか")]
     public bool playerDirection = true;
 
     //切り替え時の向いている方向
-    [SerializeField]
     private bool changeDirection = true;
 
     //どのキャラが動くかフラグ
@@ -72,6 +65,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isOnGround = false;
 
+    [Tooltip("敵に当たってるか")]
+    [SerializeField]
+    public bool enemyHit = false;
+
+    [SerializeField]
+    public bool fallOut = false;
+
     private void Start()
     {
         rig2D = GetComponent<Rigidbody2D>();
@@ -84,7 +84,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
+        PlayerMoveType();
+
         playerMove.JumpPlayer();
 
         playerAttack.AttackPlayer();
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
         TimeStop();
     }
+
 
     private void TimeStop()
     {
@@ -119,21 +122,21 @@ public class PlayerController : MonoBehaviour
     }
 
     //キャラごとの動き
-    public void PlayerMoveType()
+    private void PlayerMoveType()
     {
         //でかつよのステータス
-        if (moveType == PlayerType.Dekatsuyo && playerDekatuyo == true)
+        if (moveType == PlayerType.Dekatsuyo && playerDekatuyo)
         {
             playerSpeed = 5;
             playerJumpForce = 1200;
             playerAttackType = 0;
-            if (carryObject.onCarry == true)
+            if (carryObject.onCarry)
             {
                 playerJumpForce *= playerCarryJump;
             }
         }
         //ちびよわのステータス
-        else if (moveType == PlayerType.Chibiyowa && playerDekatuyo == false)
+        else if (moveType == PlayerType.Chibiyowa && !playerDekatuyo)
         {
             playerSpeed = 5;
             playerJumpForce = 300;
@@ -175,5 +178,17 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;      //地面にいる
         }
+        //敵との接触判定
+        if (collision.CompareTag("Enemy") && !enemyHit)
+        {
+            enemyHit = true;
+        }
+        //プレイヤーが画面外に落下
+        if (collision.CompareTag("FallOut"))
+        {
+            fallOut = true;
+        }
+
     }
+
 }
