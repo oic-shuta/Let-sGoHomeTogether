@@ -12,9 +12,11 @@ TagManager:
   - WaeponLight
   - OneWayOut
   - OneWay
+
   - Floor
   - FloorSwitch
   - WallSwitch
+
   layers:
   - Default
   - TransparentFX

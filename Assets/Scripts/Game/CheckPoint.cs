@@ -7,6 +7,7 @@ public class CheckPoint : MonoBehaviour
     [SerializeField]
     private GameContoller gameController;
 
+
     [SerializeField]
     private GameObject chaeckPoint;
 

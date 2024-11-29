@@ -32,11 +32,9 @@ public class SeesawObject : MonoBehaviour
         if(seesaw.transform.rotation.z < minRotate.transform.rotation.z)
         {
             seesaw.transform.rotation = minRotate.transform.rotation;
-            Debug.Log("i");
         }
         else if(seesaw.transform.rotation.z > maxRotate.transform.rotation.z)
         {
-            Debug.Log("u");
             seesaw.transform.rotation = maxRotate.transform.rotation;
         }
         this.gameObject.transform.rotation = seesaw.transform.rotation;

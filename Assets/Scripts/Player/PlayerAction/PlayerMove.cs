@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    private Animator anim;
+
     [SerializeField]
     private PlayerController playerController;
 
@@ -25,6 +27,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
+
         playerController = GetComponent<PlayerController>();
 
         rig2D = GetComponent<Rigidbody2D>();
@@ -38,8 +42,6 @@ public class PlayerMove : MonoBehaviour
     public void MovePlayer()
     {
         PlayerDirection();
-
-        playerController.PlayerMoveType();
 
         Vector3 movePos = new Vector3(playerDirectionSpeedX, 0, 0) * playerController.playerSpeed * Time.deltaTime;
         this.transform.position += movePos;
@@ -72,31 +74,59 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKey("d") && Input.GetKey("a") )
         {
             playerDirectionSpeedX = 0;
+            AnimaEnd();
         }
         else if (Input.GetKey("a") || joystickLeft) //左方向
         {
             playerController.playerDirection = false;
 
             playerDirectionSpeedX = -1;
+
+            Animation();
         }
         else if (Input.GetKey("d") || joystickRight) //右方向
         {
             playerController.playerDirection = true;
 
             playerDirectionSpeedX = 1;
+
+            Animation();
         }
-        else { playerDirectionSpeedX = 0; }
+        else 
+        {
+            playerDirectionSpeedX = 0;
+            AnimaEnd();
+        }
+
     }
 
     //プレイヤージャンプ
     public void JumpPlayer()
     {
-        playerController.PlayerMoveType();
+        
         if (Input.GetKeyDown("w") && playerController.isOnGround ||
             Input.GetKeyDown("joystick button 0") && playerController.isOnGround)
         {
             this.rig2D.AddForce(transform.up * playerController.playerJumpForce);
             playerController.isOnGround = false;
         }
+    }
+
+    private void Animation()
+    {
+        if (playerController.playerDekatuyo)
+        {
+            anim.SetBool("otouto_Walk", true);
+        }
+        else if (!playerController.playerDekatuyo)
+        {
+            anim.SetBool("ani_Walk", true);
+        }
+    }
+
+    private void AnimaEnd()
+    {
+        anim.SetBool("otouto_Walk", false);
+        anim.SetBool("ani_Walk", false);
     }
 }

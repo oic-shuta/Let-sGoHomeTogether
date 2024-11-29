@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+	    function doPreview() {
+	        var canvas = document.getElementById("canvas");
+	        var ctx = canvas.getContext("2d");
+
+			var imglist = [
+				'./yuurei_walk_0000.png',
+				'./yuurei_walk_0001.png',
+				'./yuurei_walk_0002.png',
+				'./yuurei_walk_0003.png',
+				'./yuurei_walk_0004.png',
+				'./yuurei_walk_0005.png',
+				'./yuurei_walk_0006.png',
+
+			];
+			
+			var imglistsize = imglist.length;
+			var img = new Array(imglistsize);
+			for ( var i = 0 ; i < imglistsize ; i++ )
+			{
+				img[i] = new Image();
+				img[i].src = imglist[i];
+			}
+			
+			var cnt = 0;
+	        setInterval(function () {
+	            ctx.save();
+	            ctx.clearRect(-512, -512, 512 * 2, 512 * 2);
+				ctx.drawImage( img[cnt] , 0 , 0 );
+	            ctx.restore();
+				cnt++;
+				if (cnt >= imglistsize ) cnt = 0;
+	        }, 165);
+
+	    };
+	</script>
+</head>
+
+<body onLoad="doPreview()">
+    <div id="Screen" style="font-size:8px;text-align:center;"></div>
+	<canvas id="canvas" width="512" height="512">
+	</canvas>
+</body>
+
+</html>
