@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     Transform playerTr;
     
     Collider2D col;
+    private Animator anim = null;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +20,15 @@ public class Enemy : MonoBehaviour
         playerTr = GameObject.FindGameObjectWithTag("Player").transform;
         col = GetComponent<CapsuleCollider2D>();
         circleCollider = col.GetComponent<CircleCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+        anim.SetBool("run", true);
+
         if(circleCollider.bounds.Contains(playerTr.position))
         {
             // í«Ç¡ÇƒÇ≠ÇÈèàóùÇÇ±Ç±Ç≈èëÇ≠
@@ -52,6 +55,13 @@ public class Enemy : MonoBehaviour
             transform.localScale = scale;
             rbody2D.velocity = new Vector2(speed, rbody2D.velocity.y);
         }
+        
+        if(Vector2.Distance(transform.position,playerTr.position)< 0.1f)
+        {
+            anim.SetBool("run", false);
+        }
+
+
         
 
     }
