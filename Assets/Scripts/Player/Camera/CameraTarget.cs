@@ -11,11 +11,11 @@ public class CameraTarget : MonoBehaviour
     private CameraController cameraController;
 
     [Header("どのキャラにカメラを向けるか")]
-    [Tooltip("でかつよ")]
+    [Tooltip("でかつよ(サブカメラは逆)")]
     [SerializeField]
     public GameObject Dekatuyo;
 
-    [Tooltip("ちびよわ")]
+    [Tooltip("ちびよわ(サブカメラは逆)")]
     [SerializeField]
     public GameObject Chibiyowa;
 
