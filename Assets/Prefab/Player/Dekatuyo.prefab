@@ -522,7 +522,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92cab276bc82734b8dc73c0f36d6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitter: {fileID: 0}
   playerController: {fileID: 5854023089815853194}
   carry: {fileID: 1488612806585169673}
   attackPlayerJudgmentRight: {fileID: 8117000898585502509}
@@ -624,7 +623,6 @@ GameObject:
   - component: {fileID: 5452090429054372860}
   - component: {fileID: 27979033899008930}
   - component: {fileID: 8687652593768258223}
-  - component: {fileID: 2671713871146436898}
   m_Layer: 6
   m_Name: Attack
   m_TagString: WeaponAttack
@@ -708,27 +706,6 @@ MonoBehaviour:
   controller: {fileID: 5854023089815853194}
   attackColl: {fileID: 0}
   strat: {fileID: 4942070287490564704}
-  right: {fileID: 6132978310572460205}
-  left: {fileID: 7609728475719608722}
-  dest: {fileID: 0}
-  on: 1
-  speed: 2.5
---- !u!114 &2671713871146436898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117000898585502509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61cfb1a3927b388499824f2501d0aa90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: {fileID: 4929015366630446990}
-  controller: {fileID: 5854023089815853194}
-  attackColl: {fileID: 0}
-  strat: {fileID: 7853032650475366312}
   right: {fileID: 6132978310572460205}
   left: {fileID: 7609728475719608722}
   dest: {fileID: 0}

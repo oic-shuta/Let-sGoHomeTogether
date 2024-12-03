@@ -212,10 +212,6 @@ PrefabInstance:
       propertyPath: gameContoller
       value: 
       objectReference: {fileID: 789880625}
-    - target: {fileID: 4929015366630446990, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
-      propertyPath: emitter
-      value: 
-      objectReference: {fileID: 1671814995}
     - target: {fileID: 7293100762684689928, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
       propertyPath: m_Name
       value: Dekatuyo
@@ -2023,6 +2019,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1141701652}
     m_Modifications:
+    - target: {fileID: 396938424662110570, guid: 36f387f800762d74d9b01663f7e87188, type: 3}
+      propertyPath: m_Name
+      value: HitEffect
+      objectReference: {fileID: 0}
     - target: {fileID: 735713460356916859, guid: 36f387f800762d74d9b01663f7e87188, type: 3}
       propertyPath: emitter
       value: 
@@ -2030,6 +2030,10 @@ PrefabInstance:
     - target: {fileID: 1916005828425544186, guid: 36f387f800762d74d9b01663f7e87188, type: 3}
       propertyPath: m_Name
       value: WoodObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 2244203186212720343, guid: 36f387f800762d74d9b01663f7e87188, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5904942904701980236, guid: 36f387f800762d74d9b01663f7e87188, type: 3}
       propertyPath: m_LocalPosition.x
