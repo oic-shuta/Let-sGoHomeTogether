@@ -674,14 +674,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Let-sGoHomeTogether
+  metroPackageName: Let'sGoHomeTogether
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Let-sGoHomeTogether
+  metroApplicationDescription: Let'sGoHomeTogether
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0

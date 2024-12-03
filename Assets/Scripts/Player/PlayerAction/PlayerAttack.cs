@@ -59,8 +59,8 @@ public class PlayerAttack : MonoBehaviour
         //UŒ‚”»’è‚ÌŠÔ
         if (attackingTime < attackTimer && attackPlayer )
         {
-            attackPlayer = false;
             Animation();
+            attackPlayer = false;
         }
     }
 
@@ -71,34 +71,34 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown("e") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
+            Animation();
             attackPlayer = true;
             attackTimer = 0;
             emitter.Play();
-            Animation();
         }
         else if (Input.GetKeyDown("e") && !attackPlayer &&
             !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
+            Animation();
             attackPlayer = true;
             attackTimer = 0;
-            Animation();
         }
 
         //ƒRƒ“ƒgƒ[ƒ‰
         if (Input.GetKeyDown("joystick button 5") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
+            Animation();
             attackPlayer = true;
             attackTimer = 0;
             emitter.Play();
-            Animation();
         }
         else if(Input.GetKeyDown("joystick button 5") && !attackPlayer &&
                  !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
+            Animation();
             attackPlayer = true;
             attackTimer = 0;
-            Animation();
         }
     }
     private void Animation()
