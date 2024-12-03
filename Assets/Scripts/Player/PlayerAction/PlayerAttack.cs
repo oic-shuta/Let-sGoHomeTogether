@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [Header("アニメーション")]
     private Animator anim;
 
     [SerializeField]
+    private string aniMotion = "ani_Light";
+
+    [SerializeField]
+    private string otoutoMotion = "otouto_Attack";
+
     private PlayerController playerController;
 
     [SerializeField]
@@ -40,6 +46,8 @@ public class PlayerAttack : MonoBehaviour
         anim = GetComponent<Animator>();
 
         playerController = GetComponent<PlayerController>();
+
+        carry = GetComponent<PlayerCarryObject>();
 
         attackPlayerJudgmentRight.SetActive(false);
 
@@ -112,11 +120,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (attackPlayer)
         {
-            anim.SetBool("otouto_Attack", true);
+            anim.SetBool(otoutoMotion, true);
         }
         else if (!attackPlayer)
         {
-            anim.SetBool("otouto_Attack", false);
+            anim.SetBool(otoutoMotion, false);
         }
     }
 
@@ -124,11 +132,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (attackPlayer)
         {
-            anim.SetBool("ani_Light", true);
+            anim.SetBool(aniMotion, true);
         }
         else if (!attackPlayer)
         {
-            anim.SetBool("ani_Light", false);
+            anim.SetBool(aniMotion, false);
         }
     }
 }
