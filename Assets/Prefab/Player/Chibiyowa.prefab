@@ -511,8 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92cab276bc82734b8dc73c0f36d6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitter: {fileID: 0}
-  playerController: {fileID: 369678053553401519}
+  aniMotion: ani_Light
+  otoutoMotion: otouto_Attack
   carry: {fileID: 7730330877691628203}
   attackPlayerJudgmentRight: {fileID: 4869205002318163325}
   attackPlayerJudgmentLeft: {fileID: 551697852044400861}
