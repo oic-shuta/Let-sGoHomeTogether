@@ -81,6 +81,8 @@ public class PlayerController : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
 
         carryObject = GetComponent<PlayerCarryObject>();
+
+        playerDekatuyo = true;
     }
 
     private void Update()
