@@ -1,10 +1,16 @@
+using Effekseer.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
+using Effekseer;
 
 public class WoodObject : MonoBehaviour
 {
+
+    [SerializeField]
+    private EffekseerEmitter emitter;
+
     [SerializeField]
     private GameObject coll;
 
@@ -52,6 +58,7 @@ public class WoodObject : MonoBehaviour
     {
         if (collision.CompareTag("WeaponAttack"))
         {
+            emitter.Play();
             down = true;
         }
 

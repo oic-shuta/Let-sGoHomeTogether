@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Effekseer;
+
 
 public class PlayerAttack : MonoBehaviour
 {
     private Animator anim;
-
-    [SerializeField]
-    private EffekseerEmitter emitter;
 
     [SerializeField]
     private PlayerController playerController;
@@ -71,15 +68,14 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown("e") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
-            Animation();
+            //Animation();
             attackPlayer = true;
             attackTimer = 0;
-            emitter.Play();
         }
         else if (Input.GetKeyDown("e") && !attackPlayer &&
             !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
-            Animation();
+            //Animation();
             attackPlayer = true;
             attackTimer = 0;
         }
@@ -88,18 +84,17 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown("joystick button 5") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
-            Animation();
+            //Animation();
             attackPlayer = true;
             attackTimer = 0;
-            emitter.Play();
         }
         else if(Input.GetKeyDown("joystick button 5") && !attackPlayer &&
                  !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
-            Animation();
             attackPlayer = true;
             attackTimer = 0;
         }
+            Animation();
     }
     private void Animation()
     {
