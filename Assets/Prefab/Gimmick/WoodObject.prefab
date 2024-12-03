@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8559699259679884040}
   - component: {fileID: 673847612889409525}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: HitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 4420197642547244023}
   m_Layer: 0
   m_Name: DownWood
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
