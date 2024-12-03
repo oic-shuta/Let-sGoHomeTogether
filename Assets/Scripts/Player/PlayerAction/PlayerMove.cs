@@ -73,29 +73,29 @@ public class PlayerMove : MonoBehaviour
         //i‚Ş•ûŒü‚ÆŒü‚¢‚Ä‚é•ûŒü
         if (Input.GetKey("d") && Input.GetKey("a") )
         {
-            playerDirectionSpeedX = 0;
             AnimaEnd();
+            playerDirectionSpeedX = 0;
         }
         else if (Input.GetKey("a") || joystickLeft) //¶•ûŒü
         {
+            Animation();
+
             playerController.playerDirection = false;
 
             playerDirectionSpeedX = -1;
-
-            Animation();
         }
         else if (Input.GetKey("d") || joystickRight) //‰E•ûŒü
         {
+            Animation();
+
             playerController.playerDirection = true;
 
             playerDirectionSpeedX = 1;
-
-            Animation();
         }
         else 
         {
-            playerDirectionSpeedX = 0;
             AnimaEnd();
+            playerDirectionSpeedX = 0;
         }
 
     }
