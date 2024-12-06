@@ -14,6 +14,9 @@ public class GameContoller : MonoBehaviour
     [SerializeField]
     public GameObject reSpawnPoint;
 
+    [SerializeField]
+    public bool haveKey = false;
+
     //プレイヤーのスタート位置
     [SerializeField]
     private Vector3 startPos1;
