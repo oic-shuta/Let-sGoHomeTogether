@@ -1351,6 +1351,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4578192526261986914, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: attackingTime
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5631800565977850200, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
       propertyPath: m_Name
       value: Chibiyowa
@@ -1551,6 +1555,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2889438873226379787, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_Size.x
+      value: 4.1298075
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889438873226379787, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.4649038
+      objectReference: {fileID: 0}
     - target: {fileID: 7293100762684689928, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
       propertyPath: m_Name
       value: Dekatuyo
