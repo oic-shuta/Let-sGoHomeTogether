@@ -48,11 +48,11 @@ public class PlayerKnockback : MonoBehaviour
         {
             if (enemyPos.position.x < playerPos.position.x)
             {
-                backPos = 0.5f;
+                backPos = 0.3f;
             }
             else if (enemyPos.position.x > playerPos.position.x)
             {
-                backPos = -0.5f;
+                backPos = -0.3f;
             }
             KnockBackTime();
         }
