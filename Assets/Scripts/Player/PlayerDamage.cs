@@ -7,10 +7,20 @@ using UnityEngine;
 public class PlayerDamage : MonoBehaviour
 {
     [SerializeField]
+    private Animator damageAnim;
+
+    [SerializeField]
+    private string motionName;
+
+    [SerializeField]
     private PlayerController playerController;
 
     [SerializeField]
     private GameContoller gameContoller;
+
+    [Tooltip("敵に当たってるか")]
+    [SerializeField]
+    public bool enemyHit = false;
 
     [Tooltip("無敵状態")]
     [SerializeField]
@@ -41,11 +51,14 @@ public class PlayerDamage : MonoBehaviour
 
     //ダメージ受けた時のカラーとアルファ値
     [SerializeField]
-    private Color damageColor = new Color(0.2f, 0.2f, 0.2f, 0.7f);
+    private Color blinkColor = new Color(0.2f, 0.2f, 0.2f, 0.7f);
+
+    [SerializeField]
+    private Color playerColor = new Color(1, 1, 1, 1);
 
     private void Start()
     {
-        playerController = GetComponent<PlayerController>();
+        //playerController = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -55,10 +68,21 @@ public class PlayerDamage : MonoBehaviour
         FallPlayer();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //敵との接触判定
+        if (collision.CompareTag("Enemy") && !enemyHit)
+        {
+            enemyHit = true;
+
+            damageAnim.SetTrigger(motionName);
+        }
+    }
+
     //無敵時間
     private void InvincibleTime()
     {
-        if (playerController.enemyHit)
+        if (enemyHit)
         {
             Damage();
             //無敵時間
@@ -66,7 +90,7 @@ public class PlayerDamage : MonoBehaviour
             blinkTimeStart += 1 * Time.deltaTime;
             if (invincibleStartTime > invincibleEndTime) //無敵時間終了
             {
-                playerController.enemyHit = false;
+                enemyHit = false;
                 playerBlink = false;
                 invincibleStartTime = 0;
             }
@@ -84,7 +108,7 @@ public class PlayerDamage : MonoBehaviour
     //ライフ減少
     private void Damage()
     {
-        if (playerController.enemyHit && invincibleStartTime <= 0)
+        if (enemyHit && invincibleStartTime <= 0)
         {
             gameContoller.playerLife--;
         }
@@ -95,11 +119,11 @@ public class PlayerDamage : MonoBehaviour
     {
         if (playerBlink)
         {
-            playerSprite.GetComponent<SpriteRenderer>().color = damageColor;
+            playerSprite.GetComponent<SpriteRenderer>().color = blinkColor;
         }
         else if (!playerBlink)
         {
-            playerSprite.GetComponent<SpriteRenderer>().color = Color.white;
+            playerSprite.GetComponent<SpriteRenderer>().color = playerColor;
         }
     }
 

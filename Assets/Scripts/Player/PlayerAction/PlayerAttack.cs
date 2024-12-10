@@ -8,15 +8,12 @@ public class PlayerAttack : MonoBehaviour
     [Header("アニメーション")]
     private Animator anim;
 
-    [SerializeField]
     private string aniMotion = "ani_Light";
 
-    [SerializeField]
     private string otoutoMotion = "otouto_Attack";
 
     private PlayerController playerController;
 
-    [SerializeField]
     private PlayerCarryObject carry;
 
     [Header("プレイヤーの攻撃")]
@@ -41,6 +38,13 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     public bool attackPlayer = false;
 
+    [Tooltip("クールタイム")]
+    [SerializeField]
+    private float Timer;
+
+    [SerializeField]
+    private float endTime;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -54,8 +58,13 @@ public class PlayerAttack : MonoBehaviour
         attackPlayerJudgmentLeft.SetActive(false);
     }
 
+    private void Update()
+    {
+        AttackTime();
+    }
+
     //プレイヤーの攻撃
-    public void AttackPlayer()
+    private void AttackPlayer()
     {
         Attack();
 
@@ -79,6 +88,7 @@ public class PlayerAttack : MonoBehaviour
             //Animation();
             attackPlayer = true;
             attackTimer = 0;
+            Timer = 0;
         }
         else if (Input.GetKeyDown("e") && !attackPlayer &&
             !playerController.playerDekatuyo && playerController.playerAttackType == 1)
@@ -86,6 +96,7 @@ public class PlayerAttack : MonoBehaviour
             //Animation();
             attackPlayer = true;
             attackTimer = 0;
+            Timer = 0;
         }
 
         //コントローラ
@@ -95,14 +106,16 @@ public class PlayerAttack : MonoBehaviour
             //Animation();
             attackPlayer = true;
             attackTimer = 0;
+            Timer = 0;
         }
         else if(Input.GetKeyDown("joystick button 5") && !attackPlayer &&
                  !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
             attackPlayer = true;
             attackTimer = 0;
+            Timer = 0;
         }
-            Animation();
+        Animation();
     }
     private void Animation()
     {
@@ -137,6 +150,14 @@ public class PlayerAttack : MonoBehaviour
         else if (!attackPlayer)
         {
             anim.SetBool(aniMotion, false);
+        }
+    }
+    private void AttackTime()
+    {
+        Timer += Time.deltaTime;
+        if(Timer > endTime)
+        {
+            AttackPlayer();
         }
     }
 }

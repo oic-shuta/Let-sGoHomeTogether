@@ -7,10 +7,8 @@ public class PlayerMove : MonoBehaviour
 {
     private Animator anim;
 
-    [SerializeField]
     private PlayerKnockback knockback;
 
-    [SerializeField]
     private PlayerController playerController;
 
     private Rigidbody2D rig2D;
