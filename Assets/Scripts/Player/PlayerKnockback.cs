@@ -27,6 +27,9 @@ public class PlayerKnockback : MonoBehaviour
     [SerializeField]
     private float TimerStart = 0;
 
+    [SerializeField]
+    public bool Invincible;
+
     private void Start()
     {
 
@@ -36,10 +39,14 @@ public class PlayerKnockback : MonoBehaviour
 
        // damage = this.GetComponent<PlayerDamage>();
     }
+    private void Update()
+    {
+        Invincible = damage.playerInvincible;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && !damage.playerInvincible && !attack.attackPlayer)
+        if (collision.CompareTag("Enemy")&& !Invincible)
         {
             enemyPos = collision.transform;
 

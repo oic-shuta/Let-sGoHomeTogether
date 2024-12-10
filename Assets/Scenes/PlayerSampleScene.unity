@@ -386,17 +386,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1165762}
   m_EdgeRadius: 0
---- !u!114 &401246298 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8262807229181842547, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
-  m_PrefabInstance: {fileID: 972299297587940472}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62a81f2e4819b84d9ba5ee1fa27d600, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &402472960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1435,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3281084184256018589, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: m_Size.x
+      value: 1.15599
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281084184256018589, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: m_Size.y
+      value: 3.0018516
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281084184256018589, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.051995695
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281084184256018589, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.0009258
+      objectReference: {fileID: 0}
     - target: {fileID: 5631800565977850200, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
       propertyPath: m_Name
       value: Chibiyowa
@@ -1494,6 +1499,14 @@ PrefabInstance:
       propertyPath: damage
       value: 
       objectReference: {fileID: 516237060}
+    - target: {fileID: 8095273677013355837, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: m_Size.y
+      value: 4.310048
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095273677013355837, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.32771486
+      objectReference: {fileID: 0}
     - target: {fileID: 8493309759409431216, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
       propertyPath: damageAnim
       value: 
@@ -1506,6 +1519,10 @@ PrefabInstance:
       propertyPath: gameContoller
       value: 
       objectReference: {fileID: 789880625}
+    - target: {fileID: 8493309759409431216, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: invincibleEndTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1760,14 +1777,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4929015366630446990, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
-      propertyPath: attackingTime
-      value: 0.3
+    - target: {fileID: -100516815547984046, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_Size.y
+      value: 4.3559723
       objectReference: {fileID: 0}
-    - target: {fileID: 5380745629767747132, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
-      propertyPath: damage
-      value: 
-      objectReference: {fileID: 401246298}
+    - target: {fileID: -100516815547984046, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.31645966
+      objectReference: {fileID: 0}
     - target: {fileID: 7293100762684689928, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
       propertyPath: m_Name
       value: Dekatuyo
@@ -1824,9 +1841,25 @@ PrefabInstance:
       propertyPath: gameContoller
       value: 
       objectReference: {fileID: 789880625}
-    - target: {fileID: 8610184790861296018, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
-      propertyPath: m_Name
-      value: LagColl
+    - target: {fileID: 8262807229181842547, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: invincibleEndTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363819167003823709, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2495813
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363819167003823709, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_Size.y
+      value: 2.9564621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363819167003823709, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.031197548
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363819167003823709, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.9782311
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

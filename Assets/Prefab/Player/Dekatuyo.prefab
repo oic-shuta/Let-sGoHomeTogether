@@ -338,12 +338,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62a81f2e4819b84d9ba5ee1fa27d600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAnim: {fileID: 8253099239856423862}
+  motionName: otouto_Damage
   playerController: {fileID: 5854023089815853194}
   gameContoller: {fileID: 0}
   enemyHit: 0
   playerInvincible: 0
   invincibleStartTime: 0
-  invincibleEndTime: 3
+  invincibleEndTime: 2
   playerBlink: 0
   blinkTimeStart: 0
   blinkTimeEnd: 0.3
@@ -382,7 +384,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.8534403}
+  m_Offset: {x: 0.031197548, y: -0.9782311}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -393,7 +395,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.7068806}
+  m_Size: {x: 1.2495813, y: 2.9564621}
   m_EdgeRadius: 0
 --- !u!1 &7247140136159891998
 GameObject:
@@ -559,8 +561,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010175705, y: -0.2930615}
-  m_Size: {x: 1.1899986, y: 4.309176}
+  m_Offset: {x: 0.010175705, y: -0.31645966}
+  m_Size: {x: 1.1899986, y: 4.3559723}
   m_Direction: 0
 --- !u!50 &3306728309347383940
 Rigidbody2D:

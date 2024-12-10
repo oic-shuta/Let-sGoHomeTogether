@@ -13,6 +13,9 @@ public class PlayerDamage : MonoBehaviour
     private string motionName;
 
     [SerializeField]
+    private PlayerKnockback knokBack;
+
+    [SerializeField]
     private PlayerController playerController;
 
     [SerializeField]
@@ -75,6 +78,8 @@ public class PlayerDamage : MonoBehaviour
         {
             enemyHit = true;
 
+            playerInvincible = true;
+
             damageAnim.SetTrigger(motionName);
         }
     }
@@ -93,6 +98,7 @@ public class PlayerDamage : MonoBehaviour
                 enemyHit = false;
                 playerBlink = false;
                 invincibleStartTime = 0;
+                playerInvincible = false;
             }
 
             if(blinkTimeStart > blinkTimeEnd)//“_–ÅŠÔŠu
