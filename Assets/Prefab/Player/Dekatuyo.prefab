@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: -0.6616776}
+  m_Offset: {x: -1.4649038, y: -0.6616776}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -106,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1999998, y: 1.2713623}
+  m_Size: {x: 4.1298075, y: 1.2713623}
   m_EdgeRadius: 0
 --- !u!1 &5850899247780470736
 GameObject:
@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 6351486740367830223}
   - component: {fileID: 1488612806585169673}
   - component: {fileID: 1788589689451971353}
+  - component: {fileID: 1966829748719628266}
   - component: {fileID: 8253099239856423862}
   m_Layer: 6
   m_Name: Dekatuyo
@@ -541,6 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20e1d1cf4d43f04c88a761a1888bcac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockback: {fileID: 0}
   playerController: {fileID: 5854023089815853194}
   playerDirectionSpeedX: 0
   joystickLeft: 0
@@ -592,6 +594,25 @@ MonoBehaviour:
   blinkTimeEnd: 0.3
   playerSprite: {fileID: 7293100762684689928}
   damageColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
+--- !u!114 &1966829748719628266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7293100762684689928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0af8196294ca84080698c0fef3726d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: {fileID: 0}
+  enemyPos: {fileID: 0}
+  playerPos: {fileID: 0}
+  knockBack: 0
+  backPos: 0
+  Timer: 0.2
+  TimerStart: 0
 --- !u!95 &8253099239856423862
 Animator:
   serializedVersion: 5

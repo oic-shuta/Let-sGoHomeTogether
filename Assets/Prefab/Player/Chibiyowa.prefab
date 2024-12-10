@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 2773927079896768013}
   - component: {fileID: 8418151646196565491}
   - component: {fileID: 7730330877691628203}
+  - component: {fileID: 7812171669836140765}
   - component: {fileID: 8928064615430056903}
   m_Layer: 8
   m_Name: Chibiyowa
@@ -516,7 +517,7 @@ MonoBehaviour:
   carry: {fileID: 7730330877691628203}
   attackPlayerJudgmentRight: {fileID: 4869205002318163325}
   attackPlayerJudgmentLeft: {fileID: 551697852044400861}
-  attackingTime: 0.7
+  attackingTime: 1.5
   attackPlayer: 0
 --- !u!114 &2773927079896768013
 MonoBehaviour:
@@ -530,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20e1d1cf4d43f04c88a761a1888bcac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockback: {fileID: 0}
   playerController: {fileID: 369678053553401519}
   playerDirectionSpeedX: 0
   joystickLeft: 0
@@ -581,6 +583,25 @@ MonoBehaviour:
   objectY: 0
   not: 0
   noHand: {fileID: 7035062225361553903}
+--- !u!114 &7812171669836140765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631800565977850200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0af8196294ca84080698c0fef3726d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: {fileID: 0}
+  enemyPos: {fileID: 0}
+  playerPos: {fileID: 0}
+  knockBack: 0
+  backPos: 0
+  Timer: 0.2
+  TimerStart: 0.5
 --- !u!95 &8928064615430056903
 Animator:
   serializedVersion: 5
