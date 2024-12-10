@@ -11,7 +11,6 @@ public enum PlayerType
 }
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
     private GameObject playerSprite;
 
     private Rigidbody2D rig2D = null;
@@ -65,15 +64,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isOnGround = false;
 
-    [Tooltip("敵に当たってるか")]
-    [SerializeField]
-    public bool enemyHit = false;
-
     [SerializeField]
     public bool fallOut = false;
 
     private void Start()
     {
+        playerSprite = this.gameObject;
+
         rig2D = GetComponent<Rigidbody2D>();
 
         playerMove = GetComponent<PlayerMove>(); 
@@ -90,8 +87,6 @@ public class PlayerController : MonoBehaviour
         PlayerMoveType();
 
         playerMove.JumpPlayer();
-
-        playerAttack.AttackPlayer();
 
         ChangePlayer();
 
@@ -179,11 +174,6 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Ground"))
         {
             isOnGround = true;      //地面にいる
-        }
-        //敵との接触判定
-        if (collision.CompareTag("Enemy") && !enemyHit)
-        {
-            enemyHit = true;
         }
         //プレイヤーが画面外に落下
         if (collision.CompareTag("FallOut"))

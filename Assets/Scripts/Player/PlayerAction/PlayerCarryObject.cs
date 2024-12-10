@@ -6,10 +6,8 @@ using UnityEngine;
 
 public class PlayerCarryObject : MonoBehaviour
 {
-    [SerializeField]
     private Rigidbody2D rig2D;
 
-    [SerializeField]
     private PlayerController playerController;
 
     [SerializeField]
@@ -27,7 +25,6 @@ public class PlayerCarryObject : MonoBehaviour
     [SerializeField]
     private bool objectTouch = false;
 
-    [SerializeField]
     private Vector3 carryPos = Vector3.zero;
 
     [SerializeField]

@@ -7,6 +7,8 @@ public class PlayerKnockback : MonoBehaviour
     [SerializeField]
     private PlayerDamage damage;
 
+    private PlayerAttack attack;
+
     [SerializeField]
     private Transform enemyPos = null;
 
@@ -27,16 +29,20 @@ public class PlayerKnockback : MonoBehaviour
 
     private void Start()
     {
+
+        attack = GetComponent<PlayerAttack>();
+
         playerPos = this.gameObject.transform;
 
-        damage = this.GetComponent<PlayerDamage>();
+       // damage = this.GetComponent<PlayerDamage>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && !damage.playerInvincible)
+        if (collision.CompareTag("Enemy") && !damage.playerInvincible && !attack.attackPlayer)
         {
             enemyPos = collision.transform;
+
             knockBack = true;
 
             TimerStart = 0;
