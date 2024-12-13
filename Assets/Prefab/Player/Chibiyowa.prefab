@@ -352,7 +352,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.63, y: -2.56, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 633569214410559066}
@@ -446,8 +446,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.057736732, y: -0.32771486}
-  m_Size: {x: 1.0755903, y: 4.310048}
+  m_Offset: {x: 0.057736732, y: -0.90059996}
+  m_Size: {x: 1.0755903, y: 3.1642785}
   m_Direction: 0
 --- !u!50 &5474798979723601605
 Rigidbody2D:
@@ -498,6 +498,7 @@ MonoBehaviour:
   playerAttackType: 1
   isOnGround: 0
   fallOut: 0
+  goal: {fileID: 0}
 --- !u!114 &4578192526261986914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +517,7 @@ MonoBehaviour:
   attackPlayer: 0
   Timer: 0
   endTime: 2
+  Count: 0
 --- !u!114 &2773927079896768013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,11 +569,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8493309759409431216}
   enemyPos: {fileID: 0}
-  playerPos: {fileID: 0}
+  playerPos: {fileID: 5729715606997792042}
   knockBack: 0
   backPos: 0
   Timer: 0.2
   TimerStart: 0.5
+  Invincible: 0
 --- !u!95 &8928064615430056903
 Animator:
   serializedVersion: 5
@@ -800,6 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAnim: {fileID: 8928064615430056903}
   motionName: ani_Damage
+  knokBack: {fileID: 7812171669836140765}
   playerController: {fileID: 369678053553401519}
   gameContoller: {fileID: 0}
   enemyHit: 0

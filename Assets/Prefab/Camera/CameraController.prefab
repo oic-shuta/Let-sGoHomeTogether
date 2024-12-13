@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c7a80d0fea67041aee892b6aae5767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goal: {fileID: 0}
   cameraMove: {fileID: 7544417348502018321}
   cameraController: {fileID: 8021178362341409200}
   Dekatuyo: {fileID: 0}
@@ -301,8 +302,8 @@ GameObject:
   - component: {fileID: 1542215860902138731}
   - component: {fileID: 4938675483595784500}
   - component: {fileID: 687765084688819234}
-  - component: {fileID: 5823986647260577328}
-  - component: {fileID: 7258008915287437862}
+  - component: {fileID: 8241031322977456040}
+  - component: {fileID: 757161954813753164}
   m_Layer: 0
   m_Name: Sub Camera
   m_TagString: MainCamera
@@ -384,7 +385,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8365308481113994161}
   m_Enabled: 0
---- !u!114 &5823986647260577328
+--- !u!114 &8241031322977456040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,15 +394,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8365308481113994161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 863a0f845e05b2f40a72d8d03caf5785, type: 3}
+  m_Script: {fileID: 11500000, guid: ce6bb9608c30c1a40806f1c062c2ca56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTarget: {fileID: 7258008915287437862}
-  cameraPos: {x: 0, y: 0, z: 0}
+  cameraPos: {x: 0, y: 0, z: -1}
   cameraObject: {fileID: 4938675483595784500}
-  cameraHight: -2.5
-  cameraDepth: -10
---- !u!114 &7258008915287437862
+--- !u!114 &757161954813753164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,10 +408,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8365308481113994161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c7a80d0fea67041aee892b6aae5767, type: 3}
+  m_Script: {fileID: 11500000, guid: 21f9a458abdb6b54c8c454d7276b5ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMove: {fileID: 7544417348502018321}
+  goal: {fileID: 0}
+  cameraMove: {fileID: 8241031322977456040}
   cameraController: {fileID: 8021178362341409200}
   Dekatuyo: {fileID: 0}
   Chibiyowa: {fileID: 0}
