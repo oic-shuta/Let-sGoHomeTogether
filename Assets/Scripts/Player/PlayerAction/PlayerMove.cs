@@ -7,7 +7,8 @@ public class PlayerMove : MonoBehaviour
 {
     private Animator anim;
 
-    [SerializeField]
+    private PlayerKnockback knockback;
+
     private PlayerController playerController;
 
     private Rigidbody2D rig2D;
@@ -28,6 +29,8 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+
+        knockback = GetComponent<PlayerKnockback>();
 
         playerController = GetComponent<PlayerController>();
 
@@ -69,33 +72,41 @@ public class PlayerMove : MonoBehaviour
             joystickRight = false;
         }
 
-
-        //進む方向と向いてる方向
-        if (Input.GetKey("d") && Input.GetKey("a") )
+        if (!knockback.knockBack)
         {
-            AnimaEnd();
-            playerDirectionSpeedX = 0;
+            //進む方向と向いてる方向
+            if (Input.GetKey("d") && Input.GetKey("a"))
+            {
+                AnimaEnd();
+                playerDirectionSpeedX = 0;
+            }
+            else if (Input.GetKey("a") || joystickLeft) //左方向
+            {
+                Animation();
+
+                playerController.playerDirection = false;
+
+                playerDirectionSpeedX = -1;
+            }
+            else if (Input.GetKey("d") || joystickRight) //右方向
+            {
+                Animation();
+
+                playerController.playerDirection = true;
+
+                playerDirectionSpeedX = 1;
+            }
+            else
+            {
+                AnimaEnd();
+                playerDirectionSpeedX = 0;
+            }
         }
-        else if (Input.GetKey("a") || joystickLeft) //左方向
+        else if (knockback.knockBack)
         {
-            Animation();
+            knockback.KnockBackMove();
 
-            playerController.playerDirection = false;
-
-            playerDirectionSpeedX = -1;
-        }
-        else if (Input.GetKey("d") || joystickRight) //右方向
-        {
-            Animation();
-
-            playerController.playerDirection = true;
-
-            playerDirectionSpeedX = 1;
-        }
-        else 
-        {
-            AnimaEnd();
-            playerDirectionSpeedX = 0;
+            playerDirectionSpeedX += knockback.backPos;
         }
 
     }

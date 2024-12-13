@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: -0.6616776}
+  m_Offset: {x: -1.4649038, y: -0.6616776}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -106,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1999998, y: 1.2713623}
+  m_Size: {x: 4.1298075, y: 1.2713623}
   m_EdgeRadius: 0
 --- !u!1 &5850899247780470736
 GameObject:
@@ -293,6 +293,110 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13192752, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &6962193882327295812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3668495342800973011}
+  - component: {fileID: 8262807229181842547}
+  - component: {fileID: 8363819167003823709}
+  m_Layer: 6
+  m_Name: DamageColl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3668495342800973011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962193882327295812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8034549064826801167}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8262807229181842547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962193882327295812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62a81f2e4819b84d9ba5ee1fa27d600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAnim: {fileID: 8253099239856423862}
+  motionName: otouto_Damage
+  playerController: {fileID: 5854023089815853194}
+  gameContoller: {fileID: 0}
+  enemyHit: 0
+  playerInvincible: 0
+  invincibleStartTime: 0
+  invincibleEndTime: 2
+  playerBlink: 0
+  blinkTimeStart: 0
+  blinkTimeEnd: 0.3
+  playerSprite: {fileID: 7293100762684689928}
+  blinkColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!61 &8363819167003823709
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962193882327295812}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.031197548, y: -0.9782311}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2495813, y: 2.9564621}
+  m_EdgeRadius: 0
 --- !u!1 &7247140136159891998
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +444,7 @@ GameObject:
   - component: {fileID: 4929015366630446990}
   - component: {fileID: 6351486740367830223}
   - component: {fileID: 1488612806585169673}
-  - component: {fileID: 1788589689451971353}
+  - component: {fileID: 5380745629767747132}
   - component: {fileID: 8253099239856423862}
   m_Layer: 6
   m_Name: Dekatuyo
@@ -370,6 +474,7 @@ Transform:
   - {fileID: 6267195329271553261}
   - {fileID: 7609728475719608722}
   - {fileID: 7982244975716079264}
+  - {fileID: 3668495342800973011}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7851979417540003317
@@ -456,8 +561,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010175705, y: -0.2930615}
-  m_Size: {x: 1.1899986, y: 4.309176}
+  m_Offset: {x: 0.010175705, y: -0.31645966}
+  m_Size: {x: 1.1899986, y: 4.3559723}
   m_Direction: 0
 --- !u!50 &3306728309347383940
 Rigidbody2D:
@@ -498,7 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537db4e9fc874704490cc0d15139d408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSprite: {fileID: 7293100762684689928}
   moveType: 0
   playerSpeed: 5
   playerJumpForce: 250
@@ -508,7 +612,6 @@ MonoBehaviour:
   playerDekatuyo: 1
   playerAttackType: 0
   isOnGround: 0
-  enemyHit: 0
   fallOut: 0
 --- !u!114 &4929015366630446990
 MonoBehaviour:
@@ -522,13 +625,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92cab276bc82734b8dc73c0f36d6c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitter: {fileID: 0}
-  playerController: {fileID: 5854023089815853194}
-  carry: {fileID: 1488612806585169673}
   attackPlayerJudgmentRight: {fileID: 8117000898585502509}
   attackPlayerJudgmentLeft: {fileID: 4990223366665020628}
-  attackingTime: 1.5
+  attackingTime: 0.3
   attackPlayer: 0
+  Timer: 0
+  endTime: 2
 --- !u!114 &6351486740367830223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20e1d1cf4d43f04c88a761a1888bcac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 5854023089815853194}
   playerDirectionSpeedX: 0
   joystickLeft: 0
   joystickRight: 0
@@ -558,19 +659,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2d25bb9729ab24d8647e0a2120e436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rig2D: {fileID: 0}
-  playerController: {fileID: 5854023089815853194}
   carryObject: {fileID: 1196898171521542264}
   collisionObjectRight: {fileID: 5850899247780470736}
   collisionObjectLeft: {fileID: 6737432312577492993}
   onCarry: 0
   objectTouch: 0
-  carryPos: {x: 0, y: 0, z: 0}
   objectX: 0.2
   objectY: 0
   not: 0
   noHand: {fileID: 1196898171521542264}
---- !u!114 &1788589689451971353
+--- !u!114 &5380745629767747132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -579,19 +677,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7293100762684689928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62a81f2e4819b84d9ba5ee1fa27d600, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c0af8196294ca84080698c0fef3726d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 5854023089815853194}
-  gameContoller: {fileID: 0}
-  playerInvincible: 0
-  invincibleStartTime: 0
-  invincibleEndTime: 3
-  playerBlink: 0
-  blinkTimeStart: 0
-  blinkTimeEnd: 0.3
-  playerSprite: {fileID: 7293100762684689928}
-  damageColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
+  damage: {fileID: 8262807229181842547}
+  enemyPos: {fileID: 0}
+  playerPos: {fileID: 0}
+  knockBack: 0
+  backPos: 0
+  Timer: 0.2
+  TimerStart: 0
 --- !u!95 &8253099239856423862
 Animator:
   serializedVersion: 5
@@ -624,7 +719,6 @@ GameObject:
   - component: {fileID: 5452090429054372860}
   - component: {fileID: 27979033899008930}
   - component: {fileID: 8687652593768258223}
-  - component: {fileID: 2671713871146436898}
   m_Layer: 6
   m_Name: Attack
   m_TagString: WeaponAttack
@@ -713,27 +807,6 @@ MonoBehaviour:
   dest: {fileID: 0}
   on: 1
   speed: 2.5
---- !u!114 &2671713871146436898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8117000898585502509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61cfb1a3927b388499824f2501d0aa90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: {fileID: 4929015366630446990}
-  controller: {fileID: 5854023089815853194}
-  attackColl: {fileID: 0}
-  strat: {fileID: 7853032650475366312}
-  right: {fileID: 6132978310572460205}
-  left: {fileID: 7609728475719608722}
-  dest: {fileID: 0}
-  on: 1
-  speed: 2.5
 --- !u!1 &8610184790861296018
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +818,7 @@ GameObject:
   - component: {fileID: 7982244975716079264}
   - component: {fileID: 7239917043027519885}
   m_Layer: 6
-  m_Name: GameObject
+  m_Name: LagColl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

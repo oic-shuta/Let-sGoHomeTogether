@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Effekseer;
+
 
 public class PlayerAttack : MonoBehaviour
 {
+    [Header("アニメーション")]
     private Animator anim;
 
-    [SerializeField]
-    private EffekseerEmitter emitter;
+    private string aniMotion = "ani_Light";
 
-    [SerializeField]
+    private string otoutoMotion = "otouto_Attack";
+
     private PlayerController playerController;
 
-    [SerializeField]
     private PlayerCarryObject carry;
 
     [Header("プレイヤーの攻撃")]
@@ -38,19 +38,36 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     public bool attackPlayer = false;
 
+    [Tooltip("クールタイム")]
+    [SerializeField]
+    private float Timer;
+
+    [SerializeField]
+    private float endTime;
+
+    [SerializeField]
+    private int Count;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
 
         playerController = GetComponent<PlayerController>();
 
+        carry = GetComponent<PlayerCarryObject>();
+
         attackPlayerJudgmentRight.SetActive(false);
 
         attackPlayerJudgmentLeft.SetActive(false);
     }
 
+    private void Update()
+    {
+        AttackTime();
+    }
+
     //プレイヤーの攻撃
-    public void AttackPlayer()
+    private void AttackPlayer()
     {
         Attack();
 
@@ -59,7 +76,6 @@ public class PlayerAttack : MonoBehaviour
         //攻撃判定の時間
         if (attackingTime < attackTimer && attackPlayer )
         {
-            Animation();
             attackPlayer = false;
         }
     }
@@ -71,35 +87,34 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown("e") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
-            Animation();
             attackPlayer = true;
             attackTimer = 0;
-            emitter.Play();
+            Timer = 0;
         }
         else if (Input.GetKeyDown("e") && !attackPlayer &&
             !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
-            Animation();
             attackPlayer = true;
             attackTimer = 0;
+            Timer = 0;
         }
 
         //コントローラ
         if (Input.GetKeyDown("joystick button 5") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
-            Animation();
             attackPlayer = true;
             attackTimer = 0;
-            emitter.Play();
+            Timer = 0;
         }
         else if(Input.GetKeyDown("joystick button 5") && !attackPlayer &&
                  !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
-            Animation();
             attackPlayer = true;
             attackTimer = 0;
+            Timer = 0;
         }
+        Animation();
     }
     private void Animation()
     {
@@ -115,25 +130,28 @@ public class PlayerAttack : MonoBehaviour
 
     private void DekatuyoAnimaSet()
     {
-        if (attackPlayer)
+        if (attackPlayer && Count < 1)
         {
-            anim.SetBool("otouto_Attack", true);
-        }
-        else if (!attackPlayer)
-        {
-            anim.SetBool("otouto_Attack", false);
+            anim.SetTrigger(otoutoMotion);
+            Count++;
         }
     }
 
     private void ChibiyowaAnimaSet()
     {
-        if (attackPlayer)
+        if (attackPlayer && Count<1)
         {
-            anim.SetBool("ani_Light", true);
+            anim.SetTrigger(aniMotion);
+            Count++;
         }
-        else if (!attackPlayer)
+    }
+    private void AttackTime()
+    {
+        Timer += Time.deltaTime;
+        if(Timer > endTime)
         {
-            anim.SetBool("ani_Light", false);
+            Count = 0;
+            AttackPlayer();
         }
     }
 }

@@ -11,7 +11,6 @@ public enum PlayerType
 }
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
     private GameObject playerSprite;
 
     private Rigidbody2D rig2D = null;
@@ -65,15 +64,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool isOnGround = false;
 
-    [Tooltip("敵に当たってるか")]
-    [SerializeField]
-    public bool enemyHit = false;
-
     [SerializeField]
     public bool fallOut = false;
 
+    [SerializeField]
+    private Goal goal;
+
     private void Start()
     {
+        playerSprite = this.gameObject;
+
         rig2D = GetComponent<Rigidbody2D>();
 
         playerMove = GetComponent<PlayerMove>(); 
@@ -81,6 +81,8 @@ public class PlayerController : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
 
         carryObject = GetComponent<PlayerCarryObject>();
+
+        playerDekatuyo = true;
     }
 
     private void Update()
@@ -88,8 +90,6 @@ public class PlayerController : MonoBehaviour
         PlayerMoveType();
 
         playerMove.JumpPlayer();
-
-        playerAttack.AttackPlayer();
 
         ChangePlayer();
 
@@ -114,6 +114,15 @@ public class PlayerController : MonoBehaviour
     //プレイヤー切り替え
     public void ChangePlayer()
     {
+        if (goal.DekaGoal)
+        {
+            playerDekatuyo = false;
+        }
+        else if (goal.ChibiGoal)
+        {
+            playerDekatuyo = true;
+        }
+
         if (Input.GetKeyDown("q") || Input.GetKeyDown("joystick button 3"))
         {
             changeDirection = playerDirection;
@@ -178,15 +187,20 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;      //地面にいる
         }
-        //敵との接触判定
-        if (collision.CompareTag("Enemy") && !enemyHit)
-        {
-            enemyHit = true;
-        }
         //プレイヤーが画面外に落下
         if (collision.CompareTag("FallOut"))
         {
             fallOut = true;
+        }
+
+
+        if (collision.CompareTag("inGoal"))
+        {
+            goal.inGoal = true;
+        }
+        else if (collision.CompareTag("outGoal"))
+        {
+            goal.inGoal = false;
         }
 
     }
