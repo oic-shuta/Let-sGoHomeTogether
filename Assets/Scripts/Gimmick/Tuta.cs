@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tuta : MonoBehaviour
 {
+    private Animator animator;
+
     [SerializeField] private Switch _switch;
 
     [SerializeField] private Transform TutaEndPos;　 //移動終了位置
@@ -12,6 +14,8 @@ public class Tuta : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         TutaDest = TutaEndPos;
     }
 
@@ -34,6 +38,8 @@ public class Tuta : MonoBehaviour
         //プレイヤーがツタに乗ったら
         if (gameObject.CompareTag("Tuta") && collision.gameObject.CompareTag("Player"))
         {
+            animator.SetBool("Tutamove", true);
+
             Debug.Log("ツタに乗ったよ！");
 
         }

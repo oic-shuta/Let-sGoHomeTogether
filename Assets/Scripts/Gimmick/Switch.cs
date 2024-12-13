@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
+    private Animator animator;
+
     //ギミックの変数
     [SerializeField] private GameObject Floor;
 
@@ -26,6 +28,8 @@ public class Switch : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+
         TutaSwitch = GameObject.FindGameObjectWithTag("TutaSwitch");
         WallSwitch = GameObject.FindGameObjectWithTag("WallSwitch");
         FloorSwitch = GameObject.FindGameObjectWithTag("FloorSwitch");
@@ -39,6 +43,8 @@ public class Switch : MonoBehaviour
         //プレイヤーがツタスイッチを押したら
         if (gameObject.CompareTag("TutaSwitch") && collision.gameObject.CompareTag("Player"))
         {
+            animator.SetBool("Switchpush",true);
+
             i = 1;
             Debug.Log("ツタスイッチを押したよ！");
 
@@ -47,6 +53,8 @@ public class Switch : MonoBehaviour
         //プレイヤーが壁スイッチを押したら
         else if (gameObject.CompareTag("WallSwitch") && collision.gameObject.CompareTag("Player"))
         {
+            animator.SetBool("Switchpush", true);
+
             i = 2;
             Debug.Log("壁スイッチを押したよ！");
 
@@ -55,6 +63,8 @@ public class Switch : MonoBehaviour
         //プレイヤーが足場スイッチを押したら
         else if (gameObject.CompareTag("FloorSwitch") && collision.gameObject.CompareTag("Player"))
         {
+            animator.SetBool("Switchpush", true);
+
             i = 3;
             Debug.Log("足場スイッチを押したよ！");
 
@@ -66,9 +76,16 @@ public class Switch : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (gameObject.CompareTag("WallSwitch") && collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetBool("Switchpush", false);
+        }
+
         //足場のスイッチから離れた時足場を非表示にする
         if (gameObject.CompareTag("FloorSwitch") && collision.gameObject.CompareTag("Player"))
         {
+            animator.SetBool("Switchpush", false);
+
             Floor.SetActive(false);
         }
         

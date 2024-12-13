@@ -15,6 +15,15 @@ TagManager:
   - FallOut
   - Seesaw
   - WoodChange
+  - Floor
+  - Wall
+  - Ibara
+  - Switch
+  - TutaSwitch
+  - WallSwitch
+  - FloorSwitch
+  - Tuta
+  - Leaf
   layers:
   - Default
   - TransparentFX
