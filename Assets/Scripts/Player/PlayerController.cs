@@ -67,6 +67,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public bool fallOut = false;
 
+    [SerializeField]
+    private Goal goal;
+
     private void Start()
     {
         playerSprite = this.gameObject;
@@ -111,6 +114,15 @@ public class PlayerController : MonoBehaviour
     //ÉvÉåÉCÉÑÅ[êÿÇËë÷Ç¶
     public void ChangePlayer()
     {
+        if (goal.DekaGoal)
+        {
+            playerDekatuyo = false;
+        }
+        else if (goal.ChibiGoal)
+        {
+            playerDekatuyo = true;
+        }
+
         if (Input.GetKeyDown("q") || Input.GetKeyDown("joystick button 3"))
         {
             changeDirection = playerDirection;
@@ -179,6 +191,16 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("FallOut"))
         {
             fallOut = true;
+        }
+
+
+        if (collision.CompareTag("inGoal"))
+        {
+            goal.inGoal = true;
+        }
+        else if (collision.CompareTag("outGoal"))
+        {
+            goal.inGoal = false;
         }
 
     }
