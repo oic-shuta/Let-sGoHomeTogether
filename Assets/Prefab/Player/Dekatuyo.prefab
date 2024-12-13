@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 5850899247780470736}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6, y: 0, z: -1}
+  m_LocalPosition: {x: 2.92, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 6737432312577492993}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6, y: 0, z: -1}
+  m_LocalPosition: {x: -3.04, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -340,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAnim: {fileID: 8253099239856423862}
   motionName: otouto_Damage
+  knokBack: {fileID: 0}
   playerController: {fileID: 5854023089815853194}
   gameContoller: {fileID: 0}
   enemyHit: 0
@@ -463,7 +464,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: -1.56, z: 1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 773813955149575608}
@@ -613,6 +614,7 @@ MonoBehaviour:
   playerAttackType: 0
   isOnGround: 0
   fallOut: 0
+  goal: {fileID: 0}
 --- !u!114 &4929015366630446990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,6 +633,7 @@ MonoBehaviour:
   attackPlayer: 0
   Timer: 0
   endTime: 2
+  Count: 0
 --- !u!114 &6351486740367830223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,11 +685,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8262807229181842547}
   enemyPos: {fileID: 0}
-  playerPos: {fileID: 0}
+  playerPos: {fileID: 8034549064826801167}
   knockBack: 0
   backPos: 0
   Timer: 0.2
   TimerStart: 0
+  Invincible: 0
 --- !u!95 &8253099239856423862
 Animator:
   serializedVersion: 5

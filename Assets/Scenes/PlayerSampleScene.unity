@@ -1994,6 +1994,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 757161954813753164, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1412823568}
+    - target: {fileID: 757161954813753164, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
+      propertyPath: Dekatuyo
+      value: 
+      objectReference: {fileID: 2057778453}
+    - target: {fileID: 757161954813753164, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
+      propertyPath: Chibiyowa
+      value: 
+      objectReference: {fileID: 60344567}
     - target: {fileID: 4821450207624832041, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
       propertyPath: goal
       value: 
@@ -2006,41 +2018,9 @@ PrefabInstance:
       propertyPath: Chibiyowa
       value: 
       objectReference: {fileID: 2057778453}
-    - target: {fileID: 4938675483595784500, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938675483595784500, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.21960786
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938675483595784500, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.21960786
-      objectReference: {fileID: 0}
-    - target: {fileID: 4938675483595784500, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.21960786
-      objectReference: {fileID: 0}
     - target: {fileID: 5359930042616604525, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
       propertyPath: m_Name
       value: CameraController
-      objectReference: {fileID: 0}
-    - target: {fileID: 7258008915287437862, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
-      propertyPath: goal
-      value: 
-      objectReference: {fileID: 1412823568}
-    - target: {fileID: 7258008915287437862, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
-      propertyPath: Dekatuyo
-      value: 
-      objectReference: {fileID: 2057778453}
-    - target: {fileID: 7258008915287437862, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
-      propertyPath: Chibiyowa
-      value: 
-      objectReference: {fileID: 60344567}
-    - target: {fileID: 8810191804837039947, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
