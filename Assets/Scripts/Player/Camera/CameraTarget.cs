@@ -45,6 +45,7 @@ public class CameraTarget : MonoBehaviour
 
             cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
         }
+
         if (goal.DekaGoal)
         {
             cameraTypeDekatuyo = false;

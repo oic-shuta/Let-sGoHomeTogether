@@ -45,6 +45,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private float endTime;
 
+    [SerializeField]
+    private int Count;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -73,7 +76,6 @@ public class PlayerAttack : MonoBehaviour
         //UŒ‚”»’è‚ÌŠÔ
         if (attackingTime < attackTimer && attackPlayer )
         {
-            Animation();
             attackPlayer = false;
         }
     }
@@ -85,7 +87,6 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown("e") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
-            //Animation();
             attackPlayer = true;
             attackTimer = 0;
             Timer = 0;
@@ -93,7 +94,6 @@ public class PlayerAttack : MonoBehaviour
         else if (Input.GetKeyDown("e") && !attackPlayer &&
             !playerController.playerDekatuyo && playerController.playerAttackType == 1)
         {
-            //Animation();
             attackPlayer = true;
             attackTimer = 0;
             Timer = 0;
@@ -103,7 +103,6 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown("joystick button 5") && !attackPlayer && !carry.onCarry &&
             playerController.playerDekatuyo && playerController.playerAttackType == 0)
         {
-            //Animation();
             attackPlayer = true;
             attackTimer = 0;
             Timer = 0;
@@ -131,25 +130,19 @@ public class PlayerAttack : MonoBehaviour
 
     private void DekatuyoAnimaSet()
     {
-        if (attackPlayer)
+        if (attackPlayer && Count < 1)
         {
-            anim.SetBool(otoutoMotion, true);
-        }
-        else if (!attackPlayer)
-        {
-            anim.SetBool(otoutoMotion, false);
+            anim.SetTrigger(otoutoMotion);
+            Count++;
         }
     }
 
     private void ChibiyowaAnimaSet()
     {
-        if (attackPlayer)
+        if (attackPlayer && Count<1)
         {
-            anim.SetBool(aniMotion, true);
-        }
-        else if (!attackPlayer)
-        {
-            anim.SetBool(aniMotion, false);
+            anim.SetTrigger(aniMotion);
+            Count++;
         }
     }
     private void AttackTime()
@@ -157,6 +150,7 @@ public class PlayerAttack : MonoBehaviour
         Timer += Time.deltaTime;
         if(Timer > endTime)
         {
+            Count = 0;
             AttackPlayer();
         }
     }
