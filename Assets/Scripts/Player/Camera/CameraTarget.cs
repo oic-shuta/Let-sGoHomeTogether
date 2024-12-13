@@ -5,6 +5,9 @@ using UnityEngine;
 public class CameraTarget : MonoBehaviour
 {
     [SerializeField]
+    private Goal goal;
+
+    [SerializeField]
     private CameraMove cameraMove;
 
     [SerializeField]
@@ -41,18 +44,25 @@ public class CameraTarget : MonoBehaviour
             cameraTypeDekatuyo = !cameraTypeDekatuyo;
 
             cameraMove.cameraObject.transform.position = cameraMove.cameraPos;
-
         }
+        if (goal.DekaGoal)
+        {
+            cameraTypeDekatuyo = false;
+        }
+        else if (goal.ChibiGoal)
+        {
+            cameraTypeDekatuyo = true;
+        }
+
         if (cameraTypeDekatuyo)
         {
             targetObject = Dekatuyo;
-            MoveCamera();
         }
         else if (!cameraTypeDekatuyo)
         {
             targetObject = Chibiyowa;
-            MoveCamera();
         }
+        MoveCamera();
     }
 
     private void MoveCamera()
