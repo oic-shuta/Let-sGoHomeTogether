@@ -35,12 +35,10 @@ public class SeesawObject : MonoBehaviour
     {
         if(seesaw.transform.rotation.z < minRotate.transform.rotation.z)
         {
-            sound.SoundEffct();
             seesaw.transform.rotation = minRotate.transform.rotation;
         }
         else if(seesaw.transform.rotation.z > maxRotate.transform.rotation.z)
         {
-            sound.SoundEffct();
             seesaw.transform.rotation = maxRotate.transform.rotation;
         }
         this.gameObject.transform.rotation = seesaw.transform.rotation;
@@ -50,7 +48,7 @@ public class SeesawObject : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-           // sound.SoundEffct();
+            sound.SoundEffct();
         }
     }
 }
