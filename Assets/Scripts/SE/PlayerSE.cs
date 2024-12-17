@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerSE : MonoBehaviour
@@ -14,6 +15,12 @@ public class PlayerSE : MonoBehaviour
 
     [SerializeField]
     private AudioClip jumpSE;
+
+    [SerializeField]
+    private AudioClip carryOn;
+
+    [SerializeField]
+    private AudioClip carryOff;
 
 
     private void Start()
@@ -32,6 +39,14 @@ public class PlayerSE : MonoBehaviour
     public void JumpSound()
     {
         Source.PlayOneShot(jumpSE);
+    }
+    public void CarrySound()
+    {
+        Source.PlayOneShot(carryOn);
+    }
+    public void CarryOutSound()
+    {
+        Source.PlayOneShot(carryOff);
     }
 
     public void SoundStop()

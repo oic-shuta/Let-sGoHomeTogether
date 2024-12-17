@@ -705,9 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 462208852050076802}
   - component: {fileID: 735713460356916859}
-  - component: {fileID: 4218590588543280534}
-  - component: {fileID: 7174549723359462919}
-  - component: {fileID: 4145323761623344942}
+  - component: {fileID: 3751239699929876477}
   - component: {fileID: 8536976135600548435}
   - component: {fileID: 6013572424313448154}
   - component: {fileID: 1361100126205528707}
@@ -750,16 +748,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4a364353980ef4a91841d34d7c95f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackSound: {fileID: 4218590588543280534}
-  breakSound: {fileID: 4218590588543280534}
-  downSound: {fileID: 7174549723359462919}
   emitter: {fileID: 673847612889409525}
   coll: {fileID: 2316101373628129852}
   downWood: {fileID: 2244203186212720343}
   down: 0
   change: 0
   posWood: {fileID: 3989643645441250294}
---- !u!114 &4218590588543280534
+--- !u!114 &3751239699929876477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -768,39 +763,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3906694855304609301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bed34a14f44e643a34a9edd65802af, type: 3}
+  m_Script: {fileID: 11500000, guid: ef2ae02ee53243d4e879f0c6ef2779ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: f1502a86ad8861449ab6fe5ddce7f3c5, type: 3}
-  SESource: {fileID: 8536976135600548435}
---- !u!114 &7174549723359462919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906694855304609301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bed34a14f44e643a34a9edd65802af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 32040326f5255ef46a1cab1e5bc772df, type: 3}
-  SESource: {fileID: 8536976135600548435}
---- !u!114 &4145323761623344942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3906694855304609301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bed34a14f44e643a34a9edd65802af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 8300000, guid: 790edd7e1c075684cbe8985598c63057, type: 3}
-  SESource: {fileID: 8536976135600548435}
+  Source: {fileID: 0}
+  woodDamage: {fileID: 8300000, guid: f1502a86ad8861449ab6fe5ddce7f3c5, type: 3}
+  woodDown: {fileID: 8300000, guid: 32040326f5255ef46a1cab1e5bc772df, type: 3}
+  woodBreak: {fileID: 8300000, guid: 790edd7e1c075684cbe8985598c63057, type: 3}
 --- !u!82 &8536976135600548435
 AudioSource:
   m_ObjectHideFlags: 0
