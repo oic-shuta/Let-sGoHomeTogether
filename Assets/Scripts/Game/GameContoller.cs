@@ -6,6 +6,9 @@ using UnityEngine;
 public class GameContoller : MonoBehaviour
 {
     [SerializeField]
+    private Result result;
+
+    [SerializeField]
     private GameObject playerDekatuyo;
 
     [SerializeField]
@@ -48,7 +51,7 @@ public class GameContoller : MonoBehaviour
         {
             PlayerSpawn();
             
-            playerLife = 6;
+            result.GameOver = true;
         }
     }
     private void PlayerSpawn()

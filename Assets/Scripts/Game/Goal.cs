@@ -39,6 +39,9 @@ public class Goal : MonoBehaviour
     [SerializeField]
     private string nextScene;
 
+    [SerializeField]
+    private Result result;
+
 
     private void Start()
     {
@@ -95,7 +98,7 @@ public class Goal : MonoBehaviour
     {
         if(ChibiGoal && DekaGoal)
         {
-            SceneManager.LoadScene(nextScene);
+            result.GameCler = true;
         }
     }
 }

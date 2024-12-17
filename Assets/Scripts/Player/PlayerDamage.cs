@@ -116,7 +116,11 @@ public class PlayerDamage : MonoBehaviour
                 
                 playerBlink = !playerBlink;
             }
-            PlayerBlink();Å@
+            PlayerBlink();
+        }
+        else
+        {
+            playerSprite.GetComponent<SpriteRenderer>().color = playerColor;
         }
     }
     
