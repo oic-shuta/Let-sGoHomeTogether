@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SeesawObject : MonoBehaviour
 {
+    private SE sound;
+
     [SerializeField]
     private GameObject seesaw;
 
@@ -18,6 +20,8 @@ public class SeesawObject : MonoBehaviour
 
     private void Start()
     {
+
+        sound = GetComponent<SE>();
         seesaw = this.gameObject;
     }
     private void FixedUpdate()
@@ -31,13 +35,22 @@ public class SeesawObject : MonoBehaviour
     {
         if(seesaw.transform.rotation.z < minRotate.transform.rotation.z)
         {
+            sound.SoundEffct();
             seesaw.transform.rotation = minRotate.transform.rotation;
         }
         else if(seesaw.transform.rotation.z > maxRotate.transform.rotation.z)
         {
+            sound.SoundEffct();
             seesaw.transform.rotation = maxRotate.transform.rotation;
         }
         this.gameObject.transform.rotation = seesaw.transform.rotation;
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+           // sound.SoundEffct();
+        }
     }
 }

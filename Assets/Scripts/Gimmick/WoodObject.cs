@@ -8,15 +8,7 @@ using Unity.VisualScripting;
 
 public class WoodObject : MonoBehaviour
 {
-    [Tooltip("ƒTƒEƒ“ƒh")]
-    [SerializeField]
-    private SE AttackSound;
-
-    [SerializeField]
-    private SE breakSound;
-
-    [SerializeField]
-    private SE downSound;
+    private WoodSE SE;
 
     [SerializeField]
     private EffekseerEmitter emitter;
@@ -38,7 +30,7 @@ public class WoodObject : MonoBehaviour
 
     private void Start()
     {
-        AttackSound = GetComponent<SE>();
+        SE = GetComponent<WoodSE>();
     }
 
     private void Update()
@@ -50,7 +42,7 @@ public class WoodObject : MonoBehaviour
     {
         if(down)
         {
-            breakSound.SoundEffct();
+            SE.BreakWood();
             down = false;
             this.gameObject.transform.position = posWood.transform.position;
         }
@@ -63,7 +55,7 @@ public class WoodObject : MonoBehaviour
 
             this.gameObject.SetActive(false);
 
-            downSound.SoundEffct();
+            SE.DownWood();
         }
     }
 
@@ -71,7 +63,7 @@ public class WoodObject : MonoBehaviour
     {
         if (collision.CompareTag("WeaponAttack"))
         {
-            AttackSound.SoundEffct();
+            SE.DamageWood();
             emitter.Play();
             down = true;
         }
