@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,18 @@ public class Ghost : MonoBehaviour
     Rigidbody2D rbody2D;
     CircleCollider2D circleCollider2D;
 
+    private bool isover;
+    private Animator anim = null;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody2D = GetComponent<Rigidbody2D>();
         playerTr = GameObject.FindGameObjectWithTag("Player").transform;
         circleCollider2D = GetComponent<CircleCollider2D>();
+        isover = false;
+        anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -35,6 +42,17 @@ public class Ghost : MonoBehaviour
                 speed * Time.deltaTime);
         }
         
+        if(isover == true)
+        {
+            anim.SetBool("down",true);
+            Stop();
+            Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator Stop()
+    {
+        yield return new WaitForSeconds(5);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +61,7 @@ public class Ghost : MonoBehaviour
         if (collision.gameObject.tag == "WeaponLight")
         {
             // Ghostオブジェクトを消去する
-            Destroy(this.gameObject);
+            isover = true;
         }
     }
 }
