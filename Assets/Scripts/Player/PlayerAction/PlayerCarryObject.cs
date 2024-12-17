@@ -10,6 +10,8 @@ public class PlayerCarryObject : MonoBehaviour
 
     private PlayerController playerController;
 
+    private PlayerSE SE;
+
     [SerializeField]
     private GameObject carryObject;
 
@@ -39,6 +41,8 @@ public class PlayerCarryObject : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
 
+        SE = GetComponent<PlayerSE>();
+
         objectY = -0.3f;
     }
 
@@ -66,6 +70,7 @@ public class PlayerCarryObject : MonoBehaviour
             carryPos = carryObject.transform.position;
             rig2D = carryObject.GetComponent<Rigidbody2D>();
             carryObject.layer = 6;
+            SE.CarrySound();
         }
         else if (Input.GetKeyDown("space") && onCarry)
         {
@@ -74,6 +79,7 @@ public class PlayerCarryObject : MonoBehaviour
             rig2D = null;
             carryObject.layer = 7;
             carryObject.transform.parent = null;
+            SE.CarryOutSound();
         }
 
         //ÉRÉìÉgÉçÅ[Éâ
