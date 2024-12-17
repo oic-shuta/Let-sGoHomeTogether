@@ -9,6 +9,9 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField]
     private Animator damageAnim;
 
+    [SerializeField] 
+    private SE SE;
+
     [SerializeField]
     private string motionName;
 
@@ -62,6 +65,8 @@ public class PlayerDamage : MonoBehaviour
     private void Start()
     {
         //playerController = GetComponent<PlayerController>();
+
+        SE = GetComponent<SE>();
     }
 
     private void Update()
@@ -79,6 +84,8 @@ public class PlayerDamage : MonoBehaviour
             enemyHit = true;
 
             playerInvincible = true;
+
+            SE.SoundEffct();
 
             damageAnim.SetTrigger(motionName);
         }

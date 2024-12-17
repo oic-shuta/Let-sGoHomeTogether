@@ -392,10 +392,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5380745629767747132, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
-      propertyPath: knockBack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5380745629767747132, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 25885273}
@@ -403,9 +399,25 @@ PrefabInstance:
       propertyPath: goal
       value: 
       objectReference: {fileID: 282507696}
+    - target: {fileID: 6132978310572460205, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.92
+      objectReference: {fileID: 0}
     - target: {fileID: 7293100762684689928, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
       propertyPath: m_Name
       value: Dekatuyo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7609728475719608722, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034549064826801167, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034549064826801167, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 8034549064826801167, guid: 81ad6e925ad35b041ab50a901393d98a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5959,6 +5971,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
+      propertyPath: haveKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
       propertyPath: startPos1.x
       value: -1.22
       objectReference: {fileID: 0}
@@ -9267,6 +9287,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 757161954813753164, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 282507696}
+    - target: {fileID: 757161954813753164, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
+      propertyPath: Dekatuyo
+      value: 
+      objectReference: {fileID: 1731006189}
+    - target: {fileID: 757161954813753164, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
+      propertyPath: Chibiyowa
+      value: 
+      objectReference: {fileID: 25885271}
     - target: {fileID: 4821450207624832041, guid: 8fcfa0456bbf73d4d8d0c6a0ab464411, type: 3}
       propertyPath: goal
       value: 
@@ -12724,11 +12756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5729715606997792042, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.07
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 5729715606997792042, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.24
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 5729715606997792042, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12766,6 +12798,14 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 1731006193}
+    - target: {fileID: 8095273677013355837, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: m_Size.y
+      value: 3.1642785
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095273677013355837, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.90059996
+      objectReference: {fileID: 0}
     - target: {fileID: 8493309759409431216, guid: 5d4b211fc84fdcc4e96f54e66dac2d62, type: 3}
       propertyPath: knokBack
       value: 

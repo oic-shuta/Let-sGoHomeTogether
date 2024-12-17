@@ -4,9 +4,19 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
 using Effekseer;
+using Unity.VisualScripting;
 
 public class WoodObject : MonoBehaviour
 {
+    [Tooltip("ƒTƒEƒ“ƒh")]
+    [SerializeField]
+    private SE AttackSound;
+
+    [SerializeField]
+    private SE breakSound;
+
+    [SerializeField]
+    private SE downSound;
 
     [SerializeField]
     private EffekseerEmitter emitter;
@@ -28,18 +38,19 @@ public class WoodObject : MonoBehaviour
 
     private void Start()
     {
-        
+        AttackSound = GetComponent<SE>();
     }
 
     private void Update()
     {
-        TEST();
+        DownWood();
     }
 
-    private void TEST()
+    private void DownWood()
     {
         if(down)
         {
+            breakSound.SoundEffct();
             down = false;
             this.gameObject.transform.position = posWood.transform.position;
         }
@@ -51,6 +62,8 @@ public class WoodObject : MonoBehaviour
             downWood.SetActive(true);
 
             this.gameObject.SetActive(false);
+
+            downSound.SoundEffct();
         }
     }
 
@@ -58,6 +71,7 @@ public class WoodObject : MonoBehaviour
     {
         if (collision.CompareTag("WeaponAttack"))
         {
+            AttackSound.SoundEffct();
             emitter.Play();
             down = true;
         }

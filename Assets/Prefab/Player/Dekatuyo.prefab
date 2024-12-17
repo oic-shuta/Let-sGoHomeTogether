@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 5850899247780470736}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6, y: 0, z: -1}
+  m_LocalPosition: {x: 2.92, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242,7 +242,7 @@ Transform:
   m_GameObject: {fileID: 6737432312577492993}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6, y: 0, z: -1}
+  m_LocalPosition: {x: -3.04, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -302,8 +302,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3668495342800973011}
-  - component: {fileID: 8262807229181842547}
   - component: {fileID: 8363819167003823709}
+  - component: {fileID: 8262807229181842547}
+  - component: {fileID: 6867724575578334930}
+  - component: {fileID: 5078159370741928639}
   m_Layer: 6
   m_Name: DamageColl
   m_TagString: Untagged
@@ -326,32 +328,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8034549064826801167}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8262807229181842547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962193882327295812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62a81f2e4819b84d9ba5ee1fa27d600, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAnim: {fileID: 8253099239856423862}
-  motionName: otouto_Damage
-  playerController: {fileID: 5854023089815853194}
-  gameContoller: {fileID: 0}
-  enemyHit: 0
-  playerInvincible: 0
-  invincibleStartTime: 0
-  invincibleEndTime: 2
-  playerBlink: 0
-  blinkTimeStart: 0
-  blinkTimeEnd: 0.3
-  playerSprite: {fileID: 7293100762684689928}
-  blinkColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
-  playerColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &8363819167003823709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -397,6 +373,144 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2495813, y: 2.9564621}
   m_EdgeRadius: 0
+--- !u!114 &8262807229181842547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962193882327295812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62a81f2e4819b84d9ba5ee1fa27d600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAnim: {fileID: 8253099239856423862}
+  SE: {fileID: 0}
+  motionName: otouto_Damage
+  knokBack: {fileID: 0}
+  playerController: {fileID: 5854023089815853194}
+  gameContoller: {fileID: 0}
+  enemyHit: 0
+  playerInvincible: 0
+  invincibleStartTime: 0
+  invincibleEndTime: 2
+  playerBlink: 0
+  blinkTimeStart: 0
+  blinkTimeEnd: 0.3
+  playerSprite: {fileID: 7293100762684689928}
+  blinkColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.7}
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &6867724575578334930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962193882327295812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5bed34a14f44e643a34a9edd65802af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 514ff41203b698445832a1f0adfb101c, type: 3}
+  SESource: {fileID: 0}
+--- !u!82 &5078159370741928639
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6962193882327295812}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7247140136159891998
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +577,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: -1.56, z: 1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 773813955149575608}
@@ -613,6 +727,7 @@ MonoBehaviour:
   playerAttackType: 0
   isOnGround: 0
   fallOut: 0
+  goal: {fileID: 0}
 --- !u!114 &4929015366630446990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,7 +745,8 @@ MonoBehaviour:
   attackingTime: 0.3
   attackPlayer: 0
   Timer: 0
-  endTime: 2
+  endTime: 0.5
+  Count: 0
 --- !u!114 &6351486740367830223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,11 +798,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: {fileID: 8262807229181842547}
   enemyPos: {fileID: 0}
-  playerPos: {fileID: 0}
+  playerPos: {fileID: 8034549064826801167}
   knockBack: 0
   backPos: 0
   Timer: 0.2
   TimerStart: 0
+  Invincible: 0
 --- !u!95 &8253099239856423862
 Animator:
   serializedVersion: 5
