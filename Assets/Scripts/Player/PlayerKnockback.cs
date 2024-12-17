@@ -50,8 +50,6 @@ public class PlayerKnockback : MonoBehaviour
         {
             enemyPos = collision.transform;
 
-            knockBack = true;
-
             TimerStart = 0;
         }
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Apple : MonoBehaviour
 {
+    private SE getSound;
+
     private GameObject apple;
 
     [SerializeField]
@@ -14,12 +16,16 @@ public class Apple : MonoBehaviour
     private void Start()
     {
         apple = this.gameObject;
+
+        getSound = GetComponent<SE>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            getSound.SoundEffct();
+
             apple.SetActive(false);
 
             LifeUp();
