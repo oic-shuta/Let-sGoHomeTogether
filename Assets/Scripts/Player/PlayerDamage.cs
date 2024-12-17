@@ -85,6 +85,8 @@ public class PlayerDamage : MonoBehaviour
 
             playerInvincible = true;
 
+            knokBack.knockBack = true;
+
             SE.SoundEffct();
 
             damageAnim.SetTrigger(motionName);

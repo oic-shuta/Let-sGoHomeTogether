@@ -7,6 +7,8 @@ public class PlayerMove : MonoBehaviour
 {
     private Animator anim;
 
+    private PlayerSE SE;
+
     private PlayerKnockback knockback;
 
     private PlayerController playerController;
@@ -29,6 +31,8 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+
+        SE = GetComponent<PlayerSE>();
 
         knockback = GetComponent<PlayerKnockback>();
 
@@ -78,6 +82,7 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetKey("d") && Input.GetKey("a"))
             {
                 AnimaEnd();
+
                 playerDirectionSpeedX = 0;
             }
             else if (Input.GetKey("a") || joystickLeft) //ç∂ï˚å¸
@@ -99,6 +104,7 @@ public class PlayerMove : MonoBehaviour
             else
             {
                 AnimaEnd();
+
                 playerDirectionSpeedX = 0;
             }
         }
@@ -120,6 +126,7 @@ public class PlayerMove : MonoBehaviour
         {
             this.rig2D.AddForce(transform.up * playerController.playerJumpForce);
             playerController.isOnGround = false;
+            SE.JumpSound();
         }
     }
 
