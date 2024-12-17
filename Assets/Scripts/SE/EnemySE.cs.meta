@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7f3985d4b581e7c4b8e9cdd065c729cd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - WolfwalkSE: {fileID: 8300000, guid: 3717428613eee6941bf0fe7abedf6b8d, type: 3}
+  - WolfdownSE: {fileID: 8300000, guid: 01b28d988a002764ab553c9b03ceeebe, type: 3}
+  - GhostdownSE: {fileID: 8300000, guid: 72447a8befd5f3c48b065ff0ae266cfb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

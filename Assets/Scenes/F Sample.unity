@@ -289,7 +289,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7531d701619507d45a11fa04605597ac, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -375,7 +375,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &349491783
+--- !u!114 &349491791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -384,11 +384,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 349491773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bed34a14f44e643a34a9edd65802af, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f3985d4b581e7c4b8e9cdd065c729cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  SESource: {fileID: 349491782}
+  WolfwalkSE: {fileID: 8300000, guid: 3717428613eee6941bf0fe7abedf6b8d, type: 3}
+  WolfdownSE: {fileID: 8300000, guid: 01b28d988a002764ab553c9b03ceeebe, type: 3}
+  GhostdownSE: {fileID: 8300000, guid: 72447a8befd5f3c48b065ff0ae266cfb, type: 3}
 --- !u!1001 &473413479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -495,10 +496,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 222924768424055719, guid: 03bb66dbf4bd99641a12efe979f3f501, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 848400733}
+      addedObject: {fileID: 848400741}
     - targetCorrespondingSourceObject: {fileID: 222924768424055719, guid: 03bb66dbf4bd99641a12efe979f3f501, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 848400741}
+      addedObject: {fileID: 848400742}
   m_SourcePrefab: {fileID: 100100000, guid: 03bb66dbf4bd99641a12efe979f3f501, type: 3}
 --- !u!1 &556596209 stripped
 GameObject:
@@ -608,20 +609,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 222924768424055719, guid: 03bb66dbf4bd99641a12efe979f3f501, type: 3}
   m_PrefabInstance: {fileID: 473413479}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &848400733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848400732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bed34a14f44e643a34a9edd65802af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 0}
-  SESource: {fileID: 0}
 --- !u!95 &848400741
 Animator:
   serializedVersion: 5
@@ -643,6 +630,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &848400742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848400732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3985d4b581e7c4b8e9cdd065c729cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WolfwalkSE: {fileID: 8300000, guid: 3717428613eee6941bf0fe7abedf6b8d, type: 3}
+  WolfdownSE: {fileID: 8300000, guid: 01b28d988a002764ab553c9b03ceeebe, type: 3}
+  GhostdownSE: {fileID: 8300000, guid: 72447a8befd5f3c48b065ff0ae266cfb, type: 3}
 --- !u!1 &1001280161
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,10 +854,10 @@ PrefabInstance:
       addedObject: {fileID: 349491781}
     - targetCorrespondingSourceObject: {fileID: 6361458483310117490, guid: 0827f5f8f374db147bb22e45f7a8204c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 349491783}
+      addedObject: {fileID: 349491782}
     - targetCorrespondingSourceObject: {fileID: 6361458483310117490, guid: 0827f5f8f374db147bb22e45f7a8204c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 349491782}
+      addedObject: {fileID: 349491791}
   m_SourcePrefab: {fileID: 100100000, guid: 0827f5f8f374db147bb22e45f7a8204c, type: 3}
 --- !u!1001 &2096922102
 PrefabInstance:

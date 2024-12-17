@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     Collider2D col;
     private Animator anim = null;
     private bool isover;
+    private EnemySE EnemySE;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
         circleCollider = col.GetComponent<CircleCollider2D>();
         anim = GetComponent<Animator>();
         isover = false;
+        EnemySE = GetComponent<EnemySE>();
     }
 
     // Update is called once per frame
@@ -40,16 +42,18 @@ public class Enemy : MonoBehaviour
                 return;
             }
 
-            // ’Ç‚Á‚Ä‚­‚éˆ—‚ð‚±‚±‚Å‘‚­
+            // ’Ç‚Á‚Ä‚­‚éˆ—
             Vector2 scale = transform.localScale;
 
             if (playerTr.position.x > rbody2D.position.x)
             {
+                EnemySE.Wolfwalk();
                 scale.x = -1; // ‰EŒü‚«
                 speed = 3;
             }
             else if (playerTr.position.x < rbody2D.position.x)
             {
+                EnemySE.Wolfwalk();
                 scale.x = 1; // ¶Œü‚«
                 speed = -3;
             }
@@ -59,6 +63,7 @@ public class Enemy : MonoBehaviour
 
         if (isover == true)
         {
+            EnemySE.Wolfdown();
             anim.SetBool("down", true);
             Stop();
             Destroy(gameObject);
