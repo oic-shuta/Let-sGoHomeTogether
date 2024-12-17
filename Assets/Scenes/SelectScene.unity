@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 344959995}
   - component: {fileID: 344959998}
   m_Layer: 5
-  m_Name: EndButton
+  m_Name: Stage0Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,8 +338,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -140.1, y: -178.8}
-  m_SizeDelta: {x: 120, y: 25}
+  m_AnchoredPosition: {x: 235, y: 147}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &344959995
 MonoBehaviour:
@@ -371,7 +371,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 6621bab3ad25dda409d6d48660346cd4, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 200654f66de7ac744af7a20464f99d48, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -400,12 +400,12 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 23, y: 10, z: 21, w: 10}
+  m_RaycastPadding: {x: 8, y: 10, z: 8, w: 14}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dd7baa1462282db4d8e415618c27cc9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa0462d6c63e3b1479f1e3f7638dd2f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 459545163}
   - component: {fileID: 459545162}
   m_Layer: 5
-  m_Name: CreditButton
+  m_Name: Stage1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137.1, y: -112.4}
+  m_AnchoredPosition: {x: 236, y: 21}
   m_SizeDelta: {x: 120, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &459545162
@@ -563,7 +563,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 89f4ccabc2785e6409765869e980ea5f, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: b161de1d2bf11d745a6a2f6997a9fcaf, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -592,12 +592,12 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 4, y: 10, z: 2, w: 10}
+  m_RaycastPadding: {x: 4, y: 10, z: 3, w: 10}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dff83244865b3924f989b549d6544b91, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0b59cded03204545a49bd1557de423c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a0fe9a7425e48c42b23198e3df09341, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea1f91cc80877a747a456082d10eb106, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -946,8 +946,8 @@ RectTransform:
   m_Children:
   - {fileID: 1226834657}
   - {fileID: 1570898562}
-  - {fileID: 459545161}
   - {fileID: 344959994}
+  - {fileID: 459545161}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 1570898566}
   - component: {fileID: 1570898567}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,7 +993,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137.1, y: -45.1}
+  m_AnchoredPosition: {x: -212, y: -159}
   m_SizeDelta: {x: 120, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570898563
@@ -1026,7 +1026,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 4704902892499474283f685343e5c53a, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 4a1fabf708270234cb8131d894db9300, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1055,12 +1055,12 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 10, y: 10, z: 13, w: 10}
+  m_RaycastPadding: {x: 3, y: 10, z: 2, w: 10}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 534ea4bc26efca44ebffa4f17cb88bc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0410095405992874a8c2a27bbad461ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
