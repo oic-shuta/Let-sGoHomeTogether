@@ -46,7 +46,7 @@ public class Ghost : MonoBehaviour
         {
             anim.SetBool("down",true);
             Stop();
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
@@ -55,10 +55,10 @@ public class Ghost : MonoBehaviour
         yield return new WaitForSeconds(5);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // 接触したオブジェクトのtag名がWeaponLightの場合は
-        if (collision.gameObject.tag == "WeaponLight")
+        if (collision.gameObject.tag == "WaeponLight")
         {
             // Ghostオブジェクトを消去する
             isover = true;

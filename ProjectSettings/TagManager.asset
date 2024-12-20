@@ -24,6 +24,8 @@ TagManager:
   - FloorSwitch
   - Tuta
   - Leaf
+  - inGoal
+  - outGoal
   layers:
   - Default
   - TransparentFX
@@ -31,7 +33,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - StageSelect
   - 
   - 
   - 
