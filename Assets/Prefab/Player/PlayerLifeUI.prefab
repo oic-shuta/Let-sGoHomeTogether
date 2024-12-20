@@ -757,7 +757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6234344404333166405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -799,9 +799,14 @@ MonoBehaviour:
   imageTitle2: {fileID: 21300000, guid: a601b98ccb008d24d88bfd9640b4a947, type: 3}
   imageStage1: {fileID: 21300000, guid: 9c1cdfc5f624b9240adff91eb6a26a9b, type: 3}
   imageStage2: {fileID: 21300000, guid: 183868c2fbf9d4c4cbe62a686639fc9d, type: 3}
+  imageRestart1: {fileID: 0}
+  imageRestart2: {fileID: 0}
   Title: {fileID: 6271097252191394610}
   Stage: {fileID: 2618197001675721066}
-  select: 0
+  ReStart: {fileID: 0}
+  SceneTitle: 
+  SceneSatge: 
+  SceneReStart: 
 --- !u!1 &2370303683908293779
 GameObject:
   m_ObjectHideFlags: 0
