@@ -1819,11 +1819,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 432218563623613454, guid: 353c0736b0efd3840bb39bcb0fa6a043, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.08
+      value: 3.58
       objectReference: {fileID: 0}
     - target: {fileID: 432218563623613454, guid: 353c0736b0efd3840bb39bcb0fa6a043, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.93
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 432218563623613454, guid: 353c0736b0efd3840bb39bcb0fa6a043, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2250,14 +2250,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1141701652}
     m_Modifications:
+    - target: {fileID: 119657549470579040, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 119657549470579040, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.94
+      objectReference: {fileID: 0}
     - target: {fileID: 392143520398166749, guid: 20260166c82765143bdb230a681b9350, type: 3}
       propertyPath: game
       value: 
       objectReference: {fileID: 789880625}
     - target: {fileID: 392143520398166749, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: look
+      value: 
+      objectReference: {fileID: 21300000, guid: 468fcff186d8f8a47a99137982442bd5, type: 3}
+    - target: {fileID: 392143520398166749, guid: 20260166c82765143bdb230a681b9350, type: 3}
       propertyPath: result
       value: 
       objectReference: {fileID: 2038081396}
+    - target: {fileID: 392143520398166749, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: unLook
+      value: 
+      objectReference: {fileID: 21300000, guid: d3565d24c471e864ab0e4452a161dbd5, type: 3}
     - target: {fileID: 392143520398166749, guid: 20260166c82765143bdb230a681b9350, type: 3}
       propertyPath: Dekatuyo
       value: 
@@ -2278,17 +2294,33 @@ PrefabInstance:
       propertyPath: playerChibi
       value: 
       objectReference: {fileID: 2057778470}
+    - target: {fileID: 1362016405009064215, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 1362016405009064215, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990905999572290970, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990905999572290970, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7523421012033808333, guid: 20260166c82765143bdb230a681b9350, type: 3}
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
     - target: {fileID: 7687410234888367852, guid: 20260166c82765143bdb230a681b9350, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.11
+      value: -0.32
       objectReference: {fileID: 0}
     - target: {fileID: 7687410234888367852, guid: 20260166c82765143bdb230a681b9350, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9099998
+      value: 6.78
       objectReference: {fileID: 0}
     - target: {fileID: 7687410234888367852, guid: 20260166c82765143bdb230a681b9350, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2321,6 +2353,22 @@ PrefabInstance:
     - target: {fileID: 7687410234888367852, guid: 20260166c82765143bdb230a681b9350, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961388855636952470, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3210125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961388855636952470, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1926079
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961388855636952470, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_Offset.x
+      value: 5.9387503
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961388855636952470, guid: 20260166c82765143bdb230a681b9350, type: 3}
+      propertyPath: m_Offset.y
+      value: -4.8152037
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

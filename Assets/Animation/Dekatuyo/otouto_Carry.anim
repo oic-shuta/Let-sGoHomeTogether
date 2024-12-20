@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ghostdown
+  m_Name: otouto_Carry
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,23 +21,21 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: afa0d2afea8c36547beb3de40818fda5, type: 3}
-    - time: 0.06666667
-      value: {fileID: 21300000, guid: 294352799dde763449e63b7312b043d4, type: 3}
-    - time: 0.15
-      value: {fileID: 21300000, guid: f5cd1aeabc2a84243914158cb97d644a, type: 3}
+      value: {fileID: -1743277348, guid: fd5cb453b383e0246b339d25dbf9c9cb, type: 3}
+    - time: 0.083333336
+      value: {fileID: -558389631, guid: d55098e7a1f9da04a9fb58b6e3711d89, type: 3}
+    - time: 0.16666667
+      value: {fileID: 324014138, guid: 2eee4c970fc1118408a808891e0b56c1, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 7bbae3f62aef7684c822e76d5f247304, type: 3}
-    - time: 0.36666667
-      value: {fileID: 21300000, guid: ed201e35771ce1a4b9f896b3871a4c02, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 7e06bcded43fc4442ad8c0734cde2375, type: 3}
+      value: {fileID: -8445616, guid: cefeb0588ceec33498d876b5f2c80589, type: 3}
+    - time: 0.33333334
+      value: {fileID: -673439310, guid: 593a968133b732c42a81de7a7da2e54f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 60
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -54,23 +52,22 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: afa0d2afea8c36547beb3de40818fda5, type: 3}
-    - {fileID: 21300000, guid: 294352799dde763449e63b7312b043d4, type: 3}
-    - {fileID: 21300000, guid: f5cd1aeabc2a84243914158cb97d644a, type: 3}
-    - {fileID: 21300000, guid: 7bbae3f62aef7684c822e76d5f247304, type: 3}
-    - {fileID: 21300000, guid: ed201e35771ce1a4b9f896b3871a4c02, type: 3}
-    - {fileID: 21300000, guid: 7e06bcded43fc4442ad8c0734cde2375, type: 3}
+    - {fileID: -1743277348, guid: fd5cb453b383e0246b339d25dbf9c9cb, type: 3}
+    - {fileID: -558389631, guid: d55098e7a1f9da04a9fb58b6e3711d89, type: 3}
+    - {fileID: 324014138, guid: 2eee4c970fc1118408a808891e0b56c1, type: 3}
+    - {fileID: -8445616, guid: cefeb0588ceec33498d876b5f2c80589, type: 3}
+    - {fileID: -673439310, guid: 593a968133b732c42a81de7a7da2e54f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.4166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -84,11 +81,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0
-    functionName: Ghostdown
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
