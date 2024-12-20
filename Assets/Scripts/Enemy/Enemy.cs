@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rbody2D;             // Rigidbody2Dを定義
     float speed = 3f;                // 移動速度を格納する変数
     Transform playerTr;
-    
+
     Collider2D col;
     private Animator anim = null;
     private bool isover;
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
         //anim.SetBool("run", true);
 
-        if(circleCollider.bounds.Contains(playerTr.position))
+        if (circleCollider.bounds.Contains(playerTr.position))
         {
             //プレイヤーとの距離が0.1f未満になったらそれ以上実行しない
             if (Vector2.Distance(transform.position, playerTr.position) < 0.1f)
@@ -66,18 +66,8 @@ public class Enemy : MonoBehaviour
 
         if (isover == true)
         {
-<<<<<<< HEAD
             StartCoroutine("Timer");
-=======
-
-            //EnemySE.Wolfdown();
-
-            anim.SetBool("down", true);
-            Timer();
-            Destroy(gameObject);
-
->>>>>>> bb8e658086891d73411599e04bc75f19f04fd7f4
-        } 
+        }
 
     }
 
@@ -89,7 +79,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "WeaponAttack")
+        if (collision.gameObject.tag == "WeaponAttack")
         {
             anim.SetBool("down", true);
             isover = true;
@@ -101,7 +91,4 @@ public class Enemy : MonoBehaviour
             Timer();
         }
     }
-
-
-
 }
