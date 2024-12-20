@@ -63,11 +63,7 @@ public class Enemy : MonoBehaviour
 
         if (isover == true)
         {
-            //EnemySE.Wolfdown();
-            anim.SetBool("down", true);
-            Timer();
-            Destroy(gameObject);
-
+            StartCoroutine("Timer");
         } 
 
     }
@@ -75,16 +71,18 @@ public class Enemy : MonoBehaviour
     private IEnumerator Timer()
     {
         yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "WeaponAttack")
         {
-            isover = true;   
+            anim.SetBool("down", true);
+            isover = true;
         }
 
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             anim.SetBool("run", false);
             Timer();

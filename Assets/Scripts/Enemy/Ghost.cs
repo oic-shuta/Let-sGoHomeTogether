@@ -44,15 +44,14 @@ public class Ghost : MonoBehaviour
         
         if(isover == true)
         {
-            anim.SetBool("down",true);
-            Stop();
-            //Destroy(gameObject);
+            StartCoroutine("Stop");
         }
     }
 
     private IEnumerator Stop()
     {
         yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -60,6 +59,7 @@ public class Ghost : MonoBehaviour
         // 接触したオブジェクトのtag名がWeaponLightの場合は
         if (collision.gameObject.tag == "WaeponLight")
         {
+            anim.SetBool("down", true);
             // Ghostオブジェクトを消去する
             isover = true;
         }
