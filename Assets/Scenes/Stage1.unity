@@ -3381,6 +3381,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &358839082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7931044953861989138, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+  m_PrefabInstance: {fileID: 1941352741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6395e8fac893ec24d92cb29857801669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &375257897
 GameObject:
   m_ObjectHideFlags: 0
@@ -6094,12 +6105,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
+      propertyPath: result
+      value: 
+      objectReference: {fileID: 358839082}
+    - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
       propertyPath: haveKey
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
       propertyPath: startPos1.x
@@ -6136,7 +6151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 725373686}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbcea7e0cf688d8498732a8591bf4798, type: 3}
   m_Name: 
@@ -12281,6 +12296,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1666041883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2497258286526790422, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+  m_PrefabInstance: {fileID: 1941352741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1669216170
 GameObject:
   m_ObjectHideFlags: 0
@@ -14525,7 +14551,7 @@ PrefabInstance:
       objectReference: {fileID: 725373687}
     - target: {fileID: 4369765803732155342, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8553963358162908278, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
       propertyPath: m_Name
@@ -14535,6 +14561,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9069585200545262627, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+      propertyPath: ReStart
+      value: 
+      objectReference: {fileID: 1666041883}
+    - target: {fileID: 9069585200545262627, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+      propertyPath: SceneSatge
+      value: SelectScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069585200545262627, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+      propertyPath: SceneTitle
+      value: TitleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069585200545262627, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+      propertyPath: imageTitle1
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d0ba240755e63d48ada42349bd20559, type: 3}
+    - target: {fileID: 9069585200545262627, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+      propertyPath: imageTitle2
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d4c2052165e76741aa86e1a072e0678, type: 3}
+    - target: {fileID: 9069585200545262627, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+      propertyPath: SceneReStart
+      value: Stage1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069585200545262627, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+      propertyPath: imageRestart1
+      value: 
+      objectReference: {fileID: 21300000, guid: fa0462d6c63e3b1479f1e3f7638dd2f1, type: 3}
+    - target: {fileID: 9069585200545262627, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+      propertyPath: imageRestart2
+      value: 
+      objectReference: {fileID: 21300000, guid: 200654f66de7ac744af7a20464f99d48, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15857,7 +15915,5 @@ SceneRoots:
   - {fileID: 1812208670}
   - {fileID: 1941352741}
   - {fileID: 1446699966}
-  - {fileID: 2008899621}
   - {fileID: 824287790}
   - {fileID: 2118292947}
-
