@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7642008663231578326}
   m_Layer: 8
   m_Name: GameObject
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -613,6 +613,8 @@ MonoBehaviour:
   walkSE: {fileID: 8300000, guid: 7531d701619507d45a11fa04605597ac, type: 3}
   attackSE: {fileID: 8300000, guid: 7aa3f6a88600e2948b4420978e35c246, type: 3}
   jumpSE: {fileID: 8300000, guid: 4281f07ea3c67b8469e791689b06e65a, type: 3}
+  carryOn: {fileID: 0}
+  carryOff: {fileID: 0}
 --- !u!82 &6747859413314392635
 AudioSource:
   m_ObjectHideFlags: 0

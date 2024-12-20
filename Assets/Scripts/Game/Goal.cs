@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+
+    [SerializeField]
+    private SpriteRenderer Home;
+
     [SerializeField]
     private GameObject subCamera;
 
@@ -42,7 +47,11 @@ public class Goal : MonoBehaviour
     [SerializeField]
     private Result result;
 
+    [SerializeField]
+    private Sprite look;
 
+    [SerializeField]
+    private Sprite unLook;
     private void Start()
     {
         inGoal = false;
@@ -52,6 +61,8 @@ public class Goal : MonoBehaviour
         DekaGoal = false;
 
         doorLock = true;
+
+        Home = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -85,7 +96,8 @@ public class Goal : MonoBehaviour
             if (doorLock)
             {
                 doorLock = false;
-                this.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+
+                Home.sprite = unLook;
             }
             else if (!doorLock)
             {
