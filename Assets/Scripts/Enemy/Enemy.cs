@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using Effekseer;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Enemy : MonoBehaviour
     private Animator anim = null;
     private bool isover;
     private EnemySE EnemySE;
+    [SerializeField]
+    private EffekseerEmitter effect;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +66,7 @@ public class Enemy : MonoBehaviour
 
         if (isover == true)
         {
+            effect.Play();
             EnemySE.Wolfdown();
             anim.SetBool("down", true);
             Stop();
