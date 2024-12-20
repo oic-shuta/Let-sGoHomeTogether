@@ -3,18 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using Effekseer;
 
 public class Enemy : MonoBehaviour
 {
     CircleCollider2D circleCollider;
-    Rigidbody2D rbody2D;             // Rigidbody2D‚ğ’è‹`
-    float speed = 3f;                // ˆÚ“®‘¬“x‚ğŠi”[‚·‚é•Ï”
+    Rigidbody2D rbody2D;             // Rigidbody2Dã‚’å®šç¾©
+    float speed = 3f;                // ç§»å‹•é€Ÿåº¦ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°
     Transform playerTr;
     
     Collider2D col;
     private Animator anim = null;
     private bool isover;
+
     //private EnemySE EnemySE;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,25 +39,25 @@ public class Enemy : MonoBehaviour
 
         if(circleCollider.bounds.Contains(playerTr.position))
         {
-            //ƒvƒŒƒCƒ„[‚Æ‚Ì‹——£‚ª0.1f–¢–‚É‚È‚Á‚½‚ç‚»‚êˆÈãÀs‚µ‚È‚¢
+            //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¨ã®è·é›¢ãŒ0.1fæœªæº€ã«ãªã£ãŸã‚‰ãã‚Œä»¥ä¸Šå®Ÿè¡Œã—ãªã„
             if (Vector2.Distance(transform.position, playerTr.position) < 0.1f)
             {
                 return;
             }
 
-            // ’Ç‚Á‚Ä‚­‚éˆ—
+            // è¿½ã£ã¦ãã‚‹å‡¦ç†
             Vector2 scale = transform.localScale;
 
             if (playerTr.position.x > rbody2D.position.x)
             {
                 //EnemySE.Wolfwalk();
-                scale.x = -1; // ‰EŒü‚«
+                scale.x = -1; // å³å‘ã
                 speed = 3;
             }
             else if (playerTr.position.x < rbody2D.position.x)
             {
                 //EnemySE.Wolfwalk();
-                scale.x = 1; // ¶Œü‚«
+                scale.x = 1; // å·¦å‘ã
                 speed = -3;
             }
 
@@ -63,7 +66,9 @@ public class Enemy : MonoBehaviour
 
         if (isover == true)
         {
+
             //EnemySE.Wolfdown();
+
             anim.SetBool("down", true);
             Timer();
             Destroy(gameObject);

@@ -33,6 +33,7 @@ public class Result : MonoBehaviour
     private void Update()
     {
         ResultMessage();
+
         RenderResult();
     }
 
@@ -41,6 +42,8 @@ public class Result : MonoBehaviour
         if (GameCler || GameOver)
         {
             ResultImage.SetActive(true);
+
+            Time.timeScale = 0;
         }
     }
 
