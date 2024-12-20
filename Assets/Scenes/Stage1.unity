@@ -1077,6 +1077,7 @@ GameObject:
   - component: {fileID: 101917966}
   - component: {fileID: 101917965}
   - component: {fileID: 101917967}
+  - component: {fileID: 101917968}
   m_Layer: 0
   m_Name: kagi
   m_TagString: Untagged
@@ -1186,6 +1187,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.26376724}
   serializedVersion: 2
   m_Radius: 2.220871
+--- !u!114 &101917968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101917964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcea7e0cf688d8498732a8591bf4798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  result: {fileID: 0}
+  playerDekatuyo: {fileID: 25885271}
+  playerChibiyowa: {fileID: 1731006189}
+  reSpawnPoint: {fileID: 0}
+  haveKey: 0
+  startPos1: {x: 0, y: 0, z: 0}
+  startPos2: {x: 0, y: 0, z: 0}
+  playerLife: 0
 --- !u!1 &107392856
 GameObject:
   m_ObjectHideFlags: 0
@@ -6354,6 +6375,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
+      propertyPath: result
+      value: 
+      objectReference: {fileID: 2104299828}
+    - target: {fileID: 5045252495114708421, guid: 19f96befda5dd1041992c2876054ebed, type: 3}
       propertyPath: haveKey
       value: 0
       objectReference: {fileID: 0}
@@ -9515,8 +9540,8 @@ Transform:
   m_GameObject: {fileID: 1189968284}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 113.29, y: -1.4434, z: 0.040733706}
-  m_LocalScale: {x: 2.0189855, y: 5.072305, z: 1}
+  m_LocalPosition: {x: 112.18, y: 0.81, z: 0.040733706}
+  m_LocalScale: {x: 1, y: 0.9, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 970840255}
@@ -9562,7 +9587,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 251ea2f7bb732924a8accbb27ec18dcb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9605,18 +9630,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 6.7484818, y: -0.6549885}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 19.2, y: 10.8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.773056, y: 9.5599}
   m_EdgeRadius: 0
 --- !u!1 &1202880316
 GameObject:
@@ -10094,6 +10119,7 @@ GameObject:
   - component: {fileID: 1267784116}
   - component: {fileID: 1267784115}
   - component: {fileID: 1267784118}
+  - component: {fileID: 1267784119}
   m_Layer: 0
   m_Name: ringo
   m_TagString: Untagged
@@ -10203,6 +10229,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.50297934}
   serializedVersion: 2
   m_Radius: 2.0570202
+--- !u!114 &1267784119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267784114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcea7e0cf688d8498732a8591bf4798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  result: {fileID: 0}
+  playerDekatuyo: {fileID: 25885271}
+  playerChibiyowa: {fileID: 1731006189}
+  reSpawnPoint: {fileID: 0}
+  haveKey: 0
+  startPos1: {x: 0, y: 0, z: 0}
+  startPos2: {x: 0, y: 0, z: 0}
+  playerLife: 0
 --- !u!1 &1275267729
 GameObject:
   m_ObjectHideFlags: 0
@@ -15801,6 +15847,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2104299828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7931044953861989138, guid: 87e8717b3406db04e9f0aa7ddc3eba23, type: 3}
+  m_PrefabInstance: {fileID: 1941352741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6395e8fac893ec24d92cb29857801669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2118292947
 PrefabInstance:
   m_ObjectHideFlags: 0
