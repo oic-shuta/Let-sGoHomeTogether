@@ -796,6 +796,7 @@ MonoBehaviour:
   imageStage1: {fileID: 21300000, guid: 9c1cdfc5f624b9240adff91eb6a26a9b, type: 3}
   imageStage2: {fileID: 21300000, guid: 183868c2fbf9d4c4cbe62a686639fc9d, type: 3}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   imageRestart1: {fileID: 0}
   imageRestart2: {fileID: 0}
   Title: {fileID: 6271097252191394610}
@@ -809,10 +810,19 @@ MonoBehaviour:
   imageRestart2: {fileID: 21300000, guid: a601b98ccb008d24d88bfd9640b4a947, type: 3}
   Title: {fileID: 6271097252191394610}
   Stage: {fileID: 2618197001675721066}
+=======
+  imageRestart1: {fileID: 21300000, guid: a1d04bfe85bc5b64d8f00e1847c97bf0, type: 3}
+  imageRestart2: {fileID: 21300000, guid: a601b98ccb008d24d88bfd9640b4a947, type: 3}
+  Title: {fileID: 6271097252191394610}
+  Stage: {fileID: 2618197001675721066}
+>>>>>>> Stashed changes
   ReStart: {fileID: 2497258286526790422}
   SceneTitle: StartScene
   SceneSatge: SelectScene
   SceneReStart: PlayerSampleScene
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &2370303683908293779
 GameObject:
