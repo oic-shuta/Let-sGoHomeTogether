@@ -224,7 +224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9d0ba240755e63d48ada42349bd20559, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f253348da3686643aa0e9766f950580, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 701822189}
   - component: {fileID: 701822188}
   m_Layer: 5
-  m_Name: Image
+  m_Name: NextSceneImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
