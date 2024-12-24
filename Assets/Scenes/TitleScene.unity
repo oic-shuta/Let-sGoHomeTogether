@@ -606,7 +606,6 @@ MonoBehaviour:
   Select: {fileID: 1571673153}
   SceneSelect: SelectScene
   SceneCredit: CreditScene
-  SceneEnd: 
 --- !u!1 &1571673151
 GameObject:
   m_ObjectHideFlags: 0

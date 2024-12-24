@@ -6,6 +6,12 @@ using UnityEngine;
 
 public class PlayerCarryObject : MonoBehaviour
 {
+    [SerializeField]
+    private Animator carryAnim;
+
+    private string carryMotion = "otouto_Carry";
+    private string carryOutMotion = "otouto_CarryOut";
+
     private Rigidbody2D rig2D;
 
     private PlayerController playerController;
@@ -41,6 +47,8 @@ public class PlayerCarryObject : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
 
+        carryAnim = GetComponent<Animator>();
+
         SE = GetComponent<PlayerSE>();
 
         objectY = -0.3f;
@@ -70,6 +78,7 @@ public class PlayerCarryObject : MonoBehaviour
             carryPos = carryObject.transform.position;
             rig2D = carryObject.GetComponent<Rigidbody2D>();
             carryObject.layer = 6;
+            carryAnim.SetTrigger(carryMotion);
             SE.CarrySound();
         }
         else if (Input.GetKeyDown("space") && onCarry)
@@ -79,6 +88,7 @@ public class PlayerCarryObject : MonoBehaviour
             rig2D = null;
             carryObject.layer = 7;
             carryObject.transform.parent = null;
+            carryAnim.SetTrigger(carryOutMotion);
             SE.CarryOutSound();
         }
 
@@ -89,6 +99,7 @@ public class PlayerCarryObject : MonoBehaviour
             carryObject.transform.parent = this.gameObject.transform;
             carryPos = carryObject.transform.position;
             rig2D = carryObject.GetComponent<Rigidbody2D>();
+            carryAnim.SetTrigger(carryMotion);
             carryObject.layer = 6;
         }
         else if(Input.GetKeyDown("joystick button 3") && onCarry)
@@ -98,6 +109,7 @@ public class PlayerCarryObject : MonoBehaviour
             rig2D = null;
             carryObject.layer = 7;
             carryObject.transform.parent = null;
+            carryAnim.SetTrigger(carryOutMotion);
         }
     }
 

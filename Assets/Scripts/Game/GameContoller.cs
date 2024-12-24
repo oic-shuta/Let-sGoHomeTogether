@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class GameContoller : MonoBehaviour
@@ -33,7 +32,7 @@ public class GameContoller : MonoBehaviour
     public int playerLife;
     private void Start()
     {
-        PlayerStartPos();
+        //PlayerStartPos();
 
         playerLife = 6;
     }
