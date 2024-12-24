@@ -32,7 +32,7 @@ public class GameContoller : MonoBehaviour
     public int playerLife;
     private void Start()
     {
-        PlayerStartPos();
+        //PlayerStartPos();
 
         playerLife = 6;
     }
