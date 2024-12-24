@@ -1,3 +1,4 @@
+using EffekseerTool.Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
