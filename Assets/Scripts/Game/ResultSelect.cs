@@ -110,6 +110,7 @@ public class ResultSelect : MonoBehaviour
         if (Input.GetKeyDown("l"))
         {
             SceneManager.LoadScene(SceneSatge);
+            Time.timeScale = 1;
         }
     }
 
@@ -118,6 +119,7 @@ public class ResultSelect : MonoBehaviour
         if (Input.GetKeyDown("l"))
         {
             SceneManager.LoadScene(SceneTitle);
+            Time.timeScale = 1;
         }
     }
 
@@ -126,6 +128,7 @@ public class ResultSelect : MonoBehaviour
         if (Input.GetKeyDown("l"))
         {
             SceneManager.LoadScene(SceneReStart);
+            Time.timeScale = 1;
         }
     }
 }
