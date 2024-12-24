@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7145250683614529376}
   - component: {fileID: 7642008663231578326}
   m_Layer: 8
-  m_Name: LagColl
-  m_TagString: Player
+  m_Name: GameObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

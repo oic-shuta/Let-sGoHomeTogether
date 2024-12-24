@@ -115,7 +115,7 @@ public class StartScene : MonoBehaviour
     {
         if (Input.GetKeyDown("l"))
         {
-            Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 }
