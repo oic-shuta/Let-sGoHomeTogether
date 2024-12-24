@@ -126,7 +126,6 @@ public class ResultSelect : MonoBehaviour
         if (Input.GetKeyDown("l"))
         {
             SceneManager.LoadScene(SceneReStart);
-            Time.timeScale = 1;
         }
     }
 }
