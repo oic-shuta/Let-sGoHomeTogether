@@ -78,6 +78,10 @@ public class CameraTarget : MonoBehaviour
             }
             cameraMove.cameraObject.transform.position = new Vector3(0, cameraMove.cameraPos.y, cameraMove.cameraPos.z);
         }
+        else if(targetObject.transform.position.x > 112.5f)
+        {
+            return;
+        }
         else
         {
             cameraMove.cameraObject.transform.position = cameraMove.cameraPos;

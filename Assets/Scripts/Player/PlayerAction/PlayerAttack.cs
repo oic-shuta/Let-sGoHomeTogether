@@ -130,19 +130,17 @@ public class PlayerAttack : MonoBehaviour
 
     private void DekatuyoAnimaSet()
     {
-        if (attackPlayer && Count < 1)
+        if (attackPlayer )
         {
-            anim.SetTrigger(otoutoMotion);
-            Count++;
+            anim.SetBool(otoutoMotion,attackPlayer);
         }
     }
 
     private void ChibiyowaAnimaSet()
     {
-        if (attackPlayer && Count<1)
+        if (attackPlayer)
         {
-            anim.SetTrigger(aniMotion);
-            Count++;
+            anim.SetBool(aniMotion,attackPlayer);
         }
     }
     private void AttackTime()
@@ -150,8 +148,9 @@ public class PlayerAttack : MonoBehaviour
         Timer += Time.deltaTime;
         if(Timer > endTime)
         {
-            Count = 0;
             AttackPlayer();
+            anim.SetBool(aniMotion,attackPlayer);
+            anim.SetBool(otoutoMotion,attackPlayer);
         }
     }
 }

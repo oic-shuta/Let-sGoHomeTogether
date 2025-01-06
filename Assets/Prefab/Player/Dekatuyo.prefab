@@ -842,6 +842,8 @@ MonoBehaviour:
   walkSE: {fileID: 8300000, guid: 7531d701619507d45a11fa04605597ac, type: 3}
   attackSE: {fileID: 0}
   jumpSE: {fileID: 8300000, guid: 4281f07ea3c67b8469e791689b06e65a, type: 3}
+  carryOn: {fileID: 0}
+  carryOff: {fileID: 0}
 --- !u!82 &9072818872106533176
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1049,7 +1051,7 @@ GameObject:
   - component: {fileID: 7239917043027519885}
   m_Layer: 6
   m_Name: LagColl
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
