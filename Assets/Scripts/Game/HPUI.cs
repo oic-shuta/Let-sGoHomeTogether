@@ -26,5 +26,9 @@ public class HPUI : MonoBehaviour
             }
             hp[i].SetActive(true);
         }
+        if(game.playerLife == 0)
+        {
+            hp[0].SetActive(false); 
+        }
     }
 }

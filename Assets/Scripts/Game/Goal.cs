@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -78,6 +77,8 @@ public class Goal : MonoBehaviour
 
             subCamera.SetActive(false);
 
+            inGoal = false;
+
             DekaGoal = true;
         }
         if (!playerDeka.playerDekatuyo && !ChibiGoal || !playerChibi.playerDekatuyo && !ChibiGoal)
@@ -86,13 +87,15 @@ public class Goal : MonoBehaviour
 
             subCamera.SetActive(false);
 
+            inGoal = false;
+
             ChibiGoal = true;
         }
     }
 
     private void GameCler()
     {
-        if(game.haveKey && Input.GetKeyDown("s")){
+        if(game.haveKey && Input.GetKeyDown("s") && inGoal){
             if (doorLock)
             {
                 doorLock = false;

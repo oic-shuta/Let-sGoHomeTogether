@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcea7e0cf688d8498732a8591bf4798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  result: {fileID: 0}
   playerDekatuyo: {fileID: 0}
   playerChibiyowa: {fileID: 0}
   reSpawnPoint: {fileID: 0}
-  startPos1: {x: -5, y: -2.871175, z: 0}
-  startPos2: {x: -3, y: -3.373579, z: 0}
+  haveKey: 0
+  startPos1: {x: -5, y: -0.888175, z: 0}
+  startPos2: {x: -3, y: -1.389993, z: 0}
   playerLife: 6

@@ -8,6 +8,8 @@ public class PlayerCarryObject : MonoBehaviour
 {
     private Rigidbody2D rig2D;
 
+    private Animator carryAnim;
+
     private PlayerController playerController;
 
     private PlayerSE SE;
