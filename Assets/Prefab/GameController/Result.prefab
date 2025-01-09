@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8893624108911110523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -199,13 +199,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e623e6e3a6b164ab33a6d19d14d31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result: {fileID: 0}
-  imageTitle1: {fileID: 0}
-  imageTitle2: {fileID: 0}
-  imageStage1: {fileID: 0}
-  imageStage2: {fileID: 0}
-  imageRestart1: {fileID: 0}
-  imageRestart2: {fileID: 0}
+  result: {fileID: 2371483607640133215}
+  imageTitle1: {fileID: 21300000, guid: 9d0ba240755e63d48ada42349bd20559, type: 3}
+  imageTitle2: {fileID: 21300000, guid: 7d4c2052165e76741aa86e1a072e0678, type: 3}
+  imageStage1: {fileID: 21300000, guid: 9c1cdfc5f624b9240adff91eb6a26a9b, type: 3}
+  imageStage2: {fileID: 21300000, guid: 183868c2fbf9d4c4cbe62a686639fc9d, type: 3}
+  imageRestart1: {fileID: 21300000, guid: 91bdc41980ae9f044993b48ae7e33ac7, type: 3}
+  imageRestart2: {fileID: 21300000, guid: 5fe92d633f3ad2449a4100d2b7a527da, type: 3}
   Title: {fileID: 1873182031586768511}
   Stage: {fileID: 7686585556524573735}
   ReStart: {fileID: 8954142319084061970}

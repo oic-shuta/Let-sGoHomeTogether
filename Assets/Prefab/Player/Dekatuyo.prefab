@@ -386,9 +386,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAnim: {fileID: 8253099239856423862}
-  SE: {fileID: 0}
+  SE: {fileID: 6867724575578334930}
   motionName: otouto_Damage
-  knokBack: {fileID: 0}
+  knokBack: {fileID: 5380745629767747132}
   playerController: {fileID: 5854023089815853194}
   gameContoller: {fileID: 0}
   enemyHit: 0

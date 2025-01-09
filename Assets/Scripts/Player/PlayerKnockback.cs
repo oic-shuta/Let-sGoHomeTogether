@@ -9,7 +9,6 @@ public class PlayerKnockback : MonoBehaviour
 
     private PlayerAttack attack;
 
-    [SerializeField]
     private Transform enemyPos = null;
 
     [SerializeField]
@@ -37,7 +36,6 @@ public class PlayerKnockback : MonoBehaviour
 
         playerPos = this.gameObject.transform;
 
-       // damage = this.GetComponent<PlayerDamage>();
     }
     private void Update()
     {

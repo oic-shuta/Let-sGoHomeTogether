@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class GameContoller : MonoBehaviour
@@ -56,8 +55,15 @@ public class GameContoller : MonoBehaviour
     }
     private void PlayerSpawn()
     {
-        playerChibiyowa.transform.position = reSpawnPoint.transform.position;
-        playerDekatuyo.transform.position = reSpawnPoint.transform.position;
+        if (reSpawnPoint == null)
+        {
+            result.GameOver = true;
+        }
+        else
+        {
+            playerChibiyowa.transform.position = reSpawnPoint.transform.position;
+            playerDekatuyo.transform.position = reSpawnPoint.transform.position;
+        }
     }
 
     public void PlayerFallOut()

@@ -30,6 +30,10 @@ public class CameraTarget : MonoBehaviour
     [SerializeField]
     public bool cameraTypeDekatuyo = true;
 
+
+    [SerializeField]
+    public float stageEnd;
+
     private void Start()
     {
         cameraMove = GetComponent<CameraMove>();
@@ -78,7 +82,7 @@ public class CameraTarget : MonoBehaviour
             }
             cameraMove.cameraObject.transform.position = new Vector3(0, cameraMove.cameraPos.y, cameraMove.cameraPos.z);
         }
-        else if(targetObject.transform.position.x > 112.5f)
+        else if(targetObject.transform.position.x > stageEnd)
         {
             return;
         }
