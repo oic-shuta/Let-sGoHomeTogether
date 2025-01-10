@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
+    [SerializeField]
     Transform playerTr;
     [SerializeField] float speed = 2f;
     Rigidbody2D rbody2D;
@@ -13,6 +14,13 @@ public class Ghost : MonoBehaviour
     private bool isover;
     private Animator anim = null;
 
+    [SerializeField]
+    private GameObject coll;
+    [SerializeField]
+    private GameObject sprite;
+
+    [SerializeField]
+    private Coll deadColl;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +29,7 @@ public class Ghost : MonoBehaviour
         circleCollider2D = GetComponent<CircleCollider2D>();
         isover = false;
         anim = GetComponent<Animator>();
-
+        sprite = this.gameObject;
     }
 
     // Update is called once per frame
@@ -35,6 +43,19 @@ public class Ghost : MonoBehaviour
                 return;
             }
 
+            if(this.gameObject.transform.position.x < playerTr.position.x)
+            {
+                sprite.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                sprite.GetComponent<SpriteRenderer>().flipX = false;
+            }
+
+            if(isover)
+            {
+                speed = 0;
+            }
             //Playerに向かって移動する
             transform.position = Vector2.MoveTowards(
                 transform.position,
@@ -46,6 +67,13 @@ public class Ghost : MonoBehaviour
         {
             StartCoroutine("Stop");
         }
+        if (deadColl.deadGhost)
+        {
+            coll.SetActive(false);
+            anim.SetBool("down", true);
+            // Ghostオブジェクトを消去する
+            isover = true;
+        }
     }
 
     private IEnumerator Stop()
@@ -54,14 +82,12 @@ public class Ghost : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // 接触したオブジェクトのtag名がWeaponLightの場合は
-        if (collision.gameObject.tag == "WaeponLight")
+        if (collision.CompareTag("WaeponLight"))
         {
-            anim.SetBool("down", true);
-            // Ghostオブジェクトを消去する
-            isover = true;
+            
         }
     }
 }

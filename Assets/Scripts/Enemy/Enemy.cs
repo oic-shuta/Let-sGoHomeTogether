@@ -12,8 +12,17 @@ public class Enemy : MonoBehaviour
     Transform playerTr;
     
     Collider2D col;
+    [SerializeField]
     private Animator anim = null;
     private bool isover;
+
+    [SerializeField]
+    private GameObject coll;
+
+    private GameObject sprite;
+
+    [SerializeField]
+    private Coll deadColl;
 
     //private EnemySE EnemySE;
 
@@ -27,6 +36,7 @@ public class Enemy : MonoBehaviour
         circleCollider = col.GetComponent<CircleCollider2D>();
         anim = GetComponent<Animator>();
         isover = false;
+        sprite = this.gameObject;
         //EnemySE = GetComponent<EnemySE>();
     }
 
@@ -52,15 +62,28 @@ public class Enemy : MonoBehaviour
                 //EnemySE.Wolfwalk();
                 scale.x = -1; // 右向き
                 speed = 3;
+                sprite.GetComponent<SpriteRenderer>().flipX = true;
             }
             else if (playerTr.position.x < rbody2D.position.x)
             {
                 //EnemySE.Wolfwalk();
                 scale.x = 1; // 左向き
                 speed = -3;
+                sprite.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            if (isover)
+            {
+                speed = 0;
             }
 
             rbody2D.velocity = new Vector2(speed, rbody2D.velocity.y);
+        }
+
+        if (deadColl.deadWolf)
+        {
+            coll.SetActive(false);
+            anim.SetBool("down", true);
+            isover = true;
         }
 
         if (isover == true)
@@ -76,17 +99,12 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "WeaponAttack")
-        {
-            anim.SetBool("down", true);
-            isover = true;
-        }
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
-            anim.SetBool("run", false);
+            //anim.SetBool("run", false);
             Timer();
         }
     }

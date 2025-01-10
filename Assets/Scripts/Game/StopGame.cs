@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class ResultSelect : MonoBehaviour
+public class StopGame : MonoBehaviour
 {
     [SerializeField]
     private Result result;
@@ -17,21 +16,21 @@ public class ResultSelect : MonoBehaviour
     private Sprite imageTitle2;
 
     [SerializeField]
-    private Sprite imageStage1;
-
+    private Sprite imageNoStop1
+        ;
     [SerializeField]
-    private Sprite imageStage2;
-
+    private Sprite imageNoStop2;
+    
     [SerializeField]
     private Sprite imageRestart1;
 
     [SerializeField]
     private Sprite imageRestart2;
- 
+
     [SerializeField]
     private Image Title;
 
-    [SerializeField] 
+    [SerializeField]
     private Image Stage;
 
     [SerializeField]
@@ -43,11 +42,7 @@ public class ResultSelect : MonoBehaviour
     private string SceneTitle;
 
     [SerializeField]
-    private string SceneSatge;
-
-    [SerializeField]
     private string SceneReStart;
-
     private void Start()
     {
         select = 2;
@@ -61,10 +56,10 @@ public class ResultSelect : MonoBehaviour
 
     private void SelectButton()
     {
-        if(Input.GetKeyDown("a"))
+        if (Input.GetKeyDown("a"))
         {
             select--;
-            if(select <= 1)
+            if (select <= 1)
             {
                 select = 1;
             }
@@ -72,7 +67,7 @@ public class ResultSelect : MonoBehaviour
         if (Input.GetKeyDown("d"))
         {
             select++;
-            if(select >= 3)
+            if (select >= 3)
             {
                 select = 3;
             }
@@ -82,34 +77,34 @@ public class ResultSelect : MonoBehaviour
     private void SelectColor()
     {
         SelectButton();
-        if(select == 1)
+        if (select == 1)
         {
             ReStart.sprite = imageRestart2;
             Title.sprite = imageTitle1;
-            Stage.sprite = imageStage1;
+            Stage.sprite = imageNoStop1;
             SelectRestart();
         }
-        else if(select == 2)
+        else if (select == 2)
         {
-            Stage.sprite = imageStage2;
+            Stage.sprite = imageNoStop2;
             Title.sprite = imageTitle1;
             ReStart.sprite = imageRestart1;
-            SelectStage();
+            SelectNoStop();
         }
         else if (select == 3)
         {
             Title.sprite = imageTitle2;
-            Stage.sprite = imageStage1;
+            Stage.sprite = imageNoStop1;
             ReStart.sprite = imageRestart1;
             SelectTitle();
         }
     }
 
-    private void SelectStage()
+    private void SelectNoStop()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(SceneSatge);
+            result.StopImage.SetActive(false);
             Time.timeScale = 1;
         }
     }
@@ -131,4 +126,5 @@ public class ResultSelect : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+
 }
