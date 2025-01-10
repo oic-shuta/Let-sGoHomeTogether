@@ -9,6 +9,9 @@ public class Result : MonoBehaviour
     private GameObject ResultImage;
 
     [SerializeField]
+    public GameObject StopImage;
+
+    [SerializeField]
     public bool GameOver;
 
     [SerializeField]
@@ -19,6 +22,9 @@ public class Result : MonoBehaviour
 
     [SerializeField]
     private Text resultMessage;
+
+    [SerializeField]
+    private Text stopMessage;
 
     private void Start()
     {
@@ -45,6 +51,18 @@ public class Result : MonoBehaviour
 
             Time.timeScale = 0;
         }
+        else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
+        {
+            StopImage.SetActive(true);
+
+            Time.timeScale = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 0)
+        {
+            StopImage.SetActive(false);
+
+            Time.timeScale = 1;
+        }
     }
 
     private void ResultMessage()
@@ -56,6 +74,10 @@ public class Result : MonoBehaviour
         else if(GameOver)
         {
             message = "ゲームオーバー";
+        }
+        else
+        {
+            stopMessage.text = "ポーズ";
         }
         resultMessage.text = message;
     }
