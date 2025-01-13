@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameContoller : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class GameContoller : MonoBehaviour
     [SerializeField]
     public bool haveKey = false;
 
+    [SerializeField]
+    private GameObject ItemIcon;
+
     //プレイヤーのスタート位置
     [SerializeField]
     private Vector3 startPos1;
@@ -35,11 +39,18 @@ public class GameContoller : MonoBehaviour
         PlayerStartPos();
 
         playerLife = 6;
+
+        ItemIcon.SetActive(false);
     }
 
     private void Update()
     {
         PlayerContinue();
+
+        if(haveKey)
+        {
+            ItemIcon.SetActive(true);
+        }
     }
 
     //コンテニュー

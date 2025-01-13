@@ -10,6 +10,9 @@ public class CameraController : MonoBehaviour
     private CameraTarget cameraTarget;
 
     [SerializeField]
+    private SubCameraFrame frame;
+
+    [SerializeField]
     private Camera outCamera;
 
     [SerializeField]
@@ -54,10 +57,18 @@ public class CameraController : MonoBehaviour
     {
         if (!outRight && !outLeft)　//メインカメラ内に2人いる
         {
+            frame.frameLeftOn = false; 
+
+            frame.frameRightOn = false; 
+
+            frame.frameOut = false;
+
             outCamera.enabled = false;
         }
         else　
         {
+            frame.frameOut = true;
+
             outCamera.enabled = true;
         }
     }
@@ -68,11 +79,13 @@ public class CameraController : MonoBehaviour
         if(target.transform.position.x < outLineLeft.transform.position.x) 
         { 
             outLeft = true; 
+            frame.frameLeftOn = true;
             outCamera.rect = leftCamera; 
         }
         else if(target.transform.position.x >  outLineRight.transform.position.x)
         { 
             outRight = true; 
+            frame.frameRightOn = true;
             outCamera.rect = rightCamera; 
         }
         else 
