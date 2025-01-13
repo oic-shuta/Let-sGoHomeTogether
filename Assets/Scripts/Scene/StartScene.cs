@@ -97,7 +97,7 @@ public class StartScene : MonoBehaviour
     }
     private void SelectSelect()
     {
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(SceneSelect);
         }
@@ -105,7 +105,7 @@ public class StartScene : MonoBehaviour
 
     private void SelectCredit()
     {
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(SceneCredit);
         }
@@ -113,7 +113,7 @@ public class StartScene : MonoBehaviour
 
     private void SelectEnd()
     {
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             Application.Quit();
         }

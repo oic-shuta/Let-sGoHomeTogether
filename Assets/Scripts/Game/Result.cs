@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class Result : MonoBehaviour
 {
     [SerializeField]
+    private Goal goal;
+
+    [SerializeField]
     private GameObject ResultImage;
 
     [SerializeField]
@@ -26,6 +29,21 @@ public class Result : MonoBehaviour
     [SerializeField]
     private Text stopMessage;
 
+    [SerializeField]
+    private PlayerController playerController1;
+
+    [SerializeField]
+    private PlayerController playerController2;
+
+    [SerializeField]
+    private Image player;
+
+    [SerializeField]
+    private Sprite ani;
+
+    [SerializeField]
+    private Sprite otouto;
+
     private void Start()
     {
         ResultImage.SetActive(false);
@@ -41,6 +59,24 @@ public class Result : MonoBehaviour
         ResultMessage();
 
         RenderResult();
+
+        if (playerController1.playerDekatuyo || playerController2.playerDekatuyo)
+        {
+            player.sprite = otouto;
+        }
+        else if(!playerController1.playerDekatuyo || !playerController2.playerDekatuyo)
+        {
+            player.sprite = ani;
+        }
+
+        if (goal.ChibiGoal)
+        {
+            player.sprite = otouto;
+        }
+        else if(goal.DekaGoal)
+        {
+            player.sprite = ani;
+        }
     }
 
     private void RenderResult()

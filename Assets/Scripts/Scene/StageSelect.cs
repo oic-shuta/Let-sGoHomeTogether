@@ -44,6 +44,18 @@ public class StageSelect : MonoBehaviour
     [SerializeField]
     private string SceneTitle;
 
+    [SerializeField]
+    private Image StageImage;
+
+    [SerializeField]
+    private Sprite Stage00;
+
+    [SerializeField]
+    private Sprite Stage01;
+
+    [SerializeField]
+    private Sprite TitleScene;
+
     private void Start()
     {
         select = 1;
@@ -83,6 +95,7 @@ public class StageSelect : MonoBehaviour
             Title.sprite = imageTitle2;
             Stage0.sprite = imageStage0_1;
             Stage1.sprite = imageStage1_1;
+            StageImage.sprite = TitleScene;
             SelectTitle();
         }
         else if (select == 2)
@@ -90,6 +103,7 @@ public class StageSelect : MonoBehaviour
             Stage1.sprite = imageStage1_2;
             Stage0.sprite = imageStage0_1;
             Title.sprite = imageTitle1;
+            StageImage.sprite = Stage01;
             SelectStage1();
         }
         else if (select == 1)
@@ -97,13 +111,14 @@ public class StageSelect : MonoBehaviour
             Stage0.sprite = imageStage0_2;
             Stage1.sprite = imageStage1_1;
             Title.sprite = imageTitle1;
+            StageImage.sprite = Stage00;
             SelectStage0();
         }
     }
 
     private void SelectStage0()
     {
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(SceneStage0);
         }
@@ -111,7 +126,7 @@ public class StageSelect : MonoBehaviour
 
     private void SelectStage1()
     {
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(SceneStage1);
         }
@@ -119,7 +134,7 @@ public class StageSelect : MonoBehaviour
 
     private void SelectTitle()
     {
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneManager.LoadScene(SceneTitle);
         }

@@ -8,7 +8,7 @@ public class PlayerCarryObject : MonoBehaviour
 {
     private Rigidbody2D rig2D;
 
-    private Animator carryAnim;
+    private Animator anim;
 
     private PlayerController playerController;
 
@@ -43,6 +43,8 @@ public class PlayerCarryObject : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
 
+        anim = GetComponent<Animator>();
+
         SE = GetComponent<PlayerSE>();
 
         objectY = -0.3f;
@@ -59,6 +61,15 @@ public class PlayerCarryObject : MonoBehaviour
             CarryObject();
 
             CarryPos();
+        }
+
+        if(onCarry)
+        {
+            CarryAnim();
+        }
+        else if(!onCarry)
+        {
+            CarryAnimEnd();
         }
     }
 
@@ -156,5 +167,15 @@ public class PlayerCarryObject : MonoBehaviour
                 carryObject = noHand;
             }
         }
+    }
+
+    private void CarryAnim()
+    {
+        anim.SetBool("otouto_Carry", true);
+    }
+
+    private void CarryAnimEnd()
+    {
+        anim.SetBool("otouto_Carry", false);
     }
 }

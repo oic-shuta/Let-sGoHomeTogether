@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     CircleCollider2D circleCollider;
     Rigidbody2D rbody2D;             // Rigidbody2Dを定義
     float speed = 3f;                // 移動速度を格納する変数
+
+    [SerializeField]
     Transform playerTr;
     
     Collider2D col;
