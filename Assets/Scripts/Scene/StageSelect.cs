@@ -56,6 +56,15 @@ public class StageSelect : MonoBehaviour
     [SerializeField]
     private Sprite TitleScene;
 
+    [SerializeField]
+    private float deadZone = 0;
+
+    [SerializeField]
+    private bool joystickUp = false;
+
+    [SerializeField]
+    private bool joystickDown = false;
+
     private void Start()
     {
         select = 1;
@@ -69,7 +78,23 @@ public class StageSelect : MonoBehaviour
 
     private void SelectButton()
     {
-        if (Input.GetKeyDown("w"))
+        float y = Input.GetAxis("Vertical");
+        if (y < -deadZone)
+        {
+            joystickUp = true;
+            joystickDown = false;
+        }
+        else if (y > deadZone)
+        {
+            joystickDown = true;
+            joystickUp = false;
+        }
+        else
+        {
+            joystickUp = false;
+            joystickDown = false;
+        }
+        if (Input.GetKeyDown("w") || joystickUp)
         {
             select--;
             if (select <= 1)
@@ -77,7 +102,7 @@ public class StageSelect : MonoBehaviour
                 select = 1;
             }
         }
-        if (Input.GetKeyDown("s"))
+        if (Input.GetKeyDown("s") || joystickDown)
         {
             select++;
             if (select >= 3)
@@ -118,7 +143,7 @@ public class StageSelect : MonoBehaviour
 
     private void SelectStage0()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 0"))
         {
             SceneManager.LoadScene(SceneStage0);
         }
@@ -126,7 +151,7 @@ public class StageSelect : MonoBehaviour
 
     private void SelectStage1()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 0"))
         {
             SceneManager.LoadScene(SceneStage1);
         }
@@ -134,7 +159,7 @@ public class StageSelect : MonoBehaviour
 
     private void SelectTitle()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 0"))
         {
             SceneManager.LoadScene(SceneTitle);
         }

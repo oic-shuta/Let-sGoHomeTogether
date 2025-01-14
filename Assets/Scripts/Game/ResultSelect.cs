@@ -48,6 +48,15 @@ public class ResultSelect : MonoBehaviour
     [SerializeField]
     private string SceneReStart;
 
+    [SerializeField]
+    private bool joystickLeft = false;
+
+    [SerializeField]
+    private bool joystickRight = false;
+
+    [SerializeField]
+    private float deadZone = 0;
+
     private void Start()
     {
         select = 2;
@@ -61,7 +70,25 @@ public class ResultSelect : MonoBehaviour
 
     private void SelectButton()
     {
-        if(Input.GetKeyDown("a"))
+        //スティックの右または左に倒れてるか
+        float x = Input.GetAxis("Horizontal");
+        if (x < -deadZone)
+        {
+            joystickLeft = true;
+            joystickRight = false;
+        }
+        else if (x > deadZone)
+        {
+            joystickRight = true;
+            joystickLeft = false;
+        }
+        else
+        {
+            joystickLeft = false;
+            joystickRight = false;
+        }
+
+        if (Input.GetKeyDown("a") || joystickLeft)
         {
             select--;
             if(select <= 1)
@@ -69,7 +96,7 @@ public class ResultSelect : MonoBehaviour
                 select = 1;
             }
         }
-        if (Input.GetKeyDown("d"))
+        if (Input.GetKeyDown("d") || joystickRight)
         {
             select++;
             if(select >= 3)
@@ -107,7 +134,7 @@ public class ResultSelect : MonoBehaviour
 
     private void SelectStage()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 0"))
         {
             SceneManager.LoadScene(SceneSatge);
             Time.timeScale = 1;
@@ -116,7 +143,7 @@ public class ResultSelect : MonoBehaviour
 
     private void SelectTitle()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 0"))
         {
             SceneManager.LoadScene(SceneTitle);
             Time.timeScale = 1;
@@ -125,7 +152,7 @@ public class ResultSelect : MonoBehaviour
 
     private void SelectRestart()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown("joystick button 0"))
         {
             SceneManager.LoadScene(SceneReStart);
             Time.timeScale = 1;

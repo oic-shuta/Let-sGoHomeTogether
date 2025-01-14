@@ -95,7 +95,8 @@ public class Goal : MonoBehaviour
 
     private void GameCler()
     {
-        if(game.haveKey && Input.GetKeyDown("s") && inGoal){
+        if(game.haveKey && Input.GetKeyDown("s") && inGoal || game.haveKey && Input.GetKeyDown("joystick button 1") && inGoal)
+        {
             if (doorLock)
             {
                 doorLock = false;

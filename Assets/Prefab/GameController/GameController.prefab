@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2911334965354538493}
   - component: {fileID: 5045252495114708421}
+  - component: {fileID: 6013529104341503080}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -54,6 +55,22 @@ MonoBehaviour:
   startPos1: {x: -5, y: -0.888175, z: 0}
   startPos2: {x: -3, y: -1.389993, z: 0}
   playerLife: 6
+--- !u!114 &6013529104341503080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208446498520638455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d800d65978b4e946a01ff2d56b2b705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  casoruDeka: {fileID: 0}
+  casoruChibi: {fileID: 0}
+  controllerDeka: {fileID: 0}
+  controllerChibi: {fileID: 0}
 --- !u!1 &6300945071629292457
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,8 +105,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -150}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 180, y: -120}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8921008187913795173
 CanvasRenderer:

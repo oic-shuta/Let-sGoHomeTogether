@@ -419,6 +419,9 @@ MonoBehaviour:
   SceneTitle: TitleScene
   SceneSatge: SelectScene
   SceneReStart: TitleScene
+  joystickLeft: 0
+  joystickRight: 0
+  deadZone: 0
 --- !u!1 &4066333288571069371
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,8 +456,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70, y: -60}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 80, y: -70}
+  m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3176120477891257533
 CanvasRenderer:
@@ -1322,6 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6395e8fac893ec24d92cb29857801669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goal: {fileID: 0}
   ResultImage: {fileID: 3303316056451304880}
   StopImage: {fileID: 2163115329215242274}
   GameOver: 0
