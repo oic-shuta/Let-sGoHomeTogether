@@ -9,7 +9,7 @@ public class CreditScene : MonoBehaviour
     private string SceneTitle;
     private void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(SceneTitle);
         }

@@ -26,6 +26,8 @@ TagManager:
   - Leaf
   - inGoal
   - outGoal
+  - Wolf
+  - Ghost
   layers:
   - Default
   - TransparentFX

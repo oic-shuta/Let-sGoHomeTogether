@@ -57,13 +57,15 @@ public class StageSelect : MonoBehaviour
     private Sprite TitleScene;
 
     [SerializeField]
-    private float deadZone = 0;
+    private float deadZone = 0.5f;
 
-    [SerializeField]
     private bool joystickUp = false;
 
-    [SerializeField]
     private bool joystickDown = false;
+
+    private float time = 0.5f;
+
+    private float timer;
 
     private void Start()
     {
@@ -78,36 +80,46 @@ public class StageSelect : MonoBehaviour
 
     private void SelectButton()
     {
+        timer += Time.deltaTime; 
+
+        
         float y = Input.GetAxis("Vertical");
-        if (y < -deadZone)
+        if (timer > time)
         {
-            joystickUp = true;
-            joystickDown = false;
-        }
-        else if (y > deadZone)
-        {
-            joystickDown = true;
-            joystickUp = false;
-        }
-        else
-        {
-            joystickUp = false;
-            joystickDown = false;
-        }
-        if (Input.GetKeyDown("w") || joystickUp)
-        {
-            select--;
-            if (select <= 1)
+            if (y < -deadZone)
             {
-                select = 1;
+                joystickUp = true;
+                joystickDown = false;
+                timer = 0;
             }
-        }
-        if (Input.GetKeyDown("s") || joystickDown)
-        {
-            select++;
-            if (select >= 3)
+            else if (y > deadZone)
             {
-                select = 3;
+                joystickDown = true;
+                joystickUp = false;
+                timer = 0;
+            }
+            else
+            {
+                joystickUp = false;
+                joystickDown = false;
+            }
+            if (Input.GetKey("w") || joystickUp)
+            {
+                select--;
+                if (select <= 1)
+                {
+                    select = 1;
+                }
+                timer = 0;
+            }
+            else if (Input.GetKey("s") || joystickDown)
+            {
+                select++;
+                if (select >= 3)
+                {
+                    select = 3;
+                }
+                timer = 0;
             }
         }
     }

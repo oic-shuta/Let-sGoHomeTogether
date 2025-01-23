@@ -41,6 +41,17 @@ public class StartScene : MonoBehaviour
     [SerializeField]
     private string SceneCredit;
 
+    [SerializeField]
+    private float deadZone = 0.5f;
+
+    private bool joystickUp = false;
+
+    private bool joystickDown = false;
+
+    private float time = 0.5f;
+
+    private float timer;
+
 
     private void Start()
     {
@@ -48,20 +59,46 @@ public class StartScene : MonoBehaviour
     }
     private void SelectButton()
     {
-        if (Input.GetKeyDown("w"))
+        timer += Time.deltaTime;
+
+
+        float y = Input.GetAxis("Vertical");
+        if (timer > time)
         {
-            select--;
-            if (select <= 1)
+            if (y < -deadZone)
             {
-                select = 1;
+                joystickUp = true;
+                joystickDown = false;
+                timer = 0;
             }
-        }
-        if (Input.GetKeyDown("s"))
-        {
-            select++;
-            if (select >= 3)
+            else if (y > deadZone)
             {
-                select = 3;
+                joystickDown = true;
+                joystickUp = false;
+                timer = 0;
+            }
+            else
+            {
+                joystickUp = false;
+                joystickDown = false;
+            }
+            if (Input.GetKey("w"))
+            {
+                select--;
+                if (select <= 1)
+                {
+                    select = 1;
+                }
+                timer = 0;
+            }
+            if (Input.GetKey("s"))
+            {
+                select++;
+                if (select >= 3)
+                {
+                    select = 3;
+                }
+                timer = 0;
             }
         }
     }

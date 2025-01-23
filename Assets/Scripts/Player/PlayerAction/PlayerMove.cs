@@ -124,9 +124,12 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown("w") && playerController.isOnGround ||
             Input.GetKeyDown("joystick button 0") && playerController.isOnGround)
         {
+            if (playerController.isOnGround)
+            {
+                SE.JumpSound();
+            }
             this.rig2D.AddForce(transform.up * playerController.playerJumpForce);
             playerController.isOnGround = false;
-            SE.JumpSound();
         }
     }
 
