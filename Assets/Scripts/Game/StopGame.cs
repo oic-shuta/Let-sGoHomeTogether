@@ -42,6 +42,9 @@ public class StopGame : MonoBehaviour
     private string SceneTitle;
 
     [SerializeField]
+    private string SelectStage;
+
+    [SerializeField]
     private string SceneReStart;
     private void Start()
     {
@@ -104,7 +107,7 @@ public class StopGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            result.StopImage.SetActive(false);
+            SceneManager.LoadScene(SelectStage);
             Time.timeScale = 1;
         }
     }

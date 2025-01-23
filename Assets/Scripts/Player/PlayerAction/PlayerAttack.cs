@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("アニメーション")]
     private Animator anim;
 
-    private string aniMotion = "ani_Light";
+    private string aniMotion = "ani_Attack";
 
     private string otoutoMotion = "otouto_Attack";
 

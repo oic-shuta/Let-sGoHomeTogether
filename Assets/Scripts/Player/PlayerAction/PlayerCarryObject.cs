@@ -39,6 +39,9 @@ public class PlayerCarryObject : MonoBehaviour
 
     [SerializeField]
     private GameObject noHand;
+
+    [SerializeField]
+    private float carryX;
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -144,11 +147,11 @@ public class PlayerCarryObject : MonoBehaviour
     {
         if (playerController.playerDirection)
         {
-            objectX = 1;
+            objectX = carryX;
         }
         else if(!playerController.playerDirection)
         {
-            objectX = -1;
+            objectX = -carryX;
         }
     }
 
